@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-03-01T01:36:00Z",
+  "calls": [
+    {
+      "program": "FCT Grants",
+      "deadline": "Rolling",
+      "budget": "€100K-€300K",
+      "support": "Variable",
+      "eligible": "R&D (institutions, researchers)",
+      "objective": "All fields research & innovation",
+      "link": "https://www.fct.pt/index.php/pt/investigadores/apoios-investigacao",
+      "status": "🔵"
+    },
+    {
+      "program": "Portugal 2030 - Research Excellence",
+      "deadline": "Aug 30, 2026",
+      "budget": "€500K-€3M",
+      "support": "75%",
+      "eligible": "R&D (Portuguese institutions)",
+      "objective": "Advanced research in digital technologies",
+      "link": "https://www.portugal2030.pt/pt/proponentes/avisos-de-abertura",
+      "status": "🟡"
+    },
+    {
+      "program": "Horizon Europe - Digital Cluster",
+      "deadline": "Jun 15, 2026",
+      "budget": "€2M-€10M",
+      "support": "100%",
+      "eligible": "R&D (primary), Companies",
+      "objective": "AI for industrial automation & digital innovation",
+      "link": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/",
+      "status": "🟡"
+    },
+    {
+      "program": "ERC Starting Grants",
+      "deadline": "Q2 2026",
+      "budget": "€1.5M",
+      "support": "100%",
+      "eligible": "Researchers (2-7 yrs post-PhD)",
+      "objective": "Frontier research excellence",
+      "link": "https://erc.europa.eu/news-and-events/calls-proposals",
+      "status": "🟢"
+    },
+    {
+      "program": "MSCA Doctoral Networks",
+      "deadline": "May 22, 2026",
+      "budget": "€2M-€5M",
+      "support": "100%",
+      "eligible": "R&D (host institution)",
+      "objective": "Train PhD students in AI & Robotics",
+      "link": "https://msca.seab.ec.europa.eu/calls/doctoral-networks-2025",
+      "status": "🟡"
+    },
+    {
+      "program": "Digital Europe - AI Track",
+      "deadline": "Q3 2026",
+      "budget": "€500K-€15M",
+      "support": "50%",
+      "eligible": "R&D + Companies (all sizes)",
+      "objective": "Trustworthy AI innovation & testing",
+      "link": "https://digital-europe.ec.europa.eu/",
+      "status": "🟢"
+    },
+    {
+      "program": "ECSEL Joint Undertaking",
+      "deadline": "Q2-Q3",
+      "budget": "€1M-€10M+",
+      "support": "40-60%",
+      "eligible": "R&D + Companies (SME priority)",
+      "objective": "AI hardware & embedded systems R&D",
+      "link": "https://www.ecsel.eu/calls",
+      "status": "🟢"
+    },
+    {
+      "program": "PRR Reindustrializar",
+      "deadline": "Mar 31, 2026",
+      "budget": "€2M-€5M",
+      "support": "40-60%",
+      "eligible": "R&D + Companies (all sizes)",
+      "objective": "R&D innovation + production resilience",
+      "link": "https://www.iapmei.pt/",
+      "status": "🔴"
+    }
+  ]
+}

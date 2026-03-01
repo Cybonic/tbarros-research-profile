@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-03-01T01:36:00Z",
+  "news": {
+    "webinars": [
+      {
+        "date": "2026-03-15",
+        "title": "Portugal 2030 Info Session",
+        "description": "Eligibility and requirements for Research Excellence track",
+        "link": "https://www.portugal2030.pt/",
+        "type": "webinar"
+      },
+      {
+        "date": "2026-04-01",
+        "title": "Horizon Europe Digital Cluster Webinar",
+        "description": "New call details and application process",
+        "link": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/",
+        "type": "webinar"
+      },
+      {
+        "date": "2026-03-05",
+        "title": "Luxembourg R&D Funding Webinar",
+        "description": "AI-based process optimization in Benelux region",
+        "link": "https://gd.lu/59Pv9t",
+        "type": "webinar"
+      }
+    ],
+    "announcements": [
+      {
+        "date": "2026-03-01",
+        "title": "FCT announces new AI grant track",
+        "description": "New rolling grant for AI research applications in robotics and perception",
+        "link": "https://www.fct.pt/",
+        "type": "announcement"
+      },
+      {
+        "date": "2026-03-05",
+        "title": "Portugal 2030 call opening dates confirmed",
+        "description": "Research Excellence calls open in April 2026 with €500M-€3M per project",
+        "link": "https://www.portugal2030.pt/",
+        "type": "announcement"
+      },
+      {
+        "date": "2026-03-10",
+        "title": "EurAxess: New AI funding in Robotics",
+        "description": "Latest announcements from major EU funders on robotics and autonomous systems",
+        "link": "https://euraxess.ec.europa.eu/",
+        "type": "announcement"
+      }
+    ],
+    "coming_soon": [
+      {
+        "date": "2026-04-15",
+        "program": "Horizon Europe Digital Cluster",
+        "status": "Opening soon"
+      },
+      {
+        "date": "2026-05-01",
+        "program": "MSCA Doctoral Networks",
+        "status": "Opening soon"
+      },
+      {
+        "date": "2026-06-01",
+        "program": "Digital Europe AI Track",
+        "status": "Opening soon"
+      },
+      {
+        "date": "2026-07-15",
+        "program": "ERC Consolidator Grants",
+        "status": "Opening soon"
+      }
+    ]
+  }
+}
