@@ -253,15 +253,23 @@ a:hover {
 }
 
 /* Teaching / Talks Section */
+.teaching {
+    text-align: left;
+}
+
 .talks-role {
     margin-bottom: 30px;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .talks-role h3 {
     font-size: 1em;
     font-weight: 600;
     margin-bottom: 12px;
+    margin-left: 0;
     padding: 8px 12px;
+    padding-left: 12px;
     background: var(--light);
     border-left: 3px solid #1e90ff;
     color: #1e90ff;
@@ -271,13 +279,15 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 0;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .talk-entry {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: block;
     padding: 10px 0;
+    margin-left: 0;
+    padding-left: 0;
     border-bottom: 1px solid var(--border);
     font-size: 0.95em;
 }
@@ -286,48 +296,33 @@ a:hover {
     border-bottom: none;
 }
 
+.talk-year {
+    color: var(--text-light);
+    font-size: 0.85em;
+    display: inline;
+    margin-right: 8px;
+}
+
 .talk-role-label {
     color: #1e90ff;
     font-weight: 600;
-    min-width: 130px;
-    flex-shrink: 0;
+    display: inline;
+    margin-right: 8px;
 }
 
 .talk-title {
     font-weight: 600;
     color: var(--text);
-    flex: 1;
-    min-width: 200px;
     line-height: 1.4;
-}
-
-.talk-year {
-    color: var(--text-light);
-    font-size: 0.85em;
-    min-width: 60px;
-    flex-shrink: 0;
+    display: block;
+    margin-top: 2px;
 }
 
 .talk-location {
     color: var(--text-light);
     font-size: 0.9em;
-    min-width: 200px;
-    flex: 1;
-}
-
-/* Responsive: stack on small screens */
-@media (max-width: 1024px) {
-    .talk-entry {
-        flex-wrap: wrap;
-    }
-    
-    .talk-role-label,
-    .talk-title,
-    .talk-year,
-    .talk-location {
-        min-width: auto;
-        flex: auto;
-    }
+    display: block;
+    margin-top: 2px;
 }
 
 /* Funding Link */
