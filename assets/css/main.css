@@ -252,14 +252,82 @@ a:hover {
     border-bottom: none;
 }
 
-/* Collaborations */
-.collab-list {
-    list-style: none;
+/* Teaching / Talks Section */
+.talks-role {
+    margin-bottom: 30px;
 }
 
-.collab-list li {
-    padding: 8px 0;
+.talks-role h3 {
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background: var(--light);
+    border-left: 3px solid #1e90ff;
+    color: #1e90ff;
+}
+
+.talks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.talk-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
     font-size: 0.95em;
+}
+
+.talk-entry:last-child {
+    border-bottom: none;
+}
+
+.talk-role-label {
+    color: #1e90ff;
+    font-weight: 600;
+    min-width: 130px;
+    flex-shrink: 0;
+}
+
+.talk-title {
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+    min-width: 200px;
+    line-height: 1.4;
+}
+
+.talk-year {
+    color: var(--text-light);
+    font-size: 0.85em;
+    min-width: 60px;
+    flex-shrink: 0;
+}
+
+.talk-location {
+    color: var(--text-light);
+    font-size: 0.9em;
+    min-width: 200px;
+    flex: 1;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 1024px) {
+    .talk-entry {
+        flex-wrap: wrap;
+    }
+    
+    .talk-role-label,
+    .talk-title,
+    .talk-year,
+    .talk-location {
+        min-width: auto;
+        flex: auto;
+    }
 }
 
 /* Funding Link */
