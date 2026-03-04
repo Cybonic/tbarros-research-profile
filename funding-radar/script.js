@@ -1,18 +1,22 @@
 /* Funding Radar - Data Population Script */
 
+const DATE_FMT = { month: 'short', day: 'numeric' };
+
+function byDate(a, b) {
+    return new Date(a.date) - new Date(b.date);
+}
+
 async function loadData() {
     try {
-        // Load calls
-        const callsResponse = await fetch('calls.json');
+        const v = Date.now();
+        const callsResponse = await fetch(`calls.json?v=${v}`);
         const callsData = await callsResponse.json();
         populateCalls(callsData);
-        
-        // Load news
-        const newsResponse = await fetch('news.json');
+
+        const newsResponse = await fetch(`news.json?v=${v}`);
         const newsData = await newsResponse.json();
         populateNews(newsData);
-        
-        // Update timestamp
+
         updateTimestamp(callsData.timestamp);
     } catch (error) {
         console.error('Error loading data:', error);
@@ -21,7 +25,6 @@ async function loadData() {
 
 function populateCalls(data) {
     const tbody = document.getElementById('calls-tbody');
-    
     data.calls.forEach(call => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -38,45 +41,31 @@ function populateCalls(data) {
     });
 }
 
+function fmt(dateStr) {
+    return new Date(dateStr).toLocaleDateString('en-US', DATE_FMT);
+}
+
 function populateNews(data) {
     const { webinars, announcements, coming_soon } = data.news;
-    
-    // Webinars
+
     const webinarsList = document.getElementById('webinars-list');
-    webinars.forEach(w => {
+    [...webinars].sort(byDate).forEach(w => {
         const li = document.createElement('li');
-        const dateObj = new Date(w.date);
-        const formattedDate = dateObj.toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric' 
-        });
-        li.innerHTML = `<span class="news-date">${formattedDate}</span> ${w.title} — <a href="${w.link}" target="_blank">Register</a>`;
+        li.innerHTML = `<span class="news-date">${fmt(w.date)}</span> ${w.title} — <a href="${w.link}" target="_blank">Register</a>`;
         webinarsList.appendChild(li);
     });
-    
-    // Announcements
+
     const announcementsList = document.getElementById('announcements-list');
-    announcements.forEach(a => {
+    [...announcements].sort(byDate).forEach(a => {
         const li = document.createElement('li');
-        const dateObj = new Date(a.date);
-        const formattedDate = dateObj.toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric' 
-        });
-        li.innerHTML = `<span class="news-date">${formattedDate}</span> ${a.title} — <a href="${a.link}" target="_blank">Read more</a>`;
+        li.innerHTML = `<span class="news-date">${fmt(a.date)}</span> ${a.title} — <a href="${a.link}" target="_blank">Read more</a>`;
         announcementsList.appendChild(li);
     });
-    
-    // Coming Soon
+
     const comingSoonList = document.getElementById('coming-soon-list');
-    coming_soon.forEach(cs => {
+    [...coming_soon].sort(byDate).forEach(cs => {
         const li = document.createElement('li');
-        const dateObj = new Date(cs.date);
-        const formattedDate = dateObj.toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric' 
-        });
-        li.innerHTML = `<span class="news-date">${formattedDate}</span> ${cs.program} <span style="color:var(--text-light);font-size:0.85em">${cs.status}</span>`;
+        li.innerHTML = `<span class="news-date">${fmt(cs.date)}</span> ${cs.program} <span style="color:var(--text-light);font-size:0.85em">${cs.status}</span>`;
         comingSoonList.appendChild(li);
     });
 }
@@ -90,17 +79,10 @@ function getStatusClass(status) {
 
 function updateTimestamp(timestamp) {
     const element = document.getElementById('timestamp');
-    const date = new Date(timestamp);
-    const formatted = date.toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+    const formatted = new Date(timestamp).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric'
     });
     element.textContent = `Last updated: ${formatted}`;
 }
 
-// Load data on page load
 document.addEventListener('DOMContentLoaded', loadData);
