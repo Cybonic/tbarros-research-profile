@@ -50,7 +50,7 @@ function populateNews(data) {
             month: 'short', 
             day: 'numeric' 
         });
-        li.innerHTML = `<strong>${formattedDate}:</strong> ${w.title} → <a href="${w.link}" target="_blank">Register</a>`;
+        li.innerHTML = `<span class="news-date">${formattedDate}</span> ${w.title} — <a href="${w.link}" target="_blank">Register</a>`;
         webinarsList.appendChild(li);
     });
     
@@ -63,7 +63,7 @@ function populateNews(data) {
             month: 'short', 
             day: 'numeric' 
         });
-        li.innerHTML = `<strong>${formattedDate}:</strong> ${a.title} → <a href="${a.link}" target="_blank">Read</a>`;
+        li.innerHTML = `<span class="news-date">${formattedDate}</span> ${a.title} — <a href="${a.link}" target="_blank">Read more</a>`;
         announcementsList.appendChild(li);
     });
     
@@ -76,7 +76,7 @@ function populateNews(data) {
             month: 'short', 
             day: 'numeric' 
         });
-        li.innerHTML = `${formattedDate}: <strong>${cs.program}</strong> - ${cs.status}`;
+        li.innerHTML = `<span class="news-date">${formattedDate}</span> ${cs.program} <span style="color:var(--text-light);font-size:0.85em">${cs.status}</span>`;
         comingSoonList.appendChild(li);
     });
 }
