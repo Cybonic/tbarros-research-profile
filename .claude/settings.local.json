@@ -4,7 +4,11 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/assets/css/main.css)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/assets/js/main.js)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/assets/images/tiago.png)",
-      "Bash(git add assets/css/main.css funding-radar/style.css)"
+      "Bash(git add assets/css/main.css funding-radar/style.css)",
+      "Bash(curl -s https://schmluk.github.io/index.html)",
+      "Bash(python3 -c \"import sys; content = sys.stdin.read\\(\\); print\\(content[content.find\\(''<ul class=\"\"icons\"\"''\\):content.find\\(''<ul class=\"\"icons\"\"''\\)+1000] if ''<ul class=\"\"icons\"\"'' in content else ''not found''\\)\")",
+      "Bash(python3 -c \":*)",
+      "Bash(curl -s https://schmluk.github.io/assets/js/build-header-footer.js)"
     ]
   }
 }
