@@ -232,6 +232,17 @@ body {
     border-top: 1px solid var(--border);
 }
 
+.agent-note {
+    font-size: 0.82em;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: var(--light);
+    border-left: 3px solid var(--border);
+    display: inline-block;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .container { padding: 20px; }
