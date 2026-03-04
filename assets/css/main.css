@@ -292,6 +292,34 @@ a:hover {
     font-size: 0.95em;
 }
 
+.talk-entry--single-line {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: baseline !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.talk-entry--single-line .talk-year,
+.talk-entry--single-line .talk-role-label,
+.talk-entry--single-line .talk-title,
+.talk-entry--single-line .talk-location {
+    display: inline !important;
+}
+
+.talk-entry--single-line .talk-title,
+.talk-entry--single-line .talk-location {
+    min-width: 0 !important;
+}
+
+.talk-entry--single-line .talk-location {
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
 .talk-entry:last-child {
     border-bottom: none;
 }
@@ -299,30 +327,31 @@ a:hover {
 .talk-year {
     color: var(--text-light);
     font-size: 0.85em;
-    display: inline;
+    display: inline !important;
     margin-right: 8px;
 }
 
 .talk-role-label {
     color: #1e90ff;
     font-weight: 600;
-    display: inline;
+    display: inline !important;
     margin-right: 8px;
 }
 
 .talk-title {
     font-weight: 600;
     color: var(--text);
-    line-height: 1.4;
-    display: block;
-    margin-top: 2px;
+    display: inline !important;
 }
 
 .talk-location {
     color: var(--text-light);
     font-size: 0.9em;
-    display: block;
-    margin-top: 2px;
+    display: inline !important;
+}
+
+.talk-location::before {
+    content: " — ";
 }
 
 /* Funding Link */
