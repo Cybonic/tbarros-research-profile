@@ -3,7 +3,8 @@
     "allow": [
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/assets/css/main.css)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/assets/js/main.js)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/assets/images/tiago.png)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/assets/images/tiago.png)",
+      "Bash(git add assets/css/main.css funding-radar/style.css)"
     ]
   }
 }

@@ -227,9 +227,15 @@ a:hover {
 }
 
 .news-date {
-    color: var(--text-light);
-    font-size: 0.85em;
+    display: inline-block;
+    background: #1e90ff;
+    color: white;
+    font-size: 0.78em;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
     margin-right: 8px;
+    vertical-align: middle;
 }
 
 .news-placeholder {
