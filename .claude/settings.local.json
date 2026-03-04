@@ -8,7 +8,11 @@
       "Bash(curl -s https://schmluk.github.io/index.html)",
       "Bash(python3 -c \"import sys; content = sys.stdin.read\\(\\); print\\(content[content.find\\(''<ul class=\"\"icons\"\"''\\):content.find\\(''<ul class=\"\"icons\"\"''\\)+1000] if ''<ul class=\"\"icons\"\"'' in content else ''not found''\\)\")",
       "Bash(python3 -c \":*)",
-      "Bash(curl -s https://schmluk.github.io/assets/js/build-header-footer.js)"
+      "Bash(curl -s https://schmluk.github.io/assets/js/build-header-footer.js)",
+      "Bash(git add index.html assets/css/main.css funding-radar/index.html funding-radar/style.css)",
+      "Bash(git add index.html assets/css/main.css)",
+      "Bash(git commit:*)",
+      "Bash(git push origin main)"
     ]
   }
 }
