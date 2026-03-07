@@ -1,20 +1,36 @@
 {
-  "last_scan": "2026-03-05 00:00 UTC",
+  "last_scan": "2026-03-07 00:01 UTC",
   "scan_sources": {
-    "dre.pt": "error - no content (JS-heavy)",
-    "euraxess.ec.europa.eu": "fetched - no PT faculty positions found (postdocs only)",
-    "iefp.pt": "cookie wall only",
-    "ulisboa.pt": "fetched - full listing",
-    "unl.pt": "error - fetch failed",
-    "fct.unl.pt": "fetched - no open positions listed",
-    "ipleiria.pt": "fetched - listing available",
-    "ipc.pt": "fetched - listing available",
-    "sigarra.up.pt": "fetched - listing available",
-    "apply.uc.pt": "fetched - listing available",
-    "tecnico.ulisboa.pt": "redirect to news article (careers page not accessible)",
-    "ua.pt": "fetched - empty content returned",
-    "uminho.pt": "fetched - homepage only (no concursos page found)",
-    "ubi.pt": "fetched - homepage only"
+    "euraxess_portugal": "ok",
+    "euraxess_professor": "ok",
+    "euraxess_investigador": "ok",
+    "euraxess_robotics": "ok",
+    "euraxess_ai": "ok",
+    "uc_apply": "ok",
+    "sigarra_spup": "ok",
+    "sigarra_feup": "ok",
+    "ulisboa_concursos": "ok",
+    "ipleiria_carreira": "ok",
+    "ipc_docentes": "ok",
+    "ua_noticias": "js-heavy",
+    "ua_concursos_docentes": "js-heavy",
+    "ubi_homepage": "js-heavy",
+    "ist_tecnico_noticias": "ok",
+    "uminho_homepage": "js-heavy",
+    "dre_auxiliar": "error",
+    "dre_concurso2026": "error"
+  },
+  "notes": {
+    "euraxess": "Queries (professor/investigador/robotics/AI) all returned same 10 results — filter parameters appear ignored without JS. Portugal-filtered page shows mostly BI research grants (studentships), not faculty positions. No professor/investigador faculty positions found from Portugal in page-1 results.",
+    "uc_apply": "10 open procedures found. 2 directly in Informatics/CS/AI area. Strong hit: IT136-26-3 (IA).",
+    "sigarra_spup": "Shows U.Porto-wide openings. Faculty concurso docente openings visible: FEUP Minas (217/2026), FEUP Mecânica (216/2026), FEUP Civil (145/2026), FMUP Patologia (198/2026), FBAUP Artes (214/2026), FPCEUP Psicologia (117/2026). None in CS/AI/Robotics. Also: BI research grant in NorteIA+ (Transparent AI) at FPCEUP — not a faculty post.",
+    "sigarra_feup": "Page shows procurement contracts only (equipment purchases), not faculty openings. Faculty posts for FEUP visible via SPUP page.",
+    "ulisboa": "Faculdade de Ciências had 2 CS openings (Programação, Organização Sist. Computacionais) — both PAST (deadline 17/02/2026). Current open: Arquitetura (FA) + Finanças (ISEG). No CS/AI open at ULisboa currently.",
+    "ipleiria": "Active concursos primarily health/nursing. One Informatics (web dev) from 2025 with rectification in 2026 — deadline unclear.",
+    "ipc": "All active procedures past deadline or in jury evaluation phase. No CS/AI.",
+    "ua_ubi_uminho": "All js-heavy — no content extractable. UA concursos page returned title only.",
+    "ist_tecnico": "News page accessible but no concurso docente openings listed. Faculty recruitment not visible in recent news.",
+    "dre": "Both DRE search URLs failed (Readability + Firecrawl returned no content)."
   },
   "positions": [
     {
@@ -23,8 +39,9 @@
       "department": "Engenharia Informática / Fundamentos de Inteligência Artificial ou Educação em Informática ou Criatividade Computacional",
       "deadline": "2026-03-30",
       "link": "https://www.apply.uc.pt/procedure/4heji9qkt401gmid",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
       "relevant": true,
-      "notes": "IT136-26-3. Direct hit on AI/Fundamentos de Inteligência Artificial. 1 vacancy. Candidaturas até 2026-03-30."
+      "notes": "Ref IT136-26-3. DIRECT HIT — Artificial Intelligence in the title. 1 post. Apply via UC Apply portal. Deadline: 30 March 2026."
     },
     {
       "university": "Universidade de Coimbra",
@@ -32,17 +49,89 @@
       "department": "Engenharia Informática / Interação Humano-Computador",
       "deadline": "2026-03-30",
       "link": "https://www.apply.uc.pt/procedure/lwvmp7ydcojrk9ym",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
       "relevant": "partial",
-      "notes": "IT136-26-4. HCI sits at CS/engineering boundary. 1 vacancy. Candidaturas até 2026-03-30."
+      "notes": "Ref IT136-26-4. CS/Informatics area (HCI). 1 post. Deadline: 30 March 2026."
     },
     {
-      "university": "Universidade do Porto – FEP",
-      "title": "Professor Auxiliar (CT tempo indeterminado)",
-      "department": "Matemática e Sistemas de Informação",
+      "university": "Universidade de Coimbra",
+      "title": "Professor Auxiliar",
+      "department": "Matemática / Didática da Matemática ou Ensino da Matemática",
+      "deadline": "2026-04-07",
+      "link": "https://www.apply.uc.pt/procedure/rv1rcd19f88q418h",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
+      "relevant": false,
+      "notes": "Ref IT136-26-7. Math/Education field. 1 post."
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Professor Catedrático",
+      "department": "Serviço Social / Serviço Social",
+      "deadline": "2026-03-20",
+      "link": "https://www.apply.uc.pt/procedure/u27qtntv35at5mvh",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
+      "relevant": false,
+      "notes": "Ref IT136-26-1. Social Work. Not relevant."
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Professor Catedrático",
+      "department": "Psicologia / Psicologia",
+      "deadline": "2026-03-20",
+      "link": "https://www.apply.uc.pt/procedure/znknhiiq8jue061b",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
+      "relevant": false,
+      "notes": "Ref IT136-26-2. Psychology. Not relevant."
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Professor Auxiliar",
+      "department": "Ciências da Vida / Plâncton Marinho",
+      "deadline": "2026-03-30",
+      "link": "https://www.apply.uc.pt/procedure/qa5ths9xa051vkgd",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
+      "relevant": false,
+      "notes": "Ref IT136-26-5. Marine Plankton. Not relevant."
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Professor Auxiliar",
+      "department": "Ciências da Saúde / Fisiopatologia molecular do cancro e biomarcadores moleculares tumorais",
+      "deadline": "2026-04-01",
+      "link": "https://www.apply.uc.pt/procedure/j7tz1iot1htwucm9",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
+      "relevant": false,
+      "notes": "Ref IT136-26-6. Biomedical. Not relevant."
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Professor Auxiliar",
+      "department": "Ciências da Saúde, Medicina Dentária / Odontopediatria",
+      "deadline": "2026-04-14",
+      "link": "https://www.apply.uc.pt/procedure/et8s8qz6qkhrw5tz",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
+      "relevant": false,
+      "notes": "Ref IT136-26-9. Dentistry. Not relevant."
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Professor Auxiliar",
+      "department": "Ciências da Saúde, Medicina / Medicina Física e Reabilitação",
+      "deadline": "2026-04-10",
+      "link": "https://www.apply.uc.pt/procedure/l8lugk6plc0b0ymv",
+      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
+      "relevant": false,
+      "notes": "Ref IT136-26-8. Medicine. Not relevant."
+    },
+    {
+      "university": "Universidade do Porto – FEUP",
+      "title": "Professor Auxiliar",
+      "department": "Engenharia de Minas",
       "deadline": "unknown",
-      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88372",
-      "relevant": "partial",
-      "notes": "Ref. DOCPRIV-FEP-26-1. Sistemas de Informação could overlap with ML/data science. Deadline not listed on portal; check directly."
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88871",
+      "source": "https://sigarra.up.pt/spup/pt/noticias_geral.lista_noticias",
+      "relevant": false,
+      "notes": "Edital 217/2026 – DOCPUB-FEUP-26-4. Mining Engineering. Check edital for exact deadline."
     },
     {
       "university": "Universidade do Porto – FEUP",
@@ -50,26 +139,19 @@
       "department": "Engenharia Mecânica",
       "deadline": "unknown",
       "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88851",
-      "relevant": "partial",
-      "notes": "Edital 216/2026-DOCPUB-FEUP-26-1. Mecânica can include robotics/automation. Verify specialisation area in edital."
-    },
-    {
-      "university": "Instituto Politécnico de Leiria – ESTG",
-      "title": "Professor Adjunto",
-      "department": "Engenharia Informática / Desenvolvimento de Aplicações Web, Multiplataforma e Multidispositivo",
-      "deadline": "unknown",
-      "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
-      "relevant": "partial",
-      "notes": "Edital 1555/2025, RETIFICADO pela Declaração de Retificação n.º 80/2026/2 (published in 2026). Procedure rectified/extended into 2026 — deadline unknown, verify on DRE. CS/Informatics area."
-    },
-    {
-      "university": "Universidade de Lisboa – ISEG",
-      "title": "Professor Auxiliar (2 vagas)",
-      "department": "Finanças",
-      "deadline": "2026-03-24",
-      "link": "https://www.ulisboa.pt/recrutamento/edital-no-1442026-concurso-documental-internacional-para-dois-professores-auxiliares",
+      "source": "https://sigarra.up.pt/spup/pt/noticias_geral.lista_noticias",
       "relevant": false,
-      "notes": "Edital 144/2026. Finance — not AI/CS related. Included for completeness."
+      "notes": "Edital 216/2026 – DOCPUB-FEUP-26-1. Mechanical Engineering. Check edital for exact deadline."
+    },
+    {
+      "university": "Universidade do Porto – FEUP",
+      "title": "Professor Associado",
+      "department": "Engenharia Civil",
+      "deadline": "unknown",
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88691",
+      "source": "https://sigarra.up.pt/spup/pt/noticias_geral.lista_noticias",
+      "relevant": false,
+      "notes": "Edital 145/2026 – DOCPUB-FEUP-26-5. Civil Engineering."
     },
     {
       "university": "Universidade de Lisboa – Faculdade de Arquitetura",
@@ -77,35 +159,86 @@
       "department": "Arquitetura",
       "deadline": "2026-04-14",
       "link": "https://www.ulisboa.pt/recrutamento/edital-no-2372026-concurso-para-recrutamento-de-um-professor-associado-area",
+      "source": "https://www.ulisboa.pt/info/concursos-para-docentes",
       "relevant": false,
-      "notes": "Edital 237/2026. Architecture — not relevant."
+      "notes": "Edital 237/2026. Architecture. Execution of court sentence (Tribunal Administrativo). Not relevant."
     },
     {
-      "university": "Instituto Politécnico de Leiria – ESS",
-      "title": "Professor Adjunto",
-      "department": "Enfermagem – Saúde Infantil e Pediátrica",
-      "deadline": "unknown",
-      "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
+      "university": "Universidade de Lisboa – ISEG",
+      "title": "Professor Auxiliar",
+      "department": "Finanças",
+      "deadline": "2026-03-24",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-1442026-concurso-documental-internacional-para-dois-professores-auxiliares",
+      "source": "https://www.ulisboa.pt/info/concursos-para-docentes",
       "relevant": false,
-      "notes": "Edital 202/2026, published 23-02-2026. Nursing — not relevant."
+      "notes": "Edital 144/2026. 2 vacancies. Finance/Economics. Not relevant."
     },
     {
-      "university": "Instituto Politécnico de Leiria – ESS",
+      "university": "Instituto Politécnico de Leiria",
       "title": "Professor Adjunto",
-      "department": "Enfermagem – Saúde Comunitária",
+      "department": "Engenharia Informática / Desenvolvimento de Aplicações Web, Multiplataforma e Multidispositivo",
       "deadline": "unknown",
       "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
+      "source": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
+      "relevant": "partial",
+      "notes": "Edital 1555/2025, rectified by Declaração de Retificação 80/2026/2 (rectification in 2026 suggests possibly still active). ESTG. CS/Informatics adjacent. Deadline not listed — check DRE or ESTG directly."
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Professor Adjunto",
+      "department": "Enfermagem / Saúde Infantil e Pediátrica",
+      "deadline": "unknown",
+      "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
+      "source": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
       "relevant": false,
-      "notes": "Edital 201/2026, published 23-02-2026. Nursing — not relevant."
+      "notes": "Edital 202/2026. Nursing. Not relevant."
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Professor Adjunto",
+      "department": "Enfermagem / Saúde Comunitária",
+      "deadline": "unknown",
+      "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
+      "source": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
+      "relevant": false,
+      "notes": "Edital 201/2026. Nursing. Not relevant."
     }
   ],
   "past_deadline_positions_excluded": [
-    "ULisboa FC Edital 18/2026 – Prof. Auxiliar Ciência e Tecnologia da Programação (deadline 17/02/2026)",
-    "ULisboa FC Edital 17/2026 – Prof. Auxiliar Organização de Sistemas Computacionais (deadline 17/02/2026)",
-    "ULisboa FMH Edital 2005/2025 – Prof. Auxiliar PMI (deadline 10/02/2026)",
-    "IPC PRPD/5/2025 – Prof. Adjunto Engenharia Mecânica (deadline 05/01/2026)",
-    "UC IT136-26-7 – Prof. Auxiliar Matemática/Didática (deadline 07/04/2026 — included if deadline checked, non-relevant)",
-    "Multiple ULisboa 2025 positions (all deadlines expired)"
-  ],
-  "notes": "DRE.pt returned no content (JS rendering required). EURAXESS returned generic EU results, no Portuguese faculty positions on first page. UNL.pt fetch failed. UA.pt concursos-docentes returned empty content — manual check recommended. UBI.pt has no dedicated concursos page found; homepage only. Técnico/IST employment page did not expose faculty vacancies (redirected). UMinho concursos page returned 404. Consider adding: https://dre.pt direct search, UA.pt alternate URL, and a manual IST check at https://fenix.tecnico.ulisboa.pt/concursos."
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Professor Catedrático",
+      "department": "XXXXXXX / XXXXXXXX",
+      "deadline": "encerradas",
+      "notes": "IT136-26-10. Applications closed."
+    },
+    {
+      "university": "Universidade de Lisboa – Faculdade de Ciências",
+      "title": "Professor Auxiliar",
+      "department": "Ciência e Tecnologia da Programação",
+      "deadline": "2026-02-17",
+      "notes": "Edital 18/2026. CS/Programming. PAST."
+    },
+    {
+      "university": "Universidade de Lisboa – Faculdade de Ciências",
+      "title": "Professor Auxiliar",
+      "department": "Organização de Sistemas Computacionais",
+      "deadline": "2026-02-17",
+      "notes": "Edital 17/2026. CS/Systems. PAST."
+    },
+    {
+      "university": "Instituto Politécnico de Coimbra – ISEC",
+      "title": "Professor Adjunto",
+      "department": "Engenharia Mecânica / Tecnologias de Fabrico",
+      "deadline": "2026-01-05",
+      "notes": "PRPD/5/2025. Deadline passed."
+    },
+    {
+      "university": "Instituto Politécnico de Coimbra – ISCAC",
+      "title": "Professor Adjunto",
+      "department": "Sistemas de Informação de Gestão",
+      "deadline": "2025-10-13",
+      "notes": "PRPD/1/2025. Long past."
+    }
+  ]
 }
