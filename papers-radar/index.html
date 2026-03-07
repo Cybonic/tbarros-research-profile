@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papers Radar — Recent Publications & Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="../index.html" class="back-link">← Back to profile</a>
+            <h1>Papers Radar</h1>
+            <p class="subtitle">Recent papers &amp; code · LiDAR · SLAM · 3D Perception · Multimodal · Spatial AI · Robotics · CV · ML</p>
+            <p class="timestamp" id="timestamp"></p>
+            <p class="agent-note">🤖 Automatically curated weekly — sources: arXiv cs.RO · cs.CV · cs.LG, Papers with Code, GitHub trending. Filtered by research keywords.</p>
+        </header>
+
+        <!-- Top picks -->
+        <section class="section">
+            <h2>🔥 Top Picks This Week</h2>
+            <p class="section-desc">Highest-relevance papers across all sources</p>
+            <div id="top-picks-list" class="paper-list">
+                <div class="empty">Loading…</div>
+            </div>
+        </section>
+
+        <!-- arXiv papers -->
+        <section class="section">
+            <h2>arXiv — New Papers</h2>
+            <div class="filter-row">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cs.RO">cs.RO</button>
+                <button class="filter-btn" data-filter="cs.CV">cs.CV</button>
+                <button class="filter-btn" data-filter="cs.LG">cs.LG</button>
+            </div>
+            <div id="arxiv-list" class="paper-list">
+                <div class="empty">Loading…</div>
+            </div>
+        </section>
+
+        <!-- GitHub repos -->
+        <section class="section">
+            <h2>GitHub — Trending Repos</h2>
+            <div id="github-list" class="paper-list">
+                <div class="empty">Loading…</div>
+            </div>
+        </section>
+
+        <!-- Papers with Code -->
+        <section class="section">
+            <h2>Papers with Code — SOTA & Benchmarks</h2>
+            <div id="pwc-list" class="paper-list">
+                <div class="empty">Loading…</div>
+            </div>
+        </section>
+
+        <!-- Quick links -->
+        <section class="section">
+            <h2>Quick Links</h2>
+            <ul class="resources-list">
+                <li><a href="https://arxiv.org/list/cs.RO/recent" target="_blank">arXiv cs.RO</a></li>
+                <li><a href="https://arxiv.org/list/cs.CV/recent" target="_blank">arXiv cs.CV</a></li>
+                <li><a href="https://arxiv.org/list/cs.LG/recent" target="_blank">arXiv cs.LG</a></li>
+                <li><a href="https://paperswithcode.com/task/lidar-object-detection" target="_blank">PwC LiDAR</a></li>
+                <li><a href="https://paperswithcode.com/task/slam" target="_blank">PwC SLAM</a></li>
+                <li><a href="https://paperswithcode.com/task/3d-point-cloud-classification" target="_blank">PwC Point Clouds</a></li>
+                <li><a href="https://github.com/trending" target="_blank">GitHub Trending</a></li>
+                <li><a href="https://huggingface.co/papers" target="_blank">HuggingFace Papers</a></li>
+                <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>Updated automatically every Monday at 10:00 UTC &nbsp;·&nbsp; <a href="../research-radar/">Research Radar</a> &nbsp;·&nbsp; <a href="../funding-radar/">Funding Radar</a></p>
+        </footer>
+    </div>
+    <script src="script.js?v=20260307-1"></script>
+</body>
+</html>
