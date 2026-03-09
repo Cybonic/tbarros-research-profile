@@ -1,6 +1,312 @@
 {
-  "last_scan": null,
-  "arxiv": [],
-  "github": [],
+  "last_scan": "2026-03-09 15:17 UTC",
+  "arxiv": [
+    {
+      "title": "PROBE: Probabilistic Occupancy BEV Encoding with Analytical Translation Robustness for 3D Place Recognition",
+      "authors": "Jinseop Lee, Byoungho Lee, Gichul Yoo",
+      "abstract": "arXiv:2603.05965v1 Announce Type: new \nAbstract: We present PROBE (PRobabilistic Occupancy BEV Encoding), a learning-free LiDAR place recognition descriptor that models each BEV cell's occupancy as a Bernoulli random variable. Rather than relying on discrete point-cloud perturbations, PROBE analytically marginalizes over continuous Cartesian translations via the polar Jacobian, yielding a distance-adaptive angular uncertainty $\\sigma_\\theta = \\sigma_t / r$ in $\\mathcal{O}(R \\times S)$ time. The ",
+      "url": "https://arxiv.org/abs/2603.05965",
+      "pdf_url": "https://arxiv.org/pdf/2603.05965",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "Transforming Omnidirectional RGB-LiDAR data into 3D Gaussian Splatting",
+      "authors": "Semin Bae, Hansol Lim, Jongseong Brad Choi",
+      "abstract": "arXiv:2603.06061v1 Announce Type: cross \nAbstract: The demand for large-scale digital twins is rapidly growing in robotics and autonomous driving. However, constructing these environments with 3D Gaussian Splatting (3DGS) usually requires expensive, purpose-built data collection. Meanwhile, deployed platforms routinely collect extensive omnidirectional RGB and LiDAR logs, but a significant portion of these sensor data is directly discarded or strictly underutilized due to transmission constraint",
+      "url": "https://arxiv.org/abs/2603.06061",
+      "pdf_url": "https://arxiv.org/pdf/2603.06061",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "Graph-based Online Lidar Odometry with Retrospective Map Refinement",
+      "authors": "Aaron Kurda, Simon Steuernagel, Marcus Baum",
+      "abstract": "arXiv:2503.21293v2 Announce Type: replace \nAbstract: Lidar-only odometry aims to estimate the trajectory of a mobile platform from a stream of lidar scans. Traditional scan-to map approaches register each scan against a single, evolving map, which propagates registration errors over time. To mitigate this, we propose a multitude-of-maps approach where the current scan is registered against multiple overlapping submaps instead of a single static map. By optimizing the resulting constraints in a p",
+      "url": "https://arxiv.org/abs/2503.21293",
+      "pdf_url": "https://arxiv.org/pdf/2503.21293",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "InsSo3D: Inertial Navigation System and 3D Sonar SLAM for turbid environment inspection",
+      "authors": "Simon Archieri, Ahmet Cinar, Shu Pan, Jonatan Scharff Willners, Michele Grimaldi, Ignacio Carlucho, Yvan Petillot",
+      "abstract": "arXiv:2601.05805v2 Announce Type: replace \nAbstract: This paper presents InsSo3D, an accurate and efficient method for large-scale 3D Simultaneous Localisation and Mapping (SLAM) using a 3D Sonar and an Inertial Navigation System (INS). Unlike traditional sonar, which produces 2D images containing range and azimuth information but lacks elevation information, 3D Sonar produces a 3D point cloud, which therefore does not suffer from elevation ambiguity. We introduce a robust and modern SLAM framew",
+      "url": "https://arxiv.org/abs/2601.05805",
+      "pdf_url": "https://arxiv.org/pdf/2601.05805",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "AIM-SLAM: Dense Monocular SLAM via Adaptive and Informative Multi-View Keyframe Prioritization with Foundation Model",
+      "authors": "Jinwoo Jeon, Dong-Uk Seo, Eungchang Mason Lee, Hyun Myung",
+      "abstract": "arXiv:2603.05097v2 Announce Type: replace \nAbstract: Recent advances in geometric foundation models have emerged as a promising alternative for addressing the challenge of dense reconstruction in monocular visual simultaneous localization and mapping (SLAM). Although geometric foundation models enable SLAM to leverage variable input views, the previous methods remain confined to two-view pairs or fixed-length inputs without sufficient deliberation of geometric context for view selection. To tack",
+      "url": "https://arxiv.org/abs/2603.05097",
+      "pdf_url": "https://arxiv.org/pdf/2603.05097",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "TEGA: A Tactile-Enhanced Grasping Assistant for Assistive Robotics via Sensor Fusion and Closed-Loop Haptic Feedback",
+      "authors": "Hengxu You, Tianyu Zhou, Fang Xu, Kaleb Smith, Eric Jing Du",
+      "abstract": "arXiv:2603.05552v1 Announce Type: new \nAbstract: Recent advances in teleoperation have enabled sophisticated manipulation of dexterous robotic hands, with most systems concentrating on guiding finger positions to achieve desired grasp configurations. However, while accurate finger positioning is essential, it often overlooks the equally critical task of grasp force modulation, vital for handling objects of diverse hardness, texture, and shape. This limitation poses a significant challenge for us",
+      "url": "https://arxiv.org/abs/2603.05552",
+      "pdf_url": "https://arxiv.org/pdf/2603.05552",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "MagRobot:An Open Simulator for Magnetically Navigated Robots",
+      "authors": "Heng Wang (South China University of Technology), Haoyu Song (South China University of Technology), Jiatao Zheng (South China University of Technology), Yuxiang Han (South China University of Technology), Kunli Wang (South China University of Technology)",
+      "abstract": "arXiv:2603.05992v1 Announce Type: new \nAbstract: Magnetic navigation systems, including magnetic tracking systems and magnetic actuation systems, have shown great potential for occlusion-free localization and remote control of intracorporeal medical devices and robots in minimally invasive medicine, such as capsule endoscopy and cardiovascular intervention. However, the design of magnetically navigated robots remains heavily reliant on experimental prototyping, which is time-consuming and costly",
+      "url": "https://arxiv.org/abs/2603.05992",
+      "pdf_url": "https://arxiv.org/pdf/2603.05992",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "CFEAR-Teach-and-Repeat: Fast and Accurate Radar-only Localization",
+      "authors": "Maximilian Hilger, Daniel Adolfsson, Ralf Becker, Henrik Andreasson, Achim J. Lilienthal",
+      "abstract": "arXiv:2603.06501v1 Announce Type: new \nAbstract: Reliable localization in prior maps is essential for autonomous navigation, particularly under adverse weather, where optical sensors may fail. We present CFEAR-TR, a teach-and-repeat localization pipeline using a single spinning radar, which is designed for easily deployable, lightweight, and robust navigation in adverse conditions. Our method localizes by jointly aligning live scans to both stored scans from the teach mapping pass, and to a slid",
+      "url": "https://arxiv.org/abs/2603.06501",
+      "pdf_url": "https://arxiv.org/pdf/2603.06501",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "SG-DOR: Learning Scene Graphs with Direction-Conditioned Occlusion Reasoning for Pepper Plants",
+      "authors": "Rohit Menon, Niklas Mueller-Goldingen, Sicong Pan, Gokul Krishna Chenchani, Maren Bennewitz",
+      "abstract": "arXiv:2603.06512v1 Announce Type: new \nAbstract: Robotic harvesting in dense crop canopies requires effective interventions that depend not only on geometry, but also on explicit, direction-conditioned relations identifying which organs obstruct a target fruit. We present SG-DOR (Scene Graphs with Direction-Conditioned Occlusion Reasoning), a relational framework that, given instance-segmented organ point clouds, infers a scene graph encoding physical attachments and direction-conditioned occlus",
+      "url": "https://arxiv.org/abs/2603.06512",
+      "pdf_url": "https://arxiv.org/pdf/2603.06512",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Systematic Evaluation of Novel View Synthesis for Video Place Recognition",
+      "authors": "Muhammad Zawad Mahmud, Samiha Islam, Damian Lyons",
+      "abstract": "arXiv:2603.05876v1 Announce Type: cross \nAbstract: The generation of synthetic novel views has the potential to positively impact robot navigation in several ways. In image-based navigation, a novel overhead view generated from a scene taken by a ground robot could be used to guide an aerial robot to that location. In Video Place Recognition (VPR), novel views of ground locations from the air can be added that enable a UAV to identify places seen by the ground robot, and similarly, overhead view",
+      "url": "https://arxiv.org/abs/2603.05876",
+      "pdf_url": "https://arxiv.org/pdf/2603.05876",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "FTSplat: Feed-forward Triangle Splatting Network",
+      "authors": "Xiong Jinlin, Li Can, Shen Jiawei, Qi Zhigang, Sun Lei, Zhao Dongyang",
+      "abstract": "arXiv:2603.05932v1 Announce Type: cross \nAbstract: High-fidelity three-dimensional (3D) reconstruction is essential for robotics and simulation. While Neural Radiance Fields (NeRF) and 3D Gaussian Splatting (3DGS) achieve impressive rendering quality, their reliance on time-consuming per-scene optimization limits real-time deployment. Emerging feed-forward Gaussian splatting methods improve efficiency but often lack explicit, manifold geometry required for direct simulation. To address these lim",
+      "url": "https://arxiv.org/abs/2603.05932",
+      "pdf_url": "https://arxiv.org/pdf/2603.05932",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "VG3S: Visual Geometry Grounded Gaussian Splatting for Semantic Occupancy Prediction",
+      "authors": "Xiaoyang Yan, Muleilan Pei, Shaojie Shen",
+      "abstract": "arXiv:2603.06210v1 Announce Type: cross \nAbstract: 3D semantic occupancy prediction has become a crucial perception task for comprehensive scene understanding in autonomous driving. While recent advances have explored 3D Gaussian splatting for occupancy modeling to substantially reduce computational overhead, the generation of high-quality 3D Gaussians relies heavily on accurate geometric cues, which are often insufficient in purely vision-centric paradigms. To bridge this gap, we advocate for i",
+      "url": "https://arxiv.org/abs/2603.06210",
+      "pdf_url": "https://arxiv.org/pdf/2603.06210",
+      "category": "cs.RO",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Post Fusion Bird's Eye View Feature Stabilization for Robust Multimodal 3D Detection",
+      "authors": "Trung Tien Dong, Dev Thakkar, Arman Sargolzaei, Xiaomin Lin",
+      "abstract": "arXiv:2603.05623v1 Announce Type: new \nAbstract: Camera-LiDAR fusion is widely used in autonomous driving to enable accurate 3D object detection. However, bird's-eye view (BEV) fusion detectors can degrade significantly under domain shift and sensor failures, limiting reliability in real-world deployment. Existing robustness approaches often require modifying the fusion architecture or retraining specialized models, making them difficult to integrate into already deployed systems.\n  We propose a",
+      "url": "https://arxiv.org/abs/2603.05623",
+      "pdf_url": "https://arxiv.org/pdf/2603.05623",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "EventGeM: Global-to-Local Feature Matching for Event-Based Visual Place Recognition",
+      "authors": "Adam D. Hines, Gokul B. Nair, Nicol\\'as Marticorena, Michael Milford, Tobias Fischer",
+      "abstract": "arXiv:2603.05807v1 Announce Type: new \nAbstract: Dynamic vision sensors, also known as event cameras, are rapidly rising in popularity for robotic and computer vision tasks due to their sparse activation and high-temporal resolution. Event cameras have been used in robotic navigation and localization tasks where accurate positioning needs to occur on small and frequent time scales, or when energy concerns are paramount. In this work, we present EventGeM, a state-of-the-art global to local featur",
+      "url": "https://arxiv.org/abs/2603.05807",
+      "pdf_url": "https://arxiv.org/pdf/2603.05807",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "Transforming Omnidirectional RGB-LiDAR data into 3D Gaussian Splatting",
+      "authors": "Semin Bae, Hansol Lim, Jongseong Brad Choi",
+      "abstract": "arXiv:2603.06061v1 Announce Type: new \nAbstract: The demand for large-scale digital twins is rapidly growing in robotics and autonomous driving. However, constructing these environments with 3D Gaussian Splatting (3DGS) usually requires expensive, purpose-built data collection. Meanwhile, deployed platforms routinely collect extensive omnidirectional RGB and LiDAR logs, but a significant portion of these sensor data is directly discarded or strictly underutilized due to transmission constraints ",
+      "url": "https://arxiv.org/abs/2603.06061",
+      "pdf_url": "https://arxiv.org/pdf/2603.06061",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "PROBE: Probabilistic Occupancy BEV Encoding with Analytical Translation Robustness for 3D Place Recognition",
+      "authors": "Jinseop Lee, Byoungho Lee, Gichul Yoo",
+      "abstract": "arXiv:2603.05965v1 Announce Type: cross \nAbstract: We present PROBE (PRobabilistic Occupancy BEV Encoding), a learning-free LiDAR place recognition descriptor that models each BEV cell's occupancy as a Bernoulli random variable. Rather than relying on discrete point-cloud perturbations, PROBE analytically marginalizes over continuous Cartesian translations via the polar Jacobian, yielding a distance-adaptive angular uncertainty $\\sigma_\\theta = \\sigma_t / r$ in $\\mathcal{O}(R \\times S)$ time. Th",
+      "url": "https://arxiv.org/abs/2603.05965",
+      "pdf_url": "https://arxiv.org/pdf/2603.05965",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "PoI: A Filter to Extract Pixel of Interest from Novel Views for Scene Coordinate Regression",
+      "authors": "Feifei Li, Qi Song, Chi Zhang, Hui Shuai, Rui Huang",
+      "abstract": "arXiv:2502.04843v5 Announce Type: replace \nAbstract: Neural View Synthesis (NVS) techniques such as NeRF and 3D Gaussian Splatting (3DGS) have enabled photorealistic rendering from novel viewpoints and are increasingly used to augment training data for visual localization. However, these methods fundamentally rely on observed geometry and radiance; they interpolate existing information but cannot hallucinate unseen 3D structures or recover missing content under sparse or extreme viewpoints. As a",
+      "url": "https://arxiv.org/abs/2502.04843",
+      "pdf_url": "https://arxiv.org/pdf/2502.04843",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "OWL: A Novel Approach to Machine Perception During Motion",
+      "authors": "Daniel Raviv, Juan D. Yepes",
+      "abstract": "arXiv:2603.05686v1 Announce Type: new \nAbstract: We introduce a perception-related function, OWL, designed to address the complex challenges of 3D perception during motion. It derives its values directly from two fundamental visual motion cues, with one set of cue values per point per time instant. During motion, two visual motion cues relative to a fixation point emerge: 1) perceived local visual looming of points near the fixation point, and 2) perceived rotation of the rigid object relative t",
+      "url": "https://arxiv.org/abs/2603.05686",
+      "pdf_url": "https://arxiv.org/pdf/2603.05686",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Interpretable Perception and Reasoning for Audiovisual Geolocation",
+      "authors": "Yiyang Su, Xiaoming Liu",
+      "abstract": "arXiv:2603.05708v1 Announce Type: new \nAbstract: While recent advances in Multimodal Large Language Models (MLLMs) have improved image-based localization, precise global geolocation remains a formidable challenge due to the inherent ambiguity of visual landscapes and the largely untapped potential of auditory cues. In this paper, we introduce Audiovisual Geolocation, a framework designed to resolve geographic ambiguity through interpretable perception and reasoning. We present AVG, a high-qualit",
+      "url": "https://arxiv.org/abs/2603.05708",
+      "pdf_url": "https://arxiv.org/pdf/2603.05708",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "PatchCue: Enhancing Vision-Language Model Reasoning with Patch-Based Visual Cues",
+      "authors": "Yukun Qi, Pei Fu, Hang Li, Yuhan Liu, Chao Jiang, Bin Qin, Zhenbo Luo, Jian Luan",
+      "abstract": "arXiv:2603.05869v1 Announce Type: new \nAbstract: Vision-Language Models (VLMs) have achieved remarkable progress on a wide range of challenging multimodal understanding and reasoning tasks. However, existing reasoning paradigms, such as the classical Chain-of-Thought (CoT), rely solely on textual information and often underutilize important visual cues. While prior work has incorporated pixel-level visual cues, these representations require precise spatial localization, introducing additional le",
+      "url": "https://arxiv.org/abs/2603.05869",
+      "pdf_url": "https://arxiv.org/pdf/2603.05869",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Systematic Evaluation of Novel View Synthesis for Video Place Recognition",
+      "authors": "Muhammad Zawad Mahmud, Samiha Islam, Damian Lyons",
+      "abstract": "arXiv:2603.05876v1 Announce Type: new \nAbstract: The generation of synthetic novel views has the potential to positively impact robot navigation in several ways. In image-based navigation, a novel overhead view generated from a scene taken by a ground robot could be used to guide an aerial robot to that location. In Video Place Recognition (VPR), novel views of ground locations from the air can be added that enable a UAV to identify places seen by the ground robot, and similarly, overhead views ",
+      "url": "https://arxiv.org/abs/2603.05876",
+      "pdf_url": "https://arxiv.org/pdf/2603.05876",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "CollabOD: Collaborative Multi-Backbone with Cross-scale Vision for UAV Small Object Detection",
+      "authors": "Xuecheng Bai, Yuxiang Wang, Chuanzhi Xu, Boyu Hu, Kang Han, Ruijie Pan, Xiaowei Niu, Xiaotian Guan, Liqiang Fu, Pengfei Ye",
+      "abstract": "arXiv:2603.05905v1 Announce Type: new \nAbstract: Small object detection in unmanned aerial vehicle (UAV) imagery is challenging, mainly due to scale variation, structural detail degradation, and limited computational resources. In high-altitude scenarios, fine-grained features are further weakened during hierarchical downsampling and cross-scale fusion, resulting in unstable localization and reduced robustness. To address this issue, we propose CollabOD, a lightweight collaborative detection fra",
+      "url": "https://arxiv.org/abs/2603.05905",
+      "pdf_url": "https://arxiv.org/pdf/2603.05905",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "FTSplat: Feed-forward Triangle Splatting Network",
+      "authors": "Xiong Jinlin, Li Can, Shen Jiawei, Qi Zhigang, Sun Lei, Zhao Dongyang",
+      "abstract": "arXiv:2603.05932v1 Announce Type: new \nAbstract: High-fidelity three-dimensional (3D) reconstruction is essential for robotics and simulation. While Neural Radiance Fields (NeRF) and 3D Gaussian Splatting (3DGS) achieve impressive rendering quality, their reliance on time-consuming per-scene optimization limits real-time deployment. Emerging feed-forward Gaussian splatting methods improve efficiency but often lack explicit, manifold geometry required for direct simulation. To address these limit",
+      "url": "https://arxiv.org/abs/2603.05932",
+      "pdf_url": "https://arxiv.org/pdf/2603.05932",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "OVGGT: O(1) Constant-Cost Streaming Visual Geometry Transformer",
+      "authors": "Si-Yu Lu, Po-Ting Chen, Hui-Che Hsu, Sin-Ye Jhong, Wen-Huang Cheng, Yung-Yao Chen",
+      "abstract": "arXiv:2603.05959v1 Announce Type: new \nAbstract: Reconstructing 3D geometry from streaming video requires continuous inference under bounded resources. Recent geometric foundation models achieve impressive reconstruction quality through all-to-all attention, yet their quadratic cost confines them to short, offline sequences. Causal-attention variants such as StreamVGGT enable single-pass streaming but accumulate an ever-growing KV cache, exhausting GPU memory within hundreds of frames and preclu",
+      "url": "https://arxiv.org/abs/2603.05959",
+      "pdf_url": "https://arxiv.org/pdf/2603.05959",
+      "category": "cs.CV",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Weak-SIGReg: Covariance Regularization for Stable Deep Learning",
+      "authors": "Habibullah Akbar",
+      "abstract": "arXiv:2603.05924v1 Announce Type: new \nAbstract: Modern neural network optimization relies heavily on architectural priorssuch as Batch Normalization and Residual connectionsto stabilize training dynamics. Without these, or in low-data regimes with aggressive augmentation, low-bias architectures like Vision Transformers (ViTs) often suffer from optimization collapse. This work adopts Sketched Isotropic Gaussian Regularization (SIGReg), recently introduced in the LeJEPA self-supervised framework,",
+      "url": "https://arxiv.org/abs/2603.05924",
+      "pdf_url": "https://arxiv.org/pdf/2603.05924",
+      "category": "cs.LG",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Prediction-Powered Conditional Inference",
+      "authors": "Yang Sui, Jin Zhou, Hua Zhou, Xiaowu Dai",
+      "abstract": "arXiv:2603.05575v1 Announce Type: cross \nAbstract: We study prediction-powered conditional inference in the setting where labeled data are scarce, unlabeled covariates are abundant, and a black-box machine-learning predictor is available. The goal is to perform statistical inference on conditional functionals evaluated at a fixed test point, such as conditional means, without imposing a parametric model for the conditional relationship. Our approach combines localization with prediction-based va",
+      "url": "https://arxiv.org/abs/2603.05575",
+      "pdf_url": "https://arxiv.org/pdf/2603.05575",
+      "category": "cs.LG",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "SCOPE: Scene-Contextualized Incremental Few-Shot 3D Segmentation",
+      "authors": "Vishal Thengane, Zhaochong An, Tianjin Huang, Son Lam Phung, Abdesselam Bouzerdoum, Lu Yin, Na Zhao, Xiatian Zhu",
+      "abstract": "arXiv:2603.06572v1 Announce Type: cross \nAbstract: Incremental Few-Shot (IFS) segmentation aims to learn new categories over time from only a few annotations. Although widely studied in 2D, it remains underexplored for 3D point clouds. Existing methods suffer from catastrophic forgetting or fail to learn discriminative prototypes under sparse supervision, and often overlook a key cue: novel categories frequently appear as unlabelled background in base-training scenes. We introduce SCOPE (Scene-C",
+      "url": "https://arxiv.org/abs/2603.06572",
+      "pdf_url": "https://arxiv.org/pdf/2603.06572",
+      "category": "cs.LG",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "BEVLM: Distilling Semantic Knowledge from LLMs into Bird's-Eye View Representations",
+      "authors": "Thomas Monninger, Shaoyuan Xie, Qi Alfred Chen, Sihao Ding",
+      "abstract": "arXiv:2603.06576v1 Announce Type: cross \nAbstract: The integration of Large Language Models (LLMs) into autonomous driving has attracted growing interest for their strong reasoning and semantic understanding abilities, which are essential for handling complex decision-making and long-tail scenarios. However, existing methods typically feed LLMs with tokens from multi-view and multi-frame images independently, leading to redundant computation and limited spatial consistency. This separation in vi",
+      "url": "https://arxiv.org/abs/2603.06576",
+      "pdf_url": "https://arxiv.org/pdf/2603.06576",
+      "category": "cs.LG",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Temporal Misalignment Attacks against Multimodal Perception in Autonomous Driving",
+      "authors": "Md Hasan Shahriar, Md Mohaimin Al Barat, Harshavardhan Sundar, Ning Zhang, Naren Ramakrishnan, Y. Thomas Hou, Wenjing Lou",
+      "abstract": "arXiv:2507.09095v3 Announce Type: replace \nAbstract: Multimodal fusion (MMF) plays a critical role in the perception of autonomous driving, which primarily fuses camera and LiDAR streams for a comprehensive and efficient scene understanding. However, its strict reliance on precise temporal synchronization exposes it to new vulnerabilities. In this paper, we introduce DejaVu, an attack that exploits the in-vehicular network to manipulate the integrity of time and create subtle temporal misalignme",
+      "url": "https://arxiv.org/abs/2507.09095",
+      "pdf_url": "https://arxiv.org/pdf/2507.09095",
+      "category": "cs.LG",
+      "date": "Mon, 09 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    }
+  ],
+  "github": [
+    {
+      "name": "sponsors/khoj-ai",
+      "description": "Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI (gpt, claude, gemini, llama, qwen, mistral). Get started - free.",
+      "url": "https://github.com/sponsors/khoj-ai",
+      "stars": 0,
+      "language": "Python"
+    },
+    {
+      "name": "autowarefoundation/autoware_vision_pilot",
+      "description": "Free self-driving car stack - fully open-source ADAS and autonomous driving system",
+      "url": "https://github.com/autowarefoundation/autoware_vision_pilot",
+      "stars": 0,
+      "language": "C++"
+    }
+  ],
   "pwc": []
 }
