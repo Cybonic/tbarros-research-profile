@@ -1,181 +1,25 @@
 {
-  "last_scan": "2026-03-09 16:04 UTC",
+  "last_scan": "2026-03-09 16:19 UTC",
   "scan_sources": {
-    "aideadlines": "ok",
-    "wikicfp-robotics": "error",
-    "wikicfp-slam": "error",
-    "corl": "ok",
-    "icra": "ok",
-    "iros": "ok",
-    "rall": "ok",
-    "tro": "ok",
-    "ijrr": "error"
+    "CoRL": "ok",
+    "ICRA": "ok",
+    "IROS": "ok",
+    "IEEE RA-L Special Issues": "ok",
+    "IEEE T-RO Special Issues": "ok",
+    "WikiCFP Robotics": "error",
+    "WikiCFP LiDAR/SLAM": "error"
   },
   "upcoming": [
     {
-      "name": "@media only screen and (max-width: 479px){.gc8pMd{font-size: 30.0pt;}}@media only screen and (min-width: 480px) and (max-width: 767px){.gc8pMd{font-size: 37.0pt;}}@media only scree",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "high",
-      "url": "https://lh3.googleusercontent.com/sitesv/APaQ0SSNvt2Fh_l2wXtNVGcGaXwvxZYn_2vtA_TBuwJojK96F5IYsDyqRgDBU2tmKsEJXEAsE99amAla7D0AzzGCb8EVLgMZm50F18TCFMFmbL5vOtmntJTybI0ZqF03428yFvjK4DUviHaBdU0NJ0DvWarPQsEosjHafG6-wtNTR6mWsOPlyqp5Twak9b2lRh7zUEA6jvHVOtil8SxnrmIGyg",
-      "notes": "corl"
-    },
-    {
-      "name": "2026 IEEE International Conference on Robotics and Automation (ICRA) {\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://2026.ieee-icra.org/\",\"url\":\"https:",
+      "name": "An AI-driven robotics technology company supplies incremental components and solutions.",
       "type": "conference",
       "deadline": "unknown",
       "notification": "unknown",
       "event_date": "",
       "location": "",
       "relevance": "medium",
-      "url": "https://gmpg.org/xfn/11",
-      "notes": "icra"
-    },
-    {
-      "name": "ICRA 2026 Arts in Robotics – Submission Closed",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://2026.ieee-icra.org/contribute/arts-in-robotics/",
-      "notes": "icra"
-    },
-    {
-      "name": "Meituan Academy of Robotics Shenzhen (MARS) leverages the rich scenarios and data accumulated by Meituan, a tech-driven retail company, to create an open, collaborative innovation ",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.meituan.com/en-US/about-us",
-      "notes": "iros"
-    },
-    {
-      "name": "AgiBot is dedicated to pioneering the fusion of AI and robotics, developing world-leading general-purpose embodied robots and creating an application ecosystem. Founded in February",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.zhiyuan-robot.com/",
-      "notes": "iros"
-    },
-    {
-      "name": "SHANGHAI CHINGMU VISION TECHNOLOGY CO., LTD. was founded in 2015. It is a national high-tech enterprise and the first in China to achieve full - stack self - research in optical mo",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "high",
-      "url": "http://en.chingmu.com",
-      "notes": "iros"
-    },
-    {
-      "name": "Sharpa is a robotics company dedicated to developing ultra-high performance robots and core components to unlock the limitless possibilities of future general-purpose robotic appli",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.sharpa.com",
-      "notes": "iros"
-    },
-    {
-      "name": "NOKOV Motion Capture: Trusted by Robotics Innovators Worldwide. NOKOV delivers high-accuracy 6DoF optical mocap enabling multi-agent systems, manipulation, exoskeletons, and embodi",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://en.nokov.com/motion-capture-applications/robotics-engineering.html",
-      "notes": "iros"
-    },
-    {
-      "name": "Unitree Robotics is a global leader in civilian robotics, specializing in high-performance legged/humanoid robots and robotic arms. Recognized at major events like 2022 Winter Olym",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.unitree.com/",
-      "notes": "iros"
-    },
-    {
-      "name": "Beijing Innovation Center of Humanoid Robotics is the first full-stack technology company in China that focuses on the core technology, product development and application of embod",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.x-humanoid.com/",
-      "notes": "iros"
-    },
-    {
-      "name": "PaXini Tech specializes in multi-dimensional tactile perception and embodied AI technologies. Leveraging ITPU multi-dimensional haptic sensing technology, it has established a full",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.paxini.com",
-      "notes": "iros"
-    },
-    {
-      "name": "Technology Innovation Institute is a UAE-based research center leading global advances in artificial intelligence, autonomous robotics, quantum computing, cryptography, directed en",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.tii.ae",
-      "notes": "iros"
-    },
-    {
-      "name": "Franka Research 3 is the reference world-class, force-sensitive robot system designed for AI and robotics research.",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.franka.de/",
-      "notes": "iros"
-    },
-    {
-      "name": "Manifold Tech specializes in spatial perception, memory, and reconstruction.",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.manifoldtech.cn/",
-      "notes": "iros"
-    },
-    {
-      "name": "World-leading long-range motion capture for robotics - indoors and outdoors.",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "http://www.qualisys.com",
-      "notes": "iros"
+      "url": "https://www.robosense.ai/",
+      "notes": "IROS"
     },
     {
       "name": "Creating New Possibilities for the Robotics industry .",
@@ -186,73 +30,7 @@
       "location": "",
       "relevance": "medium",
       "url": "https://www.hightorquerobotics.com/",
-      "notes": "iros"
-    },
-    {
-      "name": "An AI-driven robotics technology company supplies incremental components and solutions.",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.robosense.ai/",
-      "notes": "iros"
-    },
-    {
-      "name": "Leading Research in Robotics and AI.",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.dlut.edu.cn/",
-      "notes": "iros"
-    },
-    {
-      "name": "/* Make obey icon sizing in the framed circle */ .steps_block_repeater .elementor-icon-box-icon .elementor-icon img{ width:1em; height:1em; display:block; } .ras-cards-tools { marg",
-      "type": "workshop",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.ieee-ras.org/wp-json/",
-      "notes": "rall"
-    },
-    {
-      "name": "Field Robotics (T-FR)",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "high",
-      "url": "https://www.ieee-ras.org/publications/ra-l/special-issues/publications/t-fr/",
-      "notes": "rall"
-    },
-    {
-      "name": "Medical Robotics &amp; Bionics (T-MRB)",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.ieee-ras.org/publications/ra-l/special-issues/publications/t-mrb/",
-      "notes": "rall"
-    },
-    {
-      "name": "Robot Learning (T-RL)",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "high",
-      "url": "https://www.ieee-ras.org/publications/ra-l/special-issues/publications/t-rl",
-      "notes": "rall"
+      "notes": "IROS"
     },
     {
       "name": "Education Material in Robotics and Automation",
@@ -263,7 +41,40 @@
       "location": "",
       "relevance": "medium",
       "url": "https://www.ieee-ras.org/publications/ra-l/special-issues/educational-resources-outreach/education-material-in-robotics-and-automation/",
-      "notes": "rall"
+      "notes": "IEEE RA-L Special Issues"
+    },
+    {
+      "name": "Education Material in Robotics and Automation",
+      "type": "conference",
+      "deadline": "unknown",
+      "notification": "unknown",
+      "event_date": "",
+      "location": "",
+      "relevance": "medium",
+      "url": "https://www.ieee-ras.org/publications/t-ro/special-issues/educational-resources-outreach/education-material-in-robotics-and-automation/",
+      "notes": "IEEE T-RO Special Issues"
+    },
+    {
+      "name": "Franka Research 3 is the reference world-class, force-sensitive robot system designed for AI and robotics research.",
+      "type": "conference",
+      "deadline": "unknown",
+      "notification": "unknown",
+      "event_date": "",
+      "location": "",
+      "relevance": "medium",
+      "url": "https://www.franka.de/",
+      "notes": "IROS"
+    },
+    {
+      "name": "ICRA 2026 Arts in Robotics – Submission Closed",
+      "type": "conference",
+      "deadline": "unknown",
+      "notification": "unknown",
+      "event_date": "",
+      "location": "",
+      "relevance": "medium",
+      "url": "https://2026.ieee-icra.org/contribute/arts-in-robotics/",
+      "notes": "ICRA"
     },
     {
       "name": "International Robotics Standards Coordination Effort",
@@ -274,18 +85,29 @@
       "location": "",
       "relevance": "medium",
       "url": "https://www.ieee-ras.org/industry-government/standards/standards-strategy-meeting/",
-      "notes": "rall"
+      "notes": "IEEE RA-L Special Issues"
     },
     {
-      "name": "Field Robotics (T-FR)",
+      "name": "Leading Research in Robotics and AI.",
       "type": "conference",
       "deadline": "unknown",
       "notification": "unknown",
       "event_date": "",
       "location": "",
-      "relevance": "high",
-      "url": "https://www.ieee-ras.org/publications/t-ro/publications/t-fr/",
-      "notes": "tro"
+      "relevance": "medium",
+      "url": "https://www.dlut.edu.cn/",
+      "notes": "IROS"
+    },
+    {
+      "name": "Manifold Tech specializes in spatial perception, memory, and reconstruction.",
+      "type": "conference",
+      "deadline": "unknown",
+      "notification": "unknown",
+      "event_date": "",
+      "location": "",
+      "relevance": "medium",
+      "url": "https://www.manifoldtech.cn/",
+      "notes": "IROS"
     },
     {
       "name": "Medical Robotics &amp; Bionics (T-MRB)",
@@ -295,96 +117,30 @@
       "event_date": "",
       "location": "",
       "relevance": "medium",
-      "url": "https://www.ieee-ras.org/publications/t-ro/publications/t-mrb/",
-      "notes": "tro"
+      "url": "https://www.ieee-ras.org/publications/ra-l/special-issues/publications/t-mrb/",
+      "notes": "IEEE RA-L Special Issues"
     },
     {
-      "name": "Robot Learning (T-RL)",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "high",
-      "url": "https://www.ieee-ras.org/publications/t-ro/publications/t-rl",
-      "notes": "tro"
-    },
-    {
-      "name": "Education Material in Robotics and Automation",
+      "name": "Medical Robotics &amp; Bionics (T-MRB)",
       "type": "conference",
       "deadline": "unknown",
       "notification": "unknown",
       "event_date": "",
       "location": "",
       "relevance": "medium",
-      "url": "https://www.ieee-ras.org/publications/t-ro/educational-resources-outreach/education-material-in-robotics-and-automation/",
-      "notes": "tro"
+      "url": "https://www.ieee-ras.org/publications/t-ro/special-issues/publications/t-mrb/",
+      "notes": "IEEE T-RO Special Issues"
     },
     {
-      "name": "Special Section on Visual SLAM",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "high",
-      "url": "https://www.ieee-ras.org/publications/t-ro/special-issues/visual-slam/",
-      "notes": "tro"
-    },
-    {
-      "name": "Special Collection on Tactile Robotics",
+      "name": "World-leading long-range motion capture for robotics - indoors and outdoors.",
       "type": "conference",
       "deadline": "unknown",
       "notification": "unknown",
       "event_date": "",
       "location": "",
       "relevance": "medium",
-      "url": "https://www.ieee-ras.org/publications/t-ro/special-issues/special-issue-on-tactile-robotics/",
-      "notes": "tro"
-    },
-    {
-      "name": "Special Section on Impact-Aware Robotics",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.ieee-ras.org/publications/t-ro/special-issues/impact-aware-robotics/",
-      "notes": "tro"
-    },
-    {
-      "name": "Special Section on Small-Scale Robotics inside the Human Body",
-      "type": "conference",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.ieee-ras.org/publications/t-ro/special-issues/small-scale-robotics-human-body/",
-      "notes": "tro"
-    },
-    {
-      "name": "Special issue on Nanorobotics",
-      "type": "special_issue",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "medium",
-      "url": "https://www.ieee-ras.org/publications/t-ro/special-issues/nanorobotics/",
-      "notes": "tro"
-    },
-    {
-      "name": "Special issue on Visual SLAM",
-      "type": "special_issue",
-      "deadline": "unknown",
-      "notification": "unknown",
-      "event_date": "",
-      "location": "",
-      "relevance": "high",
-      "url": "https://www.ieee-ras.org/publications/t-ro/special-issues/visual-slam-2008/",
-      "notes": "tro"
+      "url": "http://www.qualisys.com",
+      "notes": "IROS"
     }
   ]
 }
