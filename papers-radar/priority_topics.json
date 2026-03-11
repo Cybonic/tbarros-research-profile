@@ -1,0 +1,13 @@
+{
+  "priority_ratio": 0.25,
+  "topics": [
+    "lidar odometry",
+    "loop closure",
+    "3d place recognition",
+    "slam",
+    "spatial ai",
+    "point cloud",
+    "localization",
+    "sensor fusion"
+  ]
+}

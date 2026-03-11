@@ -1,5 +1,20 @@
 {
-  "last_scan": "2026-03-11 09:00 UTC",
+  "last_scan": "2026-03-11 10:44 UTC",
+  "priority_profile": {
+    "topics": [
+      "lidar odometry",
+      "loop closure",
+      "3d place recognition",
+      "slam",
+      "spatial ai",
+      "point cloud",
+      "localization",
+      "sensor fusion"
+    ],
+    "priority_ratio": 0.25,
+    "priority_target_count": 8,
+    "priority_available_count": 14
+  },
   "arxiv": [
     {
       "title": "DRIFT: Dual-Representation Inter-Fusion Transformer for Automated Driving Perception with 4D Radar Point Clouds",
@@ -8,126 +23,6 @@
       "url": "https://arxiv.org/abs/2603.09695",
       "pdf_url": "https://arxiv.org/pdf/2603.09695",
       "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
-    },
-    {
-      "title": "Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels",
-      "authors": "Weitong Kong, Zichao Zeng, Di Wen, Jiale Wei, Kunyu Peng, June Moh Goo, Jan Boehm, Rainer Stiefelhagen",
-      "abstract": "arXiv:2510.09035v2 Announce Type: replace-cross \nAbstract: Accurate perception is critical for vehicle safety, with LiDAR as a key enabler in autonomous driving. To ensure robust performance across environments, sensor types, and weather conditions without costly re-annotation, domain generalization in LiDAR-based 3D semantic segmentation is essential. However, LiDAR annotations are often noisy due to sensor imperfections, occlusions, and human errors. Such noise degrades segmentation accuracy a",
-      "url": "https://arxiv.org/abs/2510.09035",
-      "pdf_url": "https://arxiv.org/pdf/2510.09035",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
-    },
-    {
-      "title": "Fly, Track, Land: Infrastructure-less Magnetic Localization for Heterogeneous UAV-UGV Teaming",
-      "authors": "Valerio Brunacci, Davide Plozza, Alessio De Angelis, Michele Magno, Tommaso Polonelli",
-      "abstract": "arXiv:2603.08926v1 Announce Type: new \nAbstract: We present a complete infrastructure-less magneto-inductive (MI) localization system enabling a lightweight UAV to autonomously hover, track, and land with centimeter precision on a mobile quadruped robot acting as a dynamic docking pad. This work advances the vision of heterogeneous robot collaboration, where ultra-lightweight flying robots serve as mobile perception agents for ground-based Unmanned Ground Vehicles (UGVs). By extending the sensin",
-      "url": "https://arxiv.org/abs/2603.08926",
-      "pdf_url": "https://arxiv.org/pdf/2603.08926",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "Cutting the Cord: System Architecture for Low-Cost, GPU-Accelerated Bimanual Mobile Manipulation",
-      "authors": "Artemis Shaw, Chen Liu, Justin Costa, Rane Gray, Alina Skowronek, Kevin Diaz, Nam Bui, Nikolaus Correll",
-      "abstract": "arXiv:2603.09051v1 Announce Type: new \nAbstract: We present a bimanual mobile manipulator built on the open-source XLeRobot with integrated onboard compute for less than \\$1300. Key contributions include: (1) optimized mechanical design maximizing stiffness-to-weight ratio, (2) a Tri-Bus power topology isolating compute from motor-induced voltage transients, and (3) embedded autonomy using NVIDIA Jetson Orin Nano for untethered operation. The platform enables teleoperation, autonomous SLAM navig",
-      "url": "https://arxiv.org/abs/2603.09051",
-      "pdf_url": "https://arxiv.org/pdf/2603.09051",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "CORAL: Scalable Multi-Task Robot Learning via LoRA Experts",
-      "authors": "Yuankai Luo, Woping Chen, Tong Liang, Zhenguo Li",
-      "abstract": "arXiv:2603.09298v1 Announce Type: new \nAbstract: Deploying Vision-Language-Action (VLA) models in real-world robotics exposes a core multi-task learning challenge: reconciling task interference in multi-task robotic learning. When multiple tasks are jointly fine-tuned in a single stage, gradients from different tasks can conflict, causing negative transfer and reducing per-task performance. Yet maintaining a separate full checkpoint per task is often storage- and deployment-prohibitive. To addre",
-      "url": "https://arxiv.org/abs/2603.09298",
-      "pdf_url": "https://arxiv.org/pdf/2603.09298",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "Lightweight 3D LiDAR-Based UAV Tracking: An Adaptive Extended Kalman Filtering Approach",
-      "authors": "Nivand Khosravi, Meysam Basiri, Rodrigo Ventura",
-      "abstract": "arXiv:2603.09783v1 Announce Type: new \nAbstract: Accurate relative positioning is crucial for swarm aerial robotics, enabling coordinated flight and collision avoidance. Although vision-based tracking has been extensively studied, 3D LiDAR-based methods remain underutilized despite their robustness under varying lighting conditions. Existing systems often rely on bulky, power-intensive sensors, making them impractical for small UAVs with strict payload and energy constraints. This paper presents",
-      "url": "https://arxiv.org/abs/2603.09783",
-      "pdf_url": "https://arxiv.org/pdf/2603.09783",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "Robust Cooperative Localization in Featureless Environments: A Comparative Study of DCL, StCL, CCL, CI, and Standard-CL",
-      "authors": "Nivand Khosravi, Meysam Basiri, Rodrigo Ventura",
-      "abstract": "arXiv:2603.09886v1 Announce Type: new \nAbstract: Cooperative localization (CL) enables accurate position estimation in multi-robot systems operating in GPS-denied environments. This paper presents a comparative study of five CL approaches: Centralized Cooperative Localization (CCL), Decentralized Cooperative Localization (DCL), Sequential Cooperative Localization (StCL), Covariance Intersection (CI), and Standard Cooperative Localization (Standard-CL). All methods are implemented in ROS and eval",
-      "url": "https://arxiv.org/abs/2603.09886",
-      "pdf_url": "https://arxiv.org/pdf/2603.09886",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "$M^2$-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs",
-      "authors": "Kaixin Lin, Kunyu Peng, Di Wen, Yufan Chen, Ruiping Liu, Kailun Yang",
-      "abstract": "arXiv:2603.09737v1 Announce Type: cross \nAbstract: Semantic occupancy prediction enables dense 3D geometric and semantic understanding for autonomous driving. However, existing camera-based approaches implicitly assume complete surround-view observations, an assumption that rarely holds in real-world deployment due to occlusion, hardware malfunction, or communication failures. We study semantic occupancy prediction under incomplete multi-camera inputs and introduce $M^2$-Occ, a framework designe",
-      "url": "https://arxiv.org/abs/2603.09737",
-      "pdf_url": "https://arxiv.org/pdf/2603.09737",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "Robot Control Stack: A Lean Ecosystem for Robot Learning at Scale",
-      "authors": "Tobias J\\\"ulg, Pierre Krack, Seongjin Bien, Yannik Blei, Khaled Gamal, Ken Nakahara, Johannes Hechtl, Roberto Calandra, Wolfram Burgard, Florian Walter",
-      "abstract": "arXiv:2509.14932v2 Announce Type: replace \nAbstract: Vision-Language-Action models (VLAs) mark a major shift in robot learning. They replace specialized architectures and task-tailored components of expert policies with large-scale data collection and setup-specific fine-tuning. In this machine learning-focused workflow that is centered around models and scalable training, traditional robotics software frameworks become a bottleneck, while robot simulations offer only limited support for transit",
-      "url": "https://arxiv.org/abs/2509.14932",
-      "pdf_url": "https://arxiv.org/pdf/2509.14932",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "Relative Localization System Design for SnailBot: A Modular Self-reconfigurable Robot",
-      "authors": "Shuhan Zhang, Tin Lun Lam",
-      "abstract": "arXiv:2512.21226v3 Announce Type: replace \nAbstract: This paper presents the design and implementation of a relative localization system for SnailBot, a modular self reconfigurable robot. The system integrates ArUco marker recognition, optical flow analysis, and IMU data processing into a unified fusion framework, enabling robust and accurate relative positioning for collaborative robotic tasks. Experimental validation demonstrates the effectiveness of the system in realtime operation, with a ru",
-      "url": "https://arxiv.org/abs/2512.21226",
-      "pdf_url": "https://arxiv.org/pdf/2512.21226",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "Reactive Slip Control in Multifingered Grasping: Hybrid Tactile Sensing and Internal-Force Optimization",
-      "authors": "Th\\'eo Ayral, Saifeddine Aloui, Mathieu Grossard",
-      "abstract": "arXiv:2602.16127v2 Announce Type: replace \nAbstract: We present a hybrid learning and model-based approach for reactive internal-force adaptation to halt in-hand slip in a multifingered robotic gripper. A multimodal tactile stack combines piezoelectric (PzE) sensing for fast slip cues with piezoresistive (PzR) arrays for contact localization, enabling online construction of the grasp matrix. Upon slip detection, internal forces are updated in the null space of the grasp through a quadratic progr",
-      "url": "https://arxiv.org/abs/2602.16127",
-      "pdf_url": "https://arxiv.org/pdf/2602.16127",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "You Only Pose Once: A Minimalist's Detection Transformer for Monocular RGB Category-level 9D Multi-Object Pose Estimation",
-      "authors": "Hakjin Lee, Junghoon Seo, Jaehoon Sim",
-      "abstract": "arXiv:2508.14965v3 Announce Type: replace-cross \nAbstract: Accurately recovering the full 9-DoF pose of unseen instances within specific categories from a single RGB image remains a core challenge for robotics and automation. Most existing solutions still rely on pseudo-depth, CAD models, or multi-stage cascades that separate 2D detection from pose estimation. Motivated by the need for a simpler, RGB-only alternative that learns directly at the category level, we revisit a longstanding question:",
-      "url": "https://arxiv.org/abs/2508.14965",
-      "pdf_url": "https://arxiv.org/pdf/2508.14965",
-      "category": "cs.RO",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "EventVGGT: Exploring Cross-Modal Distillation for Consistent Event-based Depth Estimation",
-      "authors": "Yinrui Ren, Jinjing Zhu, Kanghao Chen, Zhuoxiao Li, Jing Ou, Zidong Cao, Tongyan Hua, Peilun Shi, Yingchun Fu, Wufan Zhao, Hui Xiong",
-      "abstract": "arXiv:2603.09385v1 Announce Type: new \nAbstract: Event cameras offer superior sensitivity to high-speed motion and extreme lighting, making event-based monocular depth estimation a promising approach for robust 3D perception in challenging conditions. However, progress is severely hindered by the scarcity of dense depth annotations. While recent annotation-free approaches mitigate this by distilling knowledge from Vision Foundation Models (VFMs), a critical limitation persists: they process even",
-      "url": "https://arxiv.org/abs/2603.09385",
-      "pdf_url": "https://arxiv.org/pdf/2603.09385",
-      "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
       "relevance": "high"
     },
@@ -172,6 +67,56 @@
       "relevance": "high"
     },
     {
+      "title": "Fly, Track, Land: Infrastructure-less Magnetic Localization for Heterogeneous UAV-UGV Teaming",
+      "authors": "Valerio Brunacci, Davide Plozza, Alessio De Angelis, Michele Magno, Tommaso Polonelli",
+      "abstract": "arXiv:2603.08926v1 Announce Type: new \nAbstract: We present a complete infrastructure-less magneto-inductive (MI) localization system enabling a lightweight UAV to autonomously hover, track, and land with centimeter precision on a mobile quadruped robot acting as a dynamic docking pad. This work advances the vision of heterogeneous robot collaboration, where ultra-lightweight flying robots serve as mobile perception agents for ground-based Unmanned Ground Vehicles (UGVs). By extending the sensin",
+      "url": "https://arxiv.org/abs/2603.08926",
+      "pdf_url": "https://arxiv.org/pdf/2603.08926",
+      "category": "cs.RO",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Cutting the Cord: System Architecture for Low-Cost, GPU-Accelerated Bimanual Mobile Manipulation",
+      "authors": "Artemis Shaw, Chen Liu, Justin Costa, Rane Gray, Alina Skowronek, Kevin Diaz, Nam Bui, Nikolaus Correll",
+      "abstract": "arXiv:2603.09051v1 Announce Type: new \nAbstract: We present a bimanual mobile manipulator built on the open-source XLeRobot with integrated onboard compute for less than \\$1300. Key contributions include: (1) optimized mechanical design maximizing stiffness-to-weight ratio, (2) a Tri-Bus power topology isolating compute from motor-induced voltage transients, and (3) embedded autonomy using NVIDIA Jetson Orin Nano for untethered operation. The platform enables teleoperation, autonomous SLAM navig",
+      "url": "https://arxiv.org/abs/2603.09051",
+      "pdf_url": "https://arxiv.org/pdf/2603.09051",
+      "category": "cs.RO",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Robust Cooperative Localization in Featureless Environments: A Comparative Study of DCL, StCL, CCL, CI, and Standard-CL",
+      "authors": "Nivand Khosravi, Meysam Basiri, Rodrigo Ventura",
+      "abstract": "arXiv:2603.09886v1 Announce Type: new \nAbstract: Cooperative localization (CL) enables accurate position estimation in multi-robot systems operating in GPS-denied environments. This paper presents a comparative study of five CL approaches: Centralized Cooperative Localization (CCL), Decentralized Cooperative Localization (DCL), Sequential Cooperative Localization (StCL), Covariance Intersection (CI), and Standard Cooperative Localization (Standard-CL). All methods are implemented in ROS and eval",
+      "url": "https://arxiv.org/abs/2603.09886",
+      "pdf_url": "https://arxiv.org/pdf/2603.09886",
+      "category": "cs.RO",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels",
+      "authors": "Weitong Kong, Zichao Zeng, Di Wen, Jiale Wei, Kunyu Peng, June Moh Goo, Jan Boehm, Rainer Stiefelhagen",
+      "abstract": "arXiv:2510.09035v2 Announce Type: replace-cross \nAbstract: Accurate perception is critical for vehicle safety, with LiDAR as a key enabler in autonomous driving. To ensure robust performance across environments, sensor types, and weather conditions without costly re-annotation, domain generalization in LiDAR-based 3D semantic segmentation is essential. However, LiDAR annotations are often noisy due to sensor imperfections, occlusions, and human errors. Such noise degrades segmentation accuracy a",
+      "url": "https://arxiv.org/abs/2510.09035",
+      "pdf_url": "https://arxiv.org/pdf/2510.09035",
+      "category": "cs.RO",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "EventVGGT: Exploring Cross-Modal Distillation for Consistent Event-based Depth Estimation",
+      "authors": "Yinrui Ren, Jinjing Zhu, Kanghao Chen, Zhuoxiao Li, Jing Ou, Zidong Cao, Tongyan Hua, Peilun Shi, Yingchun Fu, Wufan Zhao, Hui Xiong",
+      "abstract": "arXiv:2603.09385v1 Announce Type: new \nAbstract: Event cameras offer superior sensitivity to high-speed motion and extreme lighting, making event-based monocular depth estimation a promising approach for robust 3D perception in challenging conditions. However, progress is severely hindered by the scarcity of dense depth annotations. While recent annotation-free approaches mitigate this by distilling knowledge from Vision Foundation Models (VFMs), a critical limitation persists: they process even",
+      "url": "https://arxiv.org/abs/2603.09385",
+      "pdf_url": "https://arxiv.org/pdf/2603.09385",
+      "category": "cs.CV",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
       "title": "Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels",
       "authors": "Weitong Kong, Zichao Zeng, Di Wen, Jiale Wei, Kunyu Peng, June Moh Goo, Jan Boehm, Rainer Stiefelhagen",
       "abstract": "arXiv:2510.09035v2 Announce Type: replace \nAbstract: Accurate perception is critical for vehicle safety, with LiDAR as a key enabler in autonomous driving. To ensure robust performance across environments, sensor types, and weather conditions without costly re-annotation, domain generalization in LiDAR-based 3D semantic segmentation is essential. However, LiDAR annotations are often noisy due to sensor imperfections, occlusions, and human errors. Such noise degrades segmentation accuracy and is ",
@@ -182,32 +127,62 @@
       "relevance": "high"
     },
     {
-      "title": "A Lightweight Multi-Cancer Tumor Localization Framework for Deployable Digital Pathology",
-      "authors": "Brian Isett, Rebekah Dadey, Aofei Li, Ryan C. Augustin, Kate Smith, Aatur D. Singhi, Qiangqiang Gu, Riyue Bao",
-      "abstract": "arXiv:2603.08844v1 Announce Type: new \nAbstract: Accurate localization of tumor regions from hematoxylin and eosin-stained whole-slide images is fundamental for translational research including spatial analysis, molecular profiling, and tissue architecture investigation. However, deep learning-based tumor detection trained within specific cancers may exhibit reduced robustness when applied across different tumor types. We investigated whether balanced training across cancers at modest scale can ",
-      "url": "https://arxiv.org/abs/2603.08844",
-      "pdf_url": "https://arxiv.org/pdf/2603.08844",
-      "category": "cs.CV",
+      "title": "Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels",
+      "authors": "Weitong Kong, Zichao Zeng, Di Wen, Jiale Wei, Kunyu Peng, June Moh Goo, Jan Boehm, Rainer Stiefelhagen",
+      "abstract": "arXiv:2510.09035v2 Announce Type: replace-cross \nAbstract: Accurate perception is critical for vehicle safety, with LiDAR as a key enabler in autonomous driving. To ensure robust performance across environments, sensor types, and weather conditions without costly re-annotation, domain generalization in LiDAR-based 3D semantic segmentation is essential. However, LiDAR annotations are often noisy due to sensor imperfections, occlusions, and human errors. Such noise degrades segmentation accuracy a",
+      "url": "https://arxiv.org/abs/2510.09035",
+      "pdf_url": "https://arxiv.org/pdf/2510.09035",
+      "category": "cs.LG",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "high"
+    },
+    {
+      "title": "CORAL: Scalable Multi-Task Robot Learning via LoRA Experts",
+      "authors": "Yuankai Luo, Woping Chen, Tong Liang, Zhenguo Li",
+      "abstract": "arXiv:2603.09298v1 Announce Type: new \nAbstract: Deploying Vision-Language-Action (VLA) models in real-world robotics exposes a core multi-task learning challenge: reconciling task interference in multi-task robotic learning. When multiple tasks are jointly fine-tuned in a single stage, gradients from different tasks can conflict, causing negative transfer and reducing per-task performance. Yet maintaining a separate full checkpoint per task is often storage- and deployment-prohibitive. To addre",
+      "url": "https://arxiv.org/abs/2603.09298",
+      "pdf_url": "https://arxiv.org/pdf/2603.09298",
+      "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
       "relevance": "medium"
     },
     {
-      "title": "Towards Visual Query Segmentation in the Wild",
-      "authors": "Bing Fan, Minghao Li, Hanzhi Zhang, Shaohua Dong, Naga Prudhvi Mareedu, Weishi Shi, Yunhe Feng, Yan Huang, Heng Fan",
-      "abstract": "arXiv:2603.08898v1 Announce Type: new \nAbstract: In this paper, we introduce visual query segmentation (VQS), a new paradigm of visual query localization (VQL) that aims to segment all pixel-level occurrences of an object of interest in an untrimmed video, given an external visual query. Compared to existing VQL locating only the last appearance of a target using bounding boxes, VQS enables more comprehensive (i.e., all object occurrences) and precise (i.e., pixel-level masks) localization, maki",
-      "url": "https://arxiv.org/abs/2603.08898",
-      "pdf_url": "https://arxiv.org/pdf/2603.08898",
-      "category": "cs.CV",
+      "title": "Lightweight 3D LiDAR-Based UAV Tracking: An Adaptive Extended Kalman Filtering Approach",
+      "authors": "Nivand Khosravi, Meysam Basiri, Rodrigo Ventura",
+      "abstract": "arXiv:2603.09783v1 Announce Type: new \nAbstract: Accurate relative positioning is crucial for swarm aerial robotics, enabling coordinated flight and collision avoidance. Although vision-based tracking has been extensively studied, 3D LiDAR-based methods remain underutilized despite their robustness under varying lighting conditions. Existing systems often rely on bulky, power-intensive sensors, making them impractical for small UAVs with strict payload and energy constraints. This paper presents",
+      "url": "https://arxiv.org/abs/2603.09783",
+      "pdf_url": "https://arxiv.org/pdf/2603.09783",
+      "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
       "relevance": "medium"
     },
     {
-      "title": "Point Cloud as a Foreign Language for Multi-modal Large Language Model",
-      "authors": "Sneha Paul, Zachary Patterson, Nizar Bouguila",
-      "abstract": "arXiv:2603.09173v1 Announce Type: new \nAbstract: Multi-modal large language models (MLLMs) have shown remarkable progress in integrating visual and linguistic understanding. Recent efforts have extended these capabilities to 3D understanding through encoder-based architectures that rely on pre-trained 3D encoders to extract geometric features. However, such approaches suffer from semantic misalignment between geometric and linguistic spaces, resolution sensitivity, and substantial computational ",
-      "url": "https://arxiv.org/abs/2603.09173",
-      "pdf_url": "https://arxiv.org/pdf/2603.09173",
-      "category": "cs.CV",
+      "title": "$M^2$-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs",
+      "authors": "Kaixin Lin, Kunyu Peng, Di Wen, Yufan Chen, Ruiping Liu, Kailun Yang",
+      "abstract": "arXiv:2603.09737v1 Announce Type: cross \nAbstract: Semantic occupancy prediction enables dense 3D geometric and semantic understanding for autonomous driving. However, existing camera-based approaches implicitly assume complete surround-view observations, an assumption that rarely holds in real-world deployment due to occlusion, hardware malfunction, or communication failures. We study semantic occupancy prediction under incomplete multi-camera inputs and introduce $M^2$-Occ, a framework designe",
+      "url": "https://arxiv.org/abs/2603.09737",
+      "pdf_url": "https://arxiv.org/pdf/2603.09737",
+      "category": "cs.RO",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Robot Control Stack: A Lean Ecosystem for Robot Learning at Scale",
+      "authors": "Tobias J\\\"ulg, Pierre Krack, Seongjin Bien, Yannik Blei, Khaled Gamal, Ken Nakahara, Johannes Hechtl, Roberto Calandra, Wolfram Burgard, Florian Walter",
+      "abstract": "arXiv:2509.14932v2 Announce Type: replace \nAbstract: Vision-Language-Action models (VLAs) mark a major shift in robot learning. They replace specialized architectures and task-tailored components of expert policies with large-scale data collection and setup-specific fine-tuning. In this machine learning-focused workflow that is centered around models and scalable training, traditional robotics software frameworks become a bottleneck, while robot simulations offer only limited support for transit",
+      "url": "https://arxiv.org/abs/2509.14932",
+      "pdf_url": "https://arxiv.org/pdf/2509.14932",
+      "category": "cs.RO",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "You Only Pose Once: A Minimalist's Detection Transformer for Monocular RGB Category-level 9D Multi-Object Pose Estimation",
+      "authors": "Hakjin Lee, Junghoon Seo, Jaehoon Sim",
+      "abstract": "arXiv:2508.14965v3 Announce Type: replace-cross \nAbstract: Accurately recovering the full 9-DoF pose of unseen instances within specific categories from a single RGB image remains a core challenge for robotics and automation. Most existing solutions still rely on pseudo-depth, CAD models, or multi-stage cascades that separate 2D detection from pose estimation. Motivated by the need for a simpler, RGB-only alternative that learns directly at the category level, we revisit a longstanding question:",
+      "url": "https://arxiv.org/abs/2508.14965",
+      "pdf_url": "https://arxiv.org/pdf/2508.14965",
+      "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
       "relevance": "medium"
     },
@@ -242,14 +217,24 @@
       "relevance": "medium"
     },
     {
-      "title": "Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels",
-      "authors": "Weitong Kong, Zichao Zeng, Di Wen, Jiale Wei, Kunyu Peng, June Moh Goo, Jan Boehm, Rainer Stiefelhagen",
-      "abstract": "arXiv:2510.09035v2 Announce Type: replace-cross \nAbstract: Accurate perception is critical for vehicle safety, with LiDAR as a key enabler in autonomous driving. To ensure robust performance across environments, sensor types, and weather conditions without costly re-annotation, domain generalization in LiDAR-based 3D semantic segmentation is essential. However, LiDAR annotations are often noisy due to sensor imperfections, occlusions, and human errors. Such noise degrades segmentation accuracy a",
-      "url": "https://arxiv.org/abs/2510.09035",
-      "pdf_url": "https://arxiv.org/pdf/2510.09035",
-      "category": "cs.LG",
+      "title": "RESBev: Making BEV Perception More Robust",
+      "authors": "Lifeng Zhuo, Kefan Jin, Zhe Liu, Hesheng Wang",
+      "abstract": "arXiv:2603.09529v1 Announce Type: new \nAbstract: Bird's-eye-view (BEV) perception has emerged as a cornerstone of autonomous driving systems, providing a structured, ego-centric representation critical for downstream planning and control. However, real-world deployment faces challenges from sensor degradation and adversarial attacks, which can cause severe perceptual anomalies and ultimately compromise the safety of autonomous driving systems. To address this, we propose a resilient and plug-and",
+      "url": "https://arxiv.org/abs/2603.09529",
+      "pdf_url": "https://arxiv.org/pdf/2603.09529",
+      "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
+      "relevance": "medium"
+    },
+    {
+      "title": "FetalAgents: A Multi-Agent System for Fetal Ultrasound Image and Video Analysis",
+      "authors": "Xiaotian Hu, Junwei Huang, Mingxuan Liu, Kasidit Anmahapong, Yifei Chen, Yitong Luo, Yiming Huang, Xuguang Bai, Zihan Li, Yi Liao, Haibo Qu, Qiyuan Tian",
+      "abstract": "arXiv:2603.09733v1 Announce Type: new \nAbstract: Fetal ultrasound (US) is the primary imaging modality for prenatal screening, yet its interpretation relies heavily on the expertise of the clinician. Despite advances in deep learning and foundation models, existing automated tools for fetal US analysis struggle to balance task-specific accuracy with the whole-process versatility required to support end-to-end clinical workflows. To address these limitations, we propose FetalAgents, the first mul",
+      "url": "https://arxiv.org/abs/2603.09733",
+      "pdf_url": "https://arxiv.org/pdf/2603.09733",
+      "category": "cs.CV",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
     },
     {
       "title": "Variational Routing: A Scalable Bayesian Framework for Calibrated Mixture-of-Experts Transformers",
@@ -300,13 +285,43 @@
       "category": "cs.LG",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
       "relevance": "medium"
+    },
+    {
+      "title": "Relative Localization System Design for SnailBot: A Modular Self-reconfigurable Robot",
+      "authors": "Shuhan Zhang, Tin Lun Lam",
+      "abstract": "arXiv:2512.21226v3 Announce Type: replace \nAbstract: This paper presents the design and implementation of a relative localization system for SnailBot, a modular self reconfigurable robot. The system integrates ArUco marker recognition, optical flow analysis, and IMU data processing into a unified fusion framework, enabling robust and accurate relative positioning for collaborative robotic tasks. Experimental validation demonstrates the effectiveness of the system in realtime operation, with a ru",
+      "url": "https://arxiv.org/abs/2512.21226",
+      "pdf_url": "https://arxiv.org/pdf/2512.21226",
+      "category": "cs.RO",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "Reactive Slip Control in Multifingered Grasping: Hybrid Tactile Sensing and Internal-Force Optimization",
+      "authors": "Th\\'eo Ayral, Saifeddine Aloui, Mathieu Grossard",
+      "abstract": "arXiv:2602.16127v2 Announce Type: replace \nAbstract: We present a hybrid learning and model-based approach for reactive internal-force adaptation to halt in-hand slip in a multifingered robotic gripper. A multimodal tactile stack combines piezoelectric (PzE) sensing for fast slip cues with piezoresistive (PzR) arrays for contact localization, enabling online construction of the grasp matrix. Upon slip detection, internal forces are updated in the null space of the grasp through a quadratic progr",
+      "url": "https://arxiv.org/abs/2602.16127",
+      "pdf_url": "https://arxiv.org/pdf/2602.16127",
+      "category": "cs.RO",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
+    },
+    {
+      "title": "A Lightweight Multi-Cancer Tumor Localization Framework for Deployable Digital Pathology",
+      "authors": "Brian Isett, Rebekah Dadey, Aofei Li, Ryan C. Augustin, Kate Smith, Aatur D. Singhi, Qiangqiang Gu, Riyue Bao",
+      "abstract": "arXiv:2603.08844v1 Announce Type: new \nAbstract: Accurate localization of tumor regions from hematoxylin and eosin-stained whole-slide images is fundamental for translational research including spatial analysis, molecular profiling, and tissue architecture investigation. However, deep learning-based tumor detection trained within specific cancers may exhibit reduced robustness when applied across different tumor types. We investigated whether balanced training across cancers at modest scale can ",
+      "url": "https://arxiv.org/abs/2603.08844",
+      "pdf_url": "https://arxiv.org/pdf/2603.08844",
+      "category": "cs.CV",
+      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
+      "relevance": "medium"
     }
   ],
   "github": [
     {
-      "name": "autowarefoundation/autoware_vision_pilot",
-      "description": "Free self-driving car stack - fully open-source ADAS and autonomous driving system",
-      "url": "https://github.com/autowarefoundation/autoware_vision_pilot",
+      "name": "PixarAnimationStudios/OpenUSD",
+      "description": "Universal Scene Description",
+      "url": "https://github.com/PixarAnimationStudios/OpenUSD",
       "stars": 0,
       "language": "C++"
     }

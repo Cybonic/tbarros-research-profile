@@ -344,6 +344,28 @@ body {
 }
 .paper-link:hover { background: var(--text); color: var(--white); border-color: var(--text); }
 
+/* Important checkbox */
+.paper-head-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 4px;
+}
+
+.star-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78em;
+    color: var(--text-light);
+    user-select: none;
+}
+
+.important-checkbox {
+    width: 14px;
+    height: 14px;
+    accent-color: #e67e22;
+}
+
 /* Filter buttons */
 .filter-row { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
 .filter-btn {
