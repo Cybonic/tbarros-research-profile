@@ -443,8 +443,9 @@ function setupCardActions() {
 function normalizePaperUrl(url) {
   try {
     let s = String(url || '').trim();
-    // Handle Slack-style wrapped links: <https://...>
+    // Handle Slack-style wrapped links: <https://...> or <https://...|label>
     if (s.startsWith('<') && s.endsWith('>')) s = s.slice(1, -1).trim();
+    if (s.includes('|')) s = s.split('|', 1)[0].trim();
     // Remove trailing punctuation accidentally copied
     s = s.replace(/[),.;]+$/, '');
     const u = new URL(s);
@@ -722,6 +723,28 @@ async function manualPaperFromUrl(url) {
     const doi = decodeURIComponent(doiMatch[1]);
     const enriched = await enrichCrossref(normalized, doi);
     if (enriched) return enriched;
+  }
+
+  // TechRxiv DOI-in-path support
+  const techDoi = normalized.match(/techrxiv\.org\/doi\/(?:full|abs|pdf)\/(10\.[^\s?#]+)/i);
+  if (techDoi) {
+    const doi = decodeURIComponent(techDoi[1]);
+    const enriched = await enrichCrossref(`https://doi.org/${doi}`, doi);
+    if (enriched) return { ...enriched, category: 'TechRxiv', source: 'Manual input (TechRxiv->Crossref)' };
+    return {
+      title: `TechRxiv DOI ${doi}`,
+      url: `https://doi.org/${doi}`,
+      pdf_url: '',
+      authors: '',
+      abstract: '',
+      category: 'TechRxiv',
+      date: '',
+      relevance: 'medium',
+      venue: 'TechRxiv',
+      source: 'Manual input (TechRxiv fallback)',
+      citations: 'Unknown',
+      institutions: []
+    };
   }
 
   // IEEE Xplore fallback (extract arnumber)
