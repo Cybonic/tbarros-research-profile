@@ -60,7 +60,7 @@ function paperCard(p) {
     const inlinePdf = (p.pdf_url || '').trim();
     const pdfBlock = inlinePdf
       ? `<div class="pdf-inline-wrap" id="pdf-${id}" style="display:none;">
-            <iframe src="${inlinePdf}#zoom=page-width&view=FitH" loading="lazy" referrerpolicy="no-referrer"></iframe>
+            <iframe src="${inlinePdf}#toolbar=0&navpanes=0&scrollbar=1&zoom=page-fit&view=FitH" loading="lazy" referrerpolicy="no-referrer"></iframe>
          </div>`
       : `<div class="pdf-inline-wrap" id="pdf-${id}" style="display:none;"><div class="empty">No PDF link available.</div></div>`;
 
