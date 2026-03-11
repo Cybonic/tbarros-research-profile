@@ -344,6 +344,21 @@ body {
 }
 .paper-link:hover { background: var(--text); color: var(--white); border-color: var(--text); }
 
+button.paper-link {
+    background: var(--white);
+    cursor: pointer;
+}
+
+.paper-preview {
+    margin-top: 8px;
+    padding: 8px 10px;
+    border: 1px dashed var(--border);
+    background: var(--light);
+    font-size: 0.84em;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
 /* Important checkbox */
 .paper-head-row {
     display: flex;

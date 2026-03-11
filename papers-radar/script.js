@@ -52,6 +52,11 @@ function paperCard(p) {
     if (p.pdf_url)    links.push(`<a class="paper-link" href="${p.pdf_url}" target="_blank">PDF →</a>`);
     if (p.github_url) links.push(`<a class="paper-link" href="${p.github_url}" target="_blank">Code →</a>`);
 
+    const preview = (p.abstract || '').slice(0, 420);
+    const previewBlock = preview
+      ? `<div class="paper-preview" id="preview-${id}" style="display:none;">${preview}${(p.abstract || '').length > 420 ? '…' : ''}</div>`
+      : `<div class="paper-preview" id="preview-${id}" style="display:none; color:#999;">No abstract preview available.</div>`;
+
     return `<div class="paper-card" data-cat="${p.category || ''}" data-id="${id}">
         <div class="paper-head-row">
             <label class="star-toggle" title="Mark as important">
@@ -61,9 +66,12 @@ function paperCard(p) {
         </div>
         <a class="paper-title" href="${p.url || '#'}" target="_blank">${p.title || 'Untitled'}</a>
         <div class="paper-meta">${p.authors ? p.authors.slice(0, 100) + (p.authors.length > 100 ? '…' : '') : ''} ${p.date ? '· ' + fmtDate(p.date) : ''}</div>
-        ${p.abstract ? `<div class="paper-abstract">${p.abstract}</div>` : ''}
         <div class="paper-tags">${catTag}${tags}</div>
-        ${links.length ? `<div class="paper-links">${links.join('')}</div>` : ''}
+        ${previewBlock}
+        <div class="paper-links">
+            <button class="paper-link preview-toggle" data-id="${id}" type="button">Preview</button>
+            ${links.join('')}
+        </div>
     </div>`;
 }
 
@@ -96,6 +104,19 @@ function setupImportantCheckboxes() {
             else STARRED.delete(id);
             saveStarred();
             renderImportantList();
+        });
+    });
+}
+
+function setupPreviewToggles() {
+    document.querySelectorAll('.preview-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            const preview = document.getElementById(`preview-${id}`);
+            if (!preview) return;
+            const isHidden = preview.style.display === 'none';
+            preview.style.display = isHidden ? 'block' : 'none';
+            btn.textContent = isHidden ? 'Hide preview' : 'Preview';
         });
     });
 }
@@ -164,6 +185,7 @@ function renderImportantList() {
     }
     el.innerHTML = important.slice(0, 20).map(paperCard).join('');
     setupImportantCheckboxes();
+    setupPreviewToggles();
 }
 
 function renderSection(id, items, cardFn, emptyMsg) {
@@ -202,6 +224,7 @@ async function loadData() {
 
         setupFilters();
         setupImportantCheckboxes();
+        setupPreviewToggles();
         renderImportantList();
         setupPriorityExport();
 
