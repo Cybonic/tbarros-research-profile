@@ -364,7 +364,8 @@ button.paper-link {
     border: 1px solid var(--border);
     background: #fff;
     height: 360px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .pdf-inline-wrap iframe {
