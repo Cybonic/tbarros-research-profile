@@ -42,34 +42,37 @@
 
         <!-- Tracked tokens -->
         <section class="section">
-            <h2>🎯 Tracked Tokens</h2>
-            <p class="section-desc">Select text in a card or click token chips to track people/institutions/keywords. Tracked tokens are used to prioritize results.</p>
-            <div class="tool-row">
-                <select id="token-category" class="filter-btn" style="padding-right:20px;">
-                    <option value="keywords">keywords</option>
-                    <option value="authors">authors</option>
-                    <option value="institutions">institutions</option>
-                </select>
-                <button id="add-selection-btn" class="filter-btn">Add selected text</button>
-                <button id="export-tracked-btn" class="filter-btn">Export tracked_tokens.json</button>
-                <button id="copy-tracked-btn" class="filter-btn" style="display:none;">Copy JSON</button>
-            </div>
-            <textarea id="tracked-json-output" class="priority-output" placeholder="tracked_tokens.json will appear here..." style="display:none;"></textarea>
+            <details id="tracked-dropdown" class="selected-dropdown">
+                <summary>🎯 Tracked Tokens</summary>
+                <p class="section-desc" style="margin-top:10px;">Select text in a card or click token chips to track people/institutions/keywords. Tracked tokens are used to prioritize results.</p>
 
-            <div class="tracked-grid">
-                <div>
-                    <h3>Authors</h3>
-                    <div id="tracked-authors" class="chip-list"></div>
+                <div class="tool-row">
+                    <select id="token-category" class="filter-btn" style="padding-right:20px;">
+                        <option value="keywords">keywords</option>
+                        <option value="authors">authors</option>
+                        <option value="institutions">institutions</option>
+                    </select>
+                    <button id="add-selection-btn" class="filter-btn">Add selected text</button>
+                    <button id="export-tracked-btn" class="filter-btn">Export tracked_tokens.json</button>
+                    <button id="copy-tracked-btn" class="filter-btn" style="display:none;">Copy JSON</button>
                 </div>
-                <div>
-                    <h3>Institutions</h3>
-                    <div id="tracked-institutions" class="chip-list"></div>
+                <textarea id="tracked-json-output" class="priority-output" placeholder="tracked_tokens.json will appear here..." style="display:none;"></textarea>
+
+                <div class="tracked-grid">
+                    <div>
+                        <h3>Authors</h3>
+                        <div id="tracked-authors" class="chip-list"></div>
+                    </div>
+                    <div>
+                        <h3>Institutions</h3>
+                        <div id="tracked-institutions" class="chip-list"></div>
+                    </div>
+                    <div>
+                        <h3>Keywords</h3>
+                        <div id="tracked-keywords" class="chip-list"></div>
+                    </div>
                 </div>
-                <div>
-                    <h3>Keywords</h3>
-                    <div id="tracked-keywords" class="chip-list"></div>
-                </div>
-            </div>
+            </details>
         </section>
 
         <!-- Top picks -->
@@ -131,6 +134,6 @@
             <p>Updated automatically every Monday at 10:00 UTC &nbsp;·&nbsp; <a href="../research-radar/">Research Radar</a> &nbsp;·&nbsp; <a href="../funding-radar/">Funding Radar</a></p>
         </footer>
     </div>
-    <script src="script.js?v=20260311-10"></script>
+    <script src="script.js?v=20260311-11"></script>
 </body>
 </html>

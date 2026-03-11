@@ -175,6 +175,10 @@ function setupFilters() {
 }
 
 function renderTrackedLists() {
+  const totalTracked = (TRACKED.authors.length + TRACKED.institutions.length + TRACKED.keywords.length);
+  const summary = document.querySelector('#tracked-dropdown summary');
+  if (summary) summary.textContent = `🎯 Tracked Tokens (${totalTracked})`;
+
   const map = [
     ['tracked-authors', 'authors'],
     ['tracked-institutions', 'institutions'],
