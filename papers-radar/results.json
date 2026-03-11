@@ -1,7 +1,22 @@
 {
-  "last_scan": "2026-03-11 10:44 UTC",
+  "last_scan": "2026-03-11 13:01 UTC",
   "priority_profile": {
     "topics": [
+      "lidar odometry",
+      "loop closure",
+      "3d place recognition",
+      "slam",
+      "spatial ai",
+      "point cloud",
+      "localization",
+      "sensor fusion"
+    ],
+    "tracked_tokens": {
+      "authors": [],
+      "institutions": [],
+      "keywords": []
+    },
+    "combined_topics": [
       "lidar odometry",
       "loop closure",
       "3d place recognition",
@@ -17,6 +32,20 @@
   },
   "arxiv": [
     {
+      "title": "LoGeR: Long-Context Geometric Reconstruction with Hybrid Memory",
+      "url": "https://arxiv.org/abs/2603.03269",
+      "pdf_url": "https://arxiv.org/pdf/2603.03269",
+      "authors": "Junyi Zhang, Charles Herrmann, Junhwa Hur, Chen Sun, Ming-Hsuan Yang, Forrester Cole, Trevor Darrell, Deqing Sun",
+      "institutions": [],
+      "abstract": "Feedforward geometric foundation models achieve strong short-window reconstruction, yet scaling them to minutes-long videos is bottlenecked by quadratic attention complexity or limited effective memory in recurrent designs. We present LoGeR (Long-context Geometric Reconstruction), a novel architecture that scales dense 3D reconstruction to extremely long sequences without post-optimization. LoGeR processes video streams in chunks, leveraging strong bidirectional priors for high-fidelity intra-chunk reasoning. To manage the critical challenge of coherence across chunk boundaries, we propose a learning-based hybrid memory module. This dual-component system combines a parametric Test-Time Training (TTT) memory to anchor the global coordinate frame and prevent scale drift, alongside a non-parametric Sliding Window Attention (SWA) mechanism to preserve uncompressed context for high-precision adjacent alignment. Remarkably, this memory architecture enables LoGeR to be trained on sequences of 128 frames, and generalize up to thousands of frames during inference. Evaluated across standard benchmarks and a newly repurposed VBR dataset with sequences of up to 19k frames, LoGeR substantially outperforms prior state-of-the-art feedforward methods--reducing ATE on KITTI by over 74%--and achieves robust, globally consistent reconstruction over unprecedented horizons.",
+      "category": "arXiv",
+      "date": "2026-03-03",
+      "relevance": "medium",
+      "venue": "arXiv",
+      "citations": "Unknown",
+      "source": "server-parser(arXiv)"
+    },
+    {
       "title": "DRIFT: Dual-Representation Inter-Fusion Transformer for Automated Driving Perception with 4D Radar Point Clouds",
       "authors": "Siqi Pei, Andras Palffy, Dariu M. Gavrila",
       "abstract": "arXiv:2603.09695v1 Announce Type: new \nAbstract: 4D radars, which provide 3D point cloud data along with Doppler velocity, are attractive components of modern automated driving systems due to their low cost and robustness under adverse weather conditions. However, they provide a significantly lower point cloud density than LiDAR sensors. This makes it important to exploit not only local but also global contextual scene information. This paper proposes DRIFT, a model that effectively captures and",
@@ -24,7 +53,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09695",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
+      "relevance": "high",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "X-GS: An Extensible Open Framework Unifying 3DGS Architectures with Downstream Multimodal Models",
@@ -34,7 +67,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09632",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
+      "relevance": "high",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM",
@@ -44,7 +81,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09673",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
+      "relevance": "high",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "VLM-Loc: Localization in Point Cloud Maps via Vision-Language Models",
@@ -54,17 +95,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09826",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
-    },
-    {
-      "title": "DRIFT: Dual-Representation Inter-Fusion Transformer for Automated Driving Perception with 4D Radar Point Clouds",
-      "authors": "Siqi Pei, Andras Palffy, Dariu M. Gavrila",
-      "abstract": "arXiv:2603.09695v1 Announce Type: cross \nAbstract: 4D radars, which provide 3D point cloud data along with Doppler velocity, are attractive components of modern automated driving systems due to their low cost and robustness under adverse weather conditions. However, they provide a significantly lower point cloud density than LiDAR sensors. This makes it important to exploit not only local but also global contextual scene information. This paper proposes DRIFT, a model that effectively captures a",
-      "url": "https://arxiv.org/abs/2603.09695",
-      "pdf_url": "https://arxiv.org/pdf/2603.09695",
-      "category": "cs.CV",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
+      "relevance": "high",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Fly, Track, Land: Infrastructure-less Magnetic Localization for Heterogeneous UAV-UGV Teaming",
@@ -74,7 +109,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.08926",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Cutting the Cord: System Architecture for Low-Cost, GPU-Accelerated Bimanual Mobile Manipulation",
@@ -84,7 +123,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09051",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Robust Cooperative Localization in Featureless Environments: A Comparative Study of DCL, StCL, CCL, CI, and Standard-CL",
@@ -94,7 +137,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09886",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels",
@@ -104,7 +151,11 @@
       "pdf_url": "https://arxiv.org/pdf/2510.09035",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
+      "relevance": "high",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "EventVGGT: Exploring Cross-Modal Distillation for Consistent Event-based Depth Estimation",
@@ -114,27 +165,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09385",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
-    },
-    {
-      "title": "Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels",
-      "authors": "Weitong Kong, Zichao Zeng, Di Wen, Jiale Wei, Kunyu Peng, June Moh Goo, Jan Boehm, Rainer Stiefelhagen",
-      "abstract": "arXiv:2510.09035v2 Announce Type: replace \nAbstract: Accurate perception is critical for vehicle safety, with LiDAR as a key enabler in autonomous driving. To ensure robust performance across environments, sensor types, and weather conditions without costly re-annotation, domain generalization in LiDAR-based 3D semantic segmentation is essential. However, LiDAR annotations are often noisy due to sensor imperfections, occlusions, and human errors. Such noise degrades segmentation accuracy and is ",
-      "url": "https://arxiv.org/abs/2510.09035",
-      "pdf_url": "https://arxiv.org/pdf/2510.09035",
-      "category": "cs.CV",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
-    },
-    {
-      "title": "Exploring Single Domain Generalization of LiDAR-based Semantic Segmentation under Imperfect Labels",
-      "authors": "Weitong Kong, Zichao Zeng, Di Wen, Jiale Wei, Kunyu Peng, June Moh Goo, Jan Boehm, Rainer Stiefelhagen",
-      "abstract": "arXiv:2510.09035v2 Announce Type: replace-cross \nAbstract: Accurate perception is critical for vehicle safety, with LiDAR as a key enabler in autonomous driving. To ensure robust performance across environments, sensor types, and weather conditions without costly re-annotation, domain generalization in LiDAR-based 3D semantic segmentation is essential. However, LiDAR annotations are often noisy due to sensor imperfections, occlusions, and human errors. Such noise degrades segmentation accuracy a",
-      "url": "https://arxiv.org/abs/2510.09035",
-      "pdf_url": "https://arxiv.org/pdf/2510.09035",
-      "category": "cs.LG",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "high"
+      "relevance": "high",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "CORAL: Scalable Multi-Task Robot Learning via LoRA Experts",
@@ -144,7 +179,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09298",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Lightweight 3D LiDAR-Based UAV Tracking: An Adaptive Extended Kalman Filtering Approach",
@@ -154,7 +193,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09783",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "$M^2$-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs",
@@ -164,7 +207,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09737",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Robot Control Stack: A Lean Ecosystem for Robot Learning at Scale",
@@ -174,7 +221,11 @@
       "pdf_url": "https://arxiv.org/pdf/2509.14932",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "You Only Pose Once: A Minimalist's Detection Transformer for Monocular RGB Category-level 9D Multi-Object Pose Estimation",
@@ -184,7 +235,11 @@
       "pdf_url": "https://arxiv.org/pdf/2508.14965",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Multi-model approach for autonomous driving: A comprehensive study on traffic sign-, vehicle- and lane detection and behavioral cloning",
@@ -194,7 +249,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09255",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Speeding Up the Learning of 3D Gaussians with Much Shorter Gaussian Lists",
@@ -204,7 +263,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09277",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "DenoiseSplat: Feed-Forward Gaussian Splatting for Noisy 3D Scene Reconstruction",
@@ -214,7 +277,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09291",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "RESBev: Making BEV Perception More Robust",
@@ -224,7 +291,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09529",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "FetalAgents: A Multi-Agent System for Fetal Ultrasound Image and Video Analysis",
@@ -234,7 +305,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09733",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Variational Routing: A Scalable Bayesian Framework for Calibrated Mixture-of-Experts Transformers",
@@ -244,7 +319,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.09453",
       "category": "cs.LG",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.LG",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Detecting Transportation Mode Using Dense Smartphone GPS Trajectories and Transformer Models",
@@ -254,17 +333,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.00340",
       "category": "cs.LG",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
-    },
-    {
-      "title": "Robot Control Stack: A Lean Ecosystem for Robot Learning at Scale",
-      "authors": "Tobias J\\\"ulg, Pierre Krack, Seongjin Bien, Yannik Blei, Khaled Gamal, Ken Nakahara, Johannes Hechtl, Roberto Calandra, Wolfram Burgard, Florian Walter",
-      "abstract": "arXiv:2509.14932v2 Announce Type: replace-cross \nAbstract: Vision-Language-Action models (VLAs) mark a major shift in robot learning. They replace specialized architectures and task-tailored components of expert policies with large-scale data collection and setup-specific fine-tuning. In this machine learning-focused workflow that is centered around models and scalable training, traditional robotics software frameworks become a bottleneck, while robot simulations offer only limited support for t",
-      "url": "https://arxiv.org/abs/2509.14932",
-      "pdf_url": "https://arxiv.org/pdf/2509.14932",
-      "category": "cs.LG",
-      "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.LG",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Bottleneck Transformer-Based Approach for Improved Automatic STOI Score Prediction",
@@ -274,7 +347,11 @@
       "pdf_url": "https://arxiv.org/pdf/2602.15484",
       "category": "cs.LG",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.LG",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Latent Equivariant Operators for Robust Object Recognition: Promises and Challenges",
@@ -284,7 +361,11 @@
       "pdf_url": "https://arxiv.org/pdf/2602.18406",
       "category": "cs.LG",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.LG",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Relative Localization System Design for SnailBot: A Modular Self-reconfigurable Robot",
@@ -294,7 +375,11 @@
       "pdf_url": "https://arxiv.org/pdf/2512.21226",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "Reactive Slip Control in Multifingered Grasping: Hybrid Tactile Sensing and Internal-Force Optimization",
@@ -304,7 +389,11 @@
       "pdf_url": "https://arxiv.org/pdf/2602.16127",
       "category": "cs.RO",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.RO",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     },
     {
       "title": "A Lightweight Multi-Cancer Tumor Localization Framework for Deployable Digital Pathology",
@@ -314,7 +403,11 @@
       "pdf_url": "https://arxiv.org/pdf/2603.08844",
       "category": "cs.CV",
       "date": "Wed, 11 Mar 2026 00:00:00 -0400",
-      "relevance": "medium"
+      "relevance": "medium",
+      "venue": "arXiv cs.CV",
+      "citations": "Unknown",
+      "institutions": [],
+      "source": "arXiv RSS"
     }
   ],
   "github": [
