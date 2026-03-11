@@ -34,7 +34,7 @@ function loadState() {
 
   try {
     const raw = JSON.parse(localStorage.getItem(MANUAL_KEY) || '[]');
-    MANUAL = Array.isArray(raw) ? raw : [];
+    MANUAL = Array.isArray(raw) ? dedupePapers(raw) : [];
   } catch {
     MANUAL = [];
   }
@@ -47,7 +47,30 @@ function saveState() {
   localStorage.setItem(MANUAL_KEY, JSON.stringify(MANUAL));
 }
 
-function paperId(p) { return p.url || p.title || Math.random().toString(36).slice(2); }
+function canonicalPaperKeyFromUrl(url) {
+  const u = String(url || '');
+  const arx = u.match(/arxiv\.org\/(?:abs|pdf)\/([^/?#]+)(?:\.pdf)?/i);
+  if (arx) return `arxiv:${arx[1]}`;
+  const hf = u.match(/huggingface\.co\/papers\/([0-9]{4}\.[0-9]{4,5}(?:v\d+)?)/i);
+  if (hf) return `arxiv:${hf[1]}`;
+  return u;
+}
+
+function paperId(p) {
+  return canonicalPaperKeyFromUrl(p?.url) || p?.title || Math.random().toString(36).slice(2);
+}
+
+function dedupePapers(items) {
+  const out = [];
+  const seen = new Set();
+  for (const p of (items || [])) {
+    const key = paperId(p);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(p);
+  }
+  return out;
+}
 
 function fmtDate(dateStr) {
   if (!dateStr) return '';
@@ -534,7 +557,8 @@ function setupManualAdd() {
       return;
     }
 
-    const exists = MANUAL.some(p => p.url === paper.url);
+    const pid = paperId(paper);
+    const exists = MANUAL.some(p => paperId(p) === pid);
     if (!exists) MANUAL.unshift(paper);
 
     STARRED.add(paperId(paper));
@@ -621,10 +645,12 @@ async function loadData() {
     const pwc = pwcRaw.filter(p => !DISMISSED.has(paperId(p))).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
     const manual = MANUAL.filter(p => !DISMISSED.has(paperId(p))).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
 
-    ALL_PAPERS = [...manual, ...arxiv, ...pwc];
+    const merged = dedupePapers([...manual, ...arxiv, ...pwc]).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
 
-    const topPicks = [...arxiv].filter(p => p.relevance === 'high').sort((a,b)=>scorePaper(b)-scorePaper(a)).slice(0, 6);
-    const arxivSorted = [...arxiv].sort((a,b)=>scorePaper(b)-scorePaper(a));
+    ALL_PAPERS = merged;
+
+    const topPicks = [...merged].filter(p => p.relevance === 'high').sort((a,b)=>scorePaper(b)-scorePaper(a)).slice(0, 6);
+    const arxivSorted = [...dedupePapers([...manual, ...arxiv])].sort((a,b)=>scorePaper(b)-scorePaper(a));
     const pwcSorted = [...pwc].sort((a,b)=>scorePaper(b)-scorePaper(a));
 
     renderSection('top-picks-list', topPicks, paperCard, 'No top picks yet.');
