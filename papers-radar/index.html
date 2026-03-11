@@ -26,6 +26,13 @@
                     <button id="export-profile-btn" class="filter-btn">Export profile</button>
                     <button id="import-profile-btn" class="filter-btn">Import profile</button>
                 </div>
+                <div class="tool-row">
+                    <input id="sync-endpoint" class="manual-url-input" type="url" placeholder="Sync API URL (e.g. https://.../papers-profile)" />
+                    <input id="sync-key" class="manual-url-input" type="text" placeholder="Sync key (optional)" />
+                    <button id="sync-connect" class="filter-btn">Enable auto-sync</button>
+                    <button id="sync-pull" class="filter-btn">Pull</button>
+                    <button id="sync-push" class="filter-btn">Push</button>
+                </div>
                 <textarea id="profile-json-output" class="priority-output" placeholder="Profile JSON (copy to another PC and import)..." style="display:none;"></textarea>
                 <div id="selected-list" class="selected-list">
                     <div class="empty">No selected papers yet.</div>
@@ -141,6 +148,6 @@
             <p>Updated automatically every Monday at 10:00 UTC &nbsp;·&nbsp; <a href="../research-radar/">Research Radar</a> &nbsp;·&nbsp; <a href="../funding-radar/">Funding Radar</a></p>
         </footer>
     </div>
-    <script src="script.js?v=20260311-27"></script>
+    <script src="script.js?v=20260311-28"></script>
 </body>
 </html>

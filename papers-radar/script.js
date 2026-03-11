@@ -9,12 +9,17 @@ const STAR_KEY = 'papers_radar_starred_v1';
 const DISMISS_KEY = 'papers_radar_dismissed_v1';
 const TRACKED_KEY = 'papers_radar_tracked_tokens_v1';
 const MANUAL_KEY = 'papers_radar_manual_links_v1';
+const SYNC_URL_KEY = 'papers_radar_sync_url_v1';
+const SYNC_AUTH_KEY = 'papers_radar_sync_auth_v1';
 
 let STARRED = new Set();
 let DISMISSED = new Set();
 let TRACKED = { authors: [], institutions: [], keywords: [] };
 let MANUAL = [];
 let ALL_PAPERS = [];
+let SYNC = { url: '', key: '' };
+let syncTimer = null;
+let didAutoPull = false;
 
 function uniq(arr) { return [...new Set((arr || []).map(x => String(x).trim()).filter(Boolean))]; }
 
@@ -55,6 +60,9 @@ function loadState() {
   } catch {
     MANUAL = [];
   }
+
+  SYNC.url = localStorage.getItem(SYNC_URL_KEY) || '';
+  SYNC.key = localStorage.getItem(SYNC_AUTH_KEY) || '';
 }
 
 function saveState() {
@@ -62,6 +70,9 @@ function saveState() {
   localStorage.setItem(DISMISS_KEY, JSON.stringify([...DISMISSED]));
   localStorage.setItem(TRACKED_KEY, JSON.stringify(TRACKED));
   localStorage.setItem(MANUAL_KEY, JSON.stringify(MANUAL));
+  localStorage.setItem(SYNC_URL_KEY, SYNC.url || '');
+  localStorage.setItem(SYNC_AUTH_KEY, SYNC.key || '');
+  scheduleSyncPush();
 }
 
 function canonicalPaperKeyFromUrl(url) {
@@ -75,6 +86,60 @@ function canonicalPaperKeyFromUrl(url) {
 
 function paperId(p) {
   return canonicalPaperKeyFromUrl(p?.url) || p?.title || Math.random().toString(36).slice(2);
+}
+
+function profilePayload() {
+  return {
+    version: 1,
+    updated_at: new Date().toISOString(),
+    starred: [...STARRED],
+    dismissed: [...DISMISSED],
+    tracked: TRACKED,
+    manual: MANUAL,
+  };
+}
+
+function applyProfile(payload) {
+  STARRED = new Set(payload?.starred || []);
+  DISMISSED = new Set(payload?.dismissed || []);
+  TRACKED = {
+    authors: uniq(payload?.tracked?.authors || []),
+    institutions: uniq(payload?.tracked?.institutions || []),
+    keywords: uniq(payload?.tracked?.keywords || []),
+  };
+  MANUAL = Array.isArray(payload?.manual) ? dedupePapers(payload.manual) : [];
+}
+
+async function remotePull() {
+  if (!SYNC.url) return false;
+  const headers = {};
+  if (SYNC.key) headers['X-Profile-Key'] = SYNC.key;
+  const r = await fetch(SYNC.url, { headers });
+  if (!r.ok) throw new Error(`pull failed (${r.status})`);
+  const d = await r.json();
+  const p = d.profile || d;
+  applyProfile(p);
+  saveState();
+  return true;
+}
+
+async function remotePush() {
+  if (!SYNC.url) return false;
+  const headers = { 'Content-Type': 'application/json' };
+  if (SYNC.key) headers['X-Profile-Key'] = SYNC.key;
+  const r = await fetch(SYNC.url, {
+    method: 'PUT',
+    headers,
+    body: JSON.stringify({ profile: profilePayload() })
+  });
+  if (!r.ok) throw new Error(`push failed (${r.status})`);
+  return true;
+}
+
+function scheduleSyncPush() {
+  if (!SYNC.url) return;
+  clearTimeout(syncTimer);
+  syncTimer = setTimeout(() => { remotePush().catch(() => {}); }, 500);
 }
 
 function metadataScore(p) {
@@ -846,17 +911,19 @@ function setupProfileSync() {
   const exportBtn = document.getElementById('export-profile-btn');
   const importBtn = document.getElementById('import-profile-btn');
   const box = document.getElementById('profile-json-output');
+  const syncUrl = document.getElementById('sync-endpoint');
+  const syncKey = document.getElementById('sync-key');
+  const connectBtn = document.getElementById('sync-connect');
+  const pullBtn = document.getElementById('sync-pull');
+  const pushBtn = document.getElementById('sync-push');
+
   if (!exportBtn || !importBtn || !box) return;
 
+  if (syncUrl) syncUrl.value = SYNC.url || '';
+  if (syncKey) syncKey.value = SYNC.key || '';
+
   exportBtn.onclick = async () => {
-    const payload = {
-      version: 1,
-      exported_at: new Date().toISOString(),
-      starred: [...STARRED],
-      dismissed: [...DISMISSED],
-      tracked: TRACKED,
-      manual: MANUAL
-    };
+    const payload = profilePayload();
     box.style.display = '';
     box.value = JSON.stringify(payload, null, 2);
     try { await navigator.clipboard.writeText(box.value); exportBtn.textContent = 'Copied ✓'; }
@@ -869,14 +936,7 @@ function setupProfileSync() {
     if (!txt) return;
     try {
       const p = JSON.parse(txt);
-      STARRED = new Set(p.starred || []);
-      DISMISSED = new Set(p.dismissed || []);
-      TRACKED = {
-        authors: uniq(p?.tracked?.authors || []),
-        institutions: uniq(p?.tracked?.institutions || []),
-        keywords: uniq(p?.tracked?.keywords || []),
-      };
-      MANUAL = Array.isArray(p.manual) ? dedupePapers(p.manual) : [];
+      applyProfile(p);
       saveState();
       await loadData();
       importBtn.textContent = 'Imported ✓';
@@ -885,11 +945,56 @@ function setupProfileSync() {
     }
     setTimeout(() => (importBtn.textContent = 'Import profile'), 1200);
   };
+
+  if (connectBtn && syncUrl && syncKey) {
+    connectBtn.onclick = async () => {
+      SYNC.url = (syncUrl.value || '').trim();
+      SYNC.key = (syncKey.value || '').trim();
+      saveState();
+      try {
+        await remotePull();
+        await loadData();
+        connectBtn.textContent = 'Sync on ✓';
+      } catch {
+        connectBtn.textContent = 'Sync error';
+      }
+      setTimeout(() => (connectBtn.textContent = 'Enable auto-sync'), 1500);
+    };
+  }
+
+  if (pullBtn) {
+    pullBtn.onclick = async () => {
+      try {
+        await remotePull();
+        await loadData();
+        pullBtn.textContent = 'Pulled ✓';
+      } catch {
+        pullBtn.textContent = 'Pull failed';
+      }
+      setTimeout(() => (pullBtn.textContent = 'Pull'), 1200);
+    };
+  }
+
+  if (pushBtn) {
+    pushBtn.onclick = async () => {
+      try {
+        await remotePush();
+        pushBtn.textContent = 'Pushed ✓';
+      } catch {
+        pushBtn.textContent = 'Push failed';
+      }
+      setTimeout(() => (pushBtn.textContent = 'Push'), 1200);
+    };
+  }
 }
 
 async function loadData() {
   loadState();
   try {
+    if (SYNC.url && !didAutoPull) {
+      didAutoPull = true;
+      try { await remotePull(); } catch {}
+    }
     const res = await fetch(`results.json?v=${Date.now()}`);
     if (!res.ok) throw new Error('No data');
     const data = await res.json();
