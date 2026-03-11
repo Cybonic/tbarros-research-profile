@@ -57,6 +57,13 @@ function paperCard(p) {
       ? `<div class="paper-preview" id="preview-${id}" style="display:none;">${preview}${(p.abstract || '').length > 420 ? '…' : ''}</div>`
       : `<div class="paper-preview" id="preview-${id}" style="display:none; color:#999;">No abstract preview available.</div>`;
 
+    const inlinePdf = (p.pdf_url || '').trim();
+    const pdfBlock = inlinePdf
+      ? `<div class="pdf-inline-wrap" id="pdf-${id}" style="display:none;">
+            <iframe src="${inlinePdf}#view=FitH" loading="lazy" referrerpolicy="no-referrer"></iframe>
+         </div>`
+      : `<div class="pdf-inline-wrap" id="pdf-${id}" style="display:none;"><div class="empty">No PDF link available.</div></div>`;
+
     return `<div class="paper-card" data-cat="${p.category || ''}" data-id="${id}">
         <div class="paper-head-row">
             <label class="star-toggle" title="Mark as important">
@@ -68,8 +75,10 @@ function paperCard(p) {
         <div class="paper-meta">${p.authors ? p.authors.slice(0, 100) + (p.authors.length > 100 ? '…' : '') : ''} ${p.date ? '· ' + fmtDate(p.date) : ''}</div>
         <div class="paper-tags">${catTag}${tags}</div>
         ${previewBlock}
+        ${pdfBlock}
         <div class="paper-links">
             <button class="paper-link preview-toggle" data-id="${id}" type="button">Preview</button>
+            <button class="paper-link pdf-toggle" data-id="${id}" type="button">PDF inline</button>
             ${links.join('')}
         </div>
     </div>`;
@@ -117,6 +126,17 @@ function setupPreviewToggles() {
             const isHidden = preview.style.display === 'none';
             preview.style.display = isHidden ? 'block' : 'none';
             btn.textContent = isHidden ? 'Hide preview' : 'Preview';
+        });
+    });
+
+    document.querySelectorAll('.pdf-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            const panel = document.getElementById(`pdf-${id}`);
+            if (!panel) return;
+            const isHidden = panel.style.display === 'none';
+            panel.style.display = isHidden ? 'block' : 'none';
+            btn.textContent = isHidden ? 'Hide PDF' : 'PDF inline';
         });
     });
 }
