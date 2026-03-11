@@ -454,6 +454,64 @@ async function enrichSemanticScholarArxiv(id) {
   }
 }
 
+async function searchArxivByTitle(title) {
+  try {
+    const q = String(title || '').trim();
+    if (!q || q.length < 12) return null;
+
+    const query = encodeURIComponent(`ti:\"${q.slice(0, 180)}\"`);
+    const xml = await fetchTextSmart(`https://export.arxiv.org/api/query?search_query=${query}&start=0&max_results=3`);
+
+    const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/gi)].map(m => m[1]);
+    if (!entries.length) return null;
+
+    const pick = (block, tag) => {
+      const m = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
+      return m ? m[1].replace(/\s+/g, ' ').trim() : '';
+    };
+
+    // pick best by token overlap with title
+    const tokens = new Set(q.toLowerCase().split(/[^a-z0-9]+/).filter(t => t.length > 2));
+    let best = null, bestScore = -1;
+    for (const e of entries) {
+      const t = pick(e, 'title').toLowerCase();
+      const et = new Set(t.split(/[^a-z0-9]+/).filter(x => x.length > 2));
+      let hit = 0;
+      tokens.forEach(tok => { if (et.has(tok)) hit++; });
+      const score = tokens.size ? hit / tokens.size : 0;
+      if (score > bestScore) { bestScore = score; best = e; }
+    }
+
+    if (!best || bestScore < 0.35) return null;
+
+    const idMatch = best.match(/<id>https?:\/\/arxiv\.org\/abs\/([^<]+)<\/id>/i);
+    const id = idMatch ? idMatch[1].trim() : '';
+    if (!id) return null;
+
+    const titleOut = pick(best, 'title');
+    const summary = pick(best, 'summary');
+    const published = pick(best, 'published');
+    const authors = [...best.matchAll(/<name>([\s\S]*?)<\/name>/gi)].map(m => m[1].trim()).join(', ');
+
+    return {
+      title: titleOut || q,
+      url: `https://arxiv.org/abs/${id}`,
+      pdf_url: `https://arxiv.org/pdf/${id}`,
+      authors,
+      institutions: [],
+      abstract: summary,
+      category: 'arXiv',
+      date: published ? published.slice(0, 10) : '',
+      relevance: 'medium',
+      venue: 'arXiv',
+      source: 'Manual input (title->arXiv match)',
+      citations: 'Unknown'
+    };
+  } catch {
+    return null;
+  }
+}
+
 async function enrichCrossref(normalized, doi) {
   try {
     const data = await fetchJsonSmart(`https://api.crossref.org/works/${encodeURIComponent(doi)}`);
@@ -606,6 +664,21 @@ async function manualPaperFromUrl(url) {
     || normalized.match(/[?&]arnumber=(\d+)/i);
   if (ieee) {
     const ar = ieee[1];
+
+    // Try generic enrichment first to capture page title/description when accessible
+    const g = await enrichFromGenericPage(normalized);
+    if (g && g.title && !String(g.title).includes('ieeexplore.ieee.org')) {
+      const byTitle = await searchArxivByTitle(g.title);
+      if (byTitle) return { ...byTitle, source: 'Manual input (IEEE title->arXiv)' };
+      return {
+        ...g,
+        url: `https://ieeexplore.ieee.org/document/${ar}`,
+        pdf_url: g.pdf_url || `https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=${ar}`,
+        venue: 'IEEE Xplore',
+        source: 'Manual input (IEEE generic enriched)'
+      };
+    }
+
     return {
       title: `IEEE Xplore paper #${ar}`,
       url: `https://ieeexplore.ieee.org/document/${ar}`,
@@ -624,7 +697,13 @@ async function manualPaperFromUrl(url) {
 
   // Generic page enrichment (title/desc + arXiv link sniffing)
   const generic = await enrichFromGenericPage(normalized);
-  if (generic) return generic;
+  if (generic) {
+    if (!generic.pdf_url || !generic.authors || !generic.abstract) {
+      const byTitle = await searchArxivByTitle(generic.title || '');
+      if (byTitle) return byTitle;
+    }
+    return generic;
+  }
 
   // Final fallback
   return {
