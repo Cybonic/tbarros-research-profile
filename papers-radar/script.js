@@ -443,11 +443,18 @@ function setupCardActions() {
 function normalizePaperUrl(url) {
   try {
     let s = String(url || '').trim();
+
+    // If full sentence was pasted, extract first URL-like token
+    const m = s.match(/https?:\/\/[^\s>]+/i);
+    if (m) s = m[0];
+
     // Handle Slack-style wrapped links: <https://...> or <https://...|label>
     if (s.startsWith('<') && s.endsWith('>')) s = s.slice(1, -1).trim();
     if (s.includes('|')) s = s.split('|', 1)[0].trim();
+
     // Remove trailing punctuation accidentally copied
     s = s.replace(/[),.;]+$/, '');
+
     const u = new URL(s);
     return u.toString();
   } catch {
