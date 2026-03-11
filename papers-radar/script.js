@@ -395,9 +395,79 @@ async function enrichCrossref(normalized, doi) {
   }
 }
 
+async function enrichFromGenericPage(normalized) {
+  try {
+    const r = await fetch(normalized);
+    if (!r.ok) return null;
+    const html = await r.text();
+
+    const pick = (re) => {
+      const m = html.match(re);
+      return m ? m[1].replace(/\s+/g, ' ').trim() : '';
+    };
+
+    const title = pick(/<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["']/i) ||
+                  pick(/<title>([\s\S]*?)<\/title>/i) ||
+                  normalized;
+
+    const description = pick(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']+)["']/i) ||
+                        pick(/<meta[^>]*property=["']og:description["'][^>]*content=["']([^"']+)["']/i) ||
+                        '';
+
+    // Try find arXiv link inside page
+    const arxivLink = pick(/https?:\/\/arxiv\.org\/abs\/([0-9]{4}\.[0-9]{4,5}(?:v\d+)?)/i);
+    if (arxivLink) {
+      const id = arxivLink;
+      const canonical = `https://arxiv.org/abs/${id}`;
+      const enriched = await enrichArxiv(canonical, id);
+      if (enriched) return enriched;
+      return {
+        title,
+        url: canonical,
+        pdf_url: `https://arxiv.org/pdf/${id}`,
+        authors: '',
+        abstract: description,
+        category: 'arXiv',
+        date: '',
+        relevance: 'medium',
+        venue: 'arXiv',
+        source: 'Manual input (generic->arXiv)',
+        citations: 'Unknown',
+        institutions: []
+      };
+    }
+
+    return {
+      title,
+      url: normalized,
+      pdf_url: '',
+      authors: '',
+      abstract: description,
+      category: 'manual',
+      date: '',
+      relevance: 'medium',
+      venue: 'Manual link',
+      source: 'Manual input (generic enriched)',
+      citations: 'Unknown',
+      institutions: []
+    };
+  } catch {
+    return null;
+  }
+}
+
 async function manualPaperFromUrl(url) {
   const normalized = normalizePaperUrl(url);
   if (!normalized) return null;
+
+  // HuggingFace papers link with arXiv id in path
+  const hfArxiv = normalized.match(/huggingface\.co\/papers\/([0-9]{4}\.[0-9]{4,5}(?:v\d+)?)/i);
+  if (hfArxiv) {
+    const id = hfArxiv[1];
+    const canonical = `https://arxiv.org/abs/${id}`;
+    const enriched = await enrichArxiv(canonical, id);
+    if (enriched) return { ...enriched, source: 'Manual input (HF->arXiv)' };
+  }
 
   // arXiv URL support (abs/pdf)
   const arxivAbs = normalized.match(/arxiv\.org\/(abs|pdf)\/([^?#/]+)(?:\.pdf)?/i);
@@ -423,7 +493,11 @@ async function manualPaperFromUrl(url) {
     if (enriched) return enriched;
   }
 
-  // Generic fallback
+  // Generic page enrichment (title/desc + arXiv link sniffing)
+  const generic = await enrichFromGenericPage(normalized);
+  if (generic) return generic;
+
+  // Final fallback
   return {
     title: normalized,
     url: normalized,
