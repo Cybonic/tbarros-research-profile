@@ -60,16 +60,33 @@ function paperId(p) {
   return canonicalPaperKeyFromUrl(p?.url) || p?.title || Math.random().toString(36).slice(2);
 }
 
+function metadataScore(p) {
+  let s = 0;
+  if (p?.title && !String(p.title).startsWith('http')) s += 2;
+  if (p?.authors) s += 2;
+  if (p?.abstract) s += 2;
+  if (p?.pdf_url) s += 1;
+  if (p?.venue && p.venue !== 'Manual link') s += 1;
+  if (p?.date) s += 1;
+  if (p?.citations && p.citations !== 'Unknown') s += 1;
+  return s;
+}
+
 function dedupePapers(items) {
-  const out = [];
-  const seen = new Set();
+  const map = new Map();
+  const order = [];
   for (const p of (items || [])) {
     const key = paperId(p);
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
-    out.push(p);
+    if (!key) continue;
+    if (!map.has(key)) {
+      map.set(key, p);
+      order.push(key);
+    } else {
+      const cur = map.get(key);
+      if (metadataScore(p) > metadataScore(cur)) map.set(key, p);
+    }
   }
-  return out;
+  return order.map(k => map.get(k));
 }
 
 function fmtDate(dateStr) {
@@ -490,6 +507,20 @@ async function manualPaperFromUrl(url) {
     const canonical = `https://arxiv.org/abs/${id}`;
     const enriched = await enrichArxiv(canonical, id);
     if (enriched) return { ...enriched, source: 'Manual input (HF->arXiv)' };
+    return {
+      title: `arXiv ${id}`,
+      url: canonical,
+      pdf_url: `https://arxiv.org/pdf/${id}`,
+      authors: '',
+      abstract: '',
+      category: 'arXiv',
+      date: '',
+      relevance: 'medium',
+      venue: 'arXiv',
+      source: 'Manual input (HF fallback)',
+      citations: 'Unknown',
+      institutions: []
+    };
   }
 
   // arXiv URL support (abs/pdf)
@@ -645,12 +676,12 @@ async function loadData() {
     const pwc = pwcRaw.filter(p => !DISMISSED.has(paperId(p))).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
     const manual = MANUAL.filter(p => !DISMISSED.has(paperId(p))).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
 
-    const merged = dedupePapers([...manual, ...arxiv, ...pwc]).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
+    const merged = dedupePapers([...arxiv, ...manual, ...pwc]).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
 
     ALL_PAPERS = merged;
 
     const topPicks = [...merged].filter(p => p.relevance === 'high').sort((a,b)=>scorePaper(b)-scorePaper(a)).slice(0, 6);
-    const arxivSorted = [...dedupePapers([...manual, ...arxiv])].sort((a,b)=>scorePaper(b)-scorePaper(a));
+    const arxivSorted = [...dedupePapers([...arxiv, ...manual])].sort((a,b)=>scorePaper(b)-scorePaper(a));
     const pwcSorted = [...pwc].sort((a,b)=>scorePaper(b)-scorePaper(a));
 
     renderSection('top-picks-list', topPicks, paperCard, 'No top picks yet.');
