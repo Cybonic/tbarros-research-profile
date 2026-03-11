@@ -684,8 +684,13 @@ function setupManualAdd() {
       }
 
       const pid = paperId(paper);
-      const exists = MANUAL.some(p => paperId(p) === pid);
-      if (!exists) MANUAL.unshift(paper);
+      const idx = MANUAL.findIndex(p => paperId(p) === pid);
+      if (idx >= 0) {
+        // Upsert: replace stale/partial entry with latest parsed metadata
+        MANUAL[idx] = paper;
+      } else {
+        MANUAL.unshift(paper);
+      }
 
       // If this paper was removed before, bringing it back should un-dismiss it
       DISMISSED.delete(pid);
