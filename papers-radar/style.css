@@ -359,6 +359,21 @@ button.paper-link {
     border-color: #a94442;
 }
 
+.meta-toggle {
+    color: #2c3e50;
+}
+
+.paper-metadata {
+    margin-top: 8px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    background: #fafafa;
+    font-size: 0.82em;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+.paper-metadata div { margin-bottom: 2px; }
+
 .paper-preview {
     margin-top: 8px;
     padding: 8px 10px;

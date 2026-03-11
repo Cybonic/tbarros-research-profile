@@ -68,6 +68,21 @@ function paperCard(p) {
     if (p.pdf_url)    links.push(`<a class="paper-link" href="${p.pdf_url}" target="_blank">PDF →</a>`);
     if (p.github_url) links.push(`<a class="paper-link" href="${p.github_url}" target="_blank">Code →</a>`);
 
+    const venue = p.venue || (p.category ? `arXiv ${p.category}` : 'Unknown');
+    const institutions = Array.isArray(p.institutions) ? p.institutions.join(', ') : (p.institutions || 'Unknown');
+    const citations = (p.citations ?? 'Unknown');
+    const source = p.source || 'arXiv/Papers Radar';
+    const metaBox = `<div class="paper-metadata" id="meta-${id}" style="display:none;">
+        <div><strong>Authors:</strong> ${p.authors || 'Unknown'}</div>
+        <div><strong>Institutions:</strong> ${institutions}</div>
+        <div><strong>Citations:</strong> ${citations}</div>
+        <div><strong>Venue:</strong> ${venue}</div>
+        <div><strong>Category:</strong> ${p.category || 'Unknown'}</div>
+        <div><strong>Published:</strong> ${p.date ? fmtDate(p.date) : 'Unknown'}</div>
+        <div><strong>Relevance:</strong> ${(p.relevance || 'n/a')}</div>
+        <div><strong>Source:</strong> ${source}</div>
+    </div>`;
+
     const preview = (p.abstract || '').slice(0, 420);
     const previewBlock = preview
       ? `<div class="paper-preview" id="preview-${id}" style="display:none;">${preview}${(p.abstract || '').length > 420 ? '…' : ''}</div>`
@@ -94,9 +109,11 @@ function paperCard(p) {
         <div class="paper-links">
             <button class="paper-link preview-toggle" data-id="${id}" type="button">Preview</button>
             <button class="paper-link pdf-toggle" data-id="${id}" type="button">PDF inline</button>
+            <button class="paper-link meta-toggle" data-id="${id}" type="button">Metadata</button>
             <button class="paper-link remove-toggle" data-id="${id}" type="button">Remove</button>
             ${links.join('')}
         </div>
+        ${metaBox}
         ${pdfBlock}
     </div>`;
 }
@@ -154,6 +171,17 @@ function setupPreviewToggles() {
             const isHidden = panel.style.display === 'none';
             panel.style.display = isHidden ? 'block' : 'none';
             btn.textContent = isHidden ? 'Hide PDF' : 'PDF inline';
+        });
+    });
+
+    document.querySelectorAll('.meta-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            const panel = document.getElementById(`meta-${id}`);
+            if (!panel) return;
+            const isHidden = panel.style.display === 'none';
+            panel.style.display = isHidden ? 'block' : 'none';
+            btn.textContent = isHidden ? 'Hide metadata' : 'Metadata';
         });
     });
 
