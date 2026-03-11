@@ -257,58 +257,64 @@ function setupTokenActions() {
   }
 }
 
+let HANDLERS_READY = false;
 function setupCardActions() {
-  document.querySelectorAll('.important-checkbox').forEach(cb => {
-    cb.addEventListener('change', () => {
-      const id = cb.dataset.id;
-      if (cb.checked) STARRED.add(id); else STARRED.delete(id);
-      saveState();
-      loadData();
-    });
+  if (HANDLERS_READY) return;
+  HANDLERS_READY = true;
+
+  document.addEventListener('change', (e) => {
+    const cb = e.target.closest('.important-checkbox');
+    if (!cb) return;
+    const id = cb.dataset.id;
+    if (cb.checked) STARRED.add(id); else STARRED.delete(id);
+    saveState();
+    loadData();
   });
 
-  document.querySelectorAll('.preview-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.paper-card');
+  document.addEventListener('click', (e) => {
+    const previewBtn = e.target.closest('.preview-toggle');
+    if (previewBtn) {
+      const card = previewBtn.closest('.paper-card');
       const panel = card?.querySelector('.paper-preview');
       if (!panel) return;
       const show = panel.style.display === 'none';
       panel.style.display = show ? 'block' : 'none';
-      btn.textContent = show ? 'Hide preview' : 'Preview';
-    });
-  });
+      previewBtn.textContent = show ? 'Hide preview' : 'Preview';
+      return;
+    }
 
-  document.querySelectorAll('.pdf-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.paper-card');
+    const pdfBtn = e.target.closest('.pdf-toggle');
+    if (pdfBtn) {
+      const card = pdfBtn.closest('.paper-card');
       const panel = card?.querySelector('.pdf-inline-wrap');
       if (!panel) return;
       const show = panel.style.display === 'none';
       panel.style.display = show ? 'block' : 'none';
-      btn.textContent = show ? 'Hide PDF' : 'PDF inline';
-    });
-  });
+      pdfBtn.textContent = show ? 'Hide PDF' : 'PDF inline';
+      return;
+    }
 
-  document.querySelectorAll('.meta-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.paper-card');
+    const metaBtn = e.target.closest('.meta-toggle');
+    if (metaBtn) {
+      const card = metaBtn.closest('.paper-card');
       const panel = card?.querySelector('.paper-metadata');
       if (!panel) return;
       const show = panel.style.display === 'none';
       panel.style.display = show ? 'block' : 'none';
-      btn.textContent = show ? 'Hide metadata' : 'Metadata';
-    });
-  });
+      metaBtn.textContent = show ? 'Hide metadata' : 'Metadata';
+      return;
+    }
 
-  document.querySelectorAll('.remove-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.dataset.id;
+    const removeBtn = e.target.closest('.remove-toggle');
+    if (removeBtn) {
+      const id = removeBtn.dataset.id;
       DISMISSED.add(id);
       STARRED.delete(id);
       MANUAL = MANUAL.filter(p => paperId(p) !== id);
       saveState();
       loadData();
-    });
+      return;
+    }
   });
 }
 
