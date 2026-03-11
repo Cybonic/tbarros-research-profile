@@ -349,6 +349,16 @@ button.paper-link {
     cursor: pointer;
 }
 
+.remove-toggle {
+    color: #a94442;
+    border-color: #e7c3c2;
+}
+.remove-toggle:hover {
+    background: #a94442;
+    color: #fff;
+    border-color: #a94442;
+}
+
 .paper-preview {
     margin-top: 8px;
     padding: 8px 10px;

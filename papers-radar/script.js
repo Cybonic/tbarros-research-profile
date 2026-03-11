@@ -6,7 +6,9 @@ const KEYWORDS = ['lidar','slam','3d mapping','spatial ai','place recognition','
     'occupancy','bird\'s eye view','bev','depth estimation'];
 
 const STAR_KEY = 'papers_radar_starred_v1';
+const DISMISS_KEY = 'papers_radar_dismissed_v1';
 let STARRED = new Set();
+let DISMISSED = new Set();
 let ALL_PAPERS = [];
 
 function loadStarred() {
@@ -21,6 +23,20 @@ function loadStarred() {
 
 function saveStarred() {
     localStorage.setItem(STAR_KEY, JSON.stringify([...STARRED]));
+}
+
+function loadDismissed() {
+    try {
+        const raw = localStorage.getItem(DISMISS_KEY);
+        const arr = raw ? JSON.parse(raw) : [];
+        DISMISSED = new Set(arr);
+    } catch {
+        DISMISSED = new Set();
+    }
+}
+
+function saveDismissed() {
+    localStorage.setItem(DISMISS_KEY, JSON.stringify([...DISMISSED]));
 }
 
 function paperId(p) {
@@ -78,6 +94,7 @@ function paperCard(p) {
         <div class="paper-links">
             <button class="paper-link preview-toggle" data-id="${id}" type="button">Preview</button>
             <button class="paper-link pdf-toggle" data-id="${id}" type="button">PDF inline</button>
+            <button class="paper-link remove-toggle" data-id="${id}" type="button">Remove</button>
             ${links.join('')}
         </div>
         ${pdfBlock}
@@ -139,6 +156,17 @@ function setupPreviewToggles() {
             btn.textContent = isHidden ? 'Hide PDF' : 'PDF inline';
         });
     });
+
+    document.querySelectorAll('.remove-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            DISMISSED.add(id);
+            STARRED.delete(id);
+            saveDismissed();
+            saveStarred();
+            loadData();
+        });
+    });
 }
 
 function extractTopicSuggestions(papers) {
@@ -169,7 +197,7 @@ function setupPriorityExport() {
     if (!exportBtn || !copyBtn || !output) return;
 
     exportBtn.addEventListener('click', () => {
-        const important = ALL_PAPERS.filter(p => STARRED.has(paperId(p)));
+        const important = ALL_PAPERS.filter(p => STARRED.has(paperId(p)) && !DISMISSED.has(paperId(p)));
         if (!important.length) {
             output.style.display = '';
             output.value = '// No important papers selected yet. Check a few papers first.';
@@ -198,7 +226,7 @@ function setupPriorityExport() {
 function renderImportantList() {
     const el = document.getElementById('important-list');
     if (!el) return;
-    const important = ALL_PAPERS.filter(p => STARRED.has(paperId(p)));
+    const important = ALL_PAPERS.filter(p => STARRED.has(paperId(p)) && !DISMISSED.has(paperId(p)));
     if (!important.length) {
         el.innerHTML = '<div class="empty">No papers starred yet.</div>';
         return;
@@ -220,6 +248,7 @@ function renderSection(id, items, cardFn, emptyMsg) {
 
 async function loadData() {
     loadStarred();
+    loadDismissed();
     try {
         const res = await fetch(`results.json?v=${Date.now()}`);
         if (!res.ok) throw new Error('No data');
@@ -229,9 +258,12 @@ async function loadData() {
             document.getElementById('timestamp').textContent = `Last scan: ${data.last_scan}`;
         }
 
-        const arxiv = data.arxiv || [];
+        const arxivRaw = data.arxiv || [];
         const github = data.github || [];
-        const pwc = data.pwc || [];
+        const pwcRaw = data.pwc || [];
+
+        const arxiv = arxivRaw.filter(p => !DISMISSED.has(paperId(p)));
+        const pwc = pwcRaw.filter(p => !DISMISSED.has(paperId(p)));
 
         ALL_PAPERS = [...arxiv, ...pwc];
 
