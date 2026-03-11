@@ -327,29 +327,116 @@ function normalizePaperUrl(url) {
   }
 }
 
-function manualPaperFromUrl(url) {
+async function enrichArxiv(normalized, id) {
+  try {
+    const r = await fetch(`https://export.arxiv.org/api/query?id_list=${encodeURIComponent(id)}`);
+    if (!r.ok) return null;
+    const xml = await r.text();
+
+    const get = (tag) => {
+      const m = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
+      return m ? m[1].replace(/\s+/g, ' ').trim() : '';
+    };
+
+    const title = get('title').replace(/^arXiv:\d+\.\d+\s*/i, '').trim() || `arXiv ${id}`;
+    const summary = get('summary');
+    const published = get('published');
+
+    const authorMatches = [...xml.matchAll(/<name>([\s\S]*?)<\/name>/gi)].map(m => m[1].trim());
+    const authors = uniq(authorMatches).join(', ');
+
+    return {
+      title,
+      url: normalized,
+      pdf_url: `https://arxiv.org/pdf/${id}`,
+      authors,
+      abstract: summary,
+      category: 'arXiv',
+      date: published ? published.slice(0, 10) : '',
+      relevance: 'medium',
+      venue: 'arXiv',
+      source: 'Manual input (arXiv)',
+      citations: 'Unknown',
+      institutions: []
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function enrichCrossref(normalized, doi) {
+  try {
+    const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`);
+    if (!r.ok) return null;
+    const data = await r.json();
+    const m = data?.message || {};
+    const title = (m.title && m.title[0]) || normalized;
+    const authors = (m.author || []).map(a => [a.given, a.family].filter(Boolean).join(' ').trim()).filter(Boolean).join(', ');
+    const venue = (m['container-title'] && m['container-title'][0]) || 'Unknown venue';
+    const year = m?.issued?.['date-parts']?.[0]?.[0];
+    const abstract = (m.abstract || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g,' ').trim();
+
+    return {
+      title,
+      url: normalized,
+      pdf_url: '',
+      authors,
+      abstract,
+      category: 'DOI',
+      date: year ? String(year) : '',
+      relevance: 'medium',
+      venue,
+      source: 'Manual input (Crossref DOI)',
+      citations: m['is-referenced-by-count'] ?? 'Unknown',
+      institutions: []
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function manualPaperFromUrl(url) {
   const normalized = normalizePaperUrl(url);
   if (!normalized) return null;
 
-  let title = normalized;
-  let pdf = '';
-  if (normalized.includes('arxiv.org/abs/')) {
-    const id = normalized.split('/abs/')[1]?.split(/[?#]/)[0] || '';
-    title = `Manual arXiv paper: ${id}`;
-    pdf = `https://arxiv.org/pdf/${id}`;
+  // arXiv URL support (abs/pdf)
+  const arxivAbs = normalized.match(/arxiv\.org\/(abs|pdf)\/([^?#/]+)(?:\.pdf)?/i);
+  if (arxivAbs) {
+    const id = arxivAbs[2];
+    const canonical = `https://arxiv.org/abs/${id}`;
+    const enriched = await enrichArxiv(canonical, id);
+    if (enriched) return enriched;
+    return {
+      title: `Manual arXiv paper: ${id}`,
+      url: canonical,
+      pdf_url: `https://arxiv.org/pdf/${id}`,
+      authors: '', abstract: '', category: 'arXiv', date: '', relevance: 'medium',
+      venue: 'arXiv', source: 'Manual input (arXiv fallback)', citations: 'Unknown', institutions: []
+    };
   }
 
+  // DOI URL support
+  const doiMatch = normalized.match(/doi\.org\/(10\.[^\s]+)/i);
+  if (doiMatch) {
+    const doi = decodeURIComponent(doiMatch[1]);
+    const enriched = await enrichCrossref(normalized, doi);
+    if (enriched) return enriched;
+  }
+
+  // Generic fallback
   return {
-    title,
+    title: normalized,
     url: normalized,
-    pdf_url: pdf,
+    pdf_url: '',
     authors: '',
     abstract: '',
     category: 'manual',
     date: '',
     relevance: 'medium',
     venue: 'Manual link',
-    source: 'Manual input'
+    source: 'Manual input',
+    citations: 'Unknown',
+    institutions: []
   };
 }
 
@@ -358,9 +445,20 @@ function setupManualAdd() {
   const btn = document.getElementById('manual-paper-add');
   if (!input || !btn) return;
 
-  const submit = () => {
-    const paper = manualPaperFromUrl(input.value || '');
-    if (!paper) return;
+  const submit = async () => {
+    const raw = (input.value || '').trim();
+    if (!raw) return;
+
+    btn.disabled = true;
+    const old = btn.textContent;
+    btn.textContent = 'Adding...';
+
+    const paper = await manualPaperFromUrl(raw);
+    if (!paper) {
+      btn.textContent = old;
+      btn.disabled = false;
+      return;
+    }
 
     const exists = MANUAL.some(p => p.url === paper.url);
     if (!exists) MANUAL.unshift(paper);
@@ -368,7 +466,10 @@ function setupManualAdd() {
     STARRED.add(paperId(paper));
     saveState();
     input.value = '';
-    loadData();
+    await loadData();
+
+    btn.textContent = old;
+    btn.disabled = false;
   };
 
   btn.onclick = submit;
