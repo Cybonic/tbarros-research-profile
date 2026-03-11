@@ -373,8 +373,11 @@ async function enrichArxiv(normalized, id) {
     if (!r.ok) return null;
     const xml = await r.text();
 
+    const entryMatch = xml.match(/<entry>([\s\S]*?)<\/entry>/i);
+    const entry = entryMatch ? entryMatch[1] : xml;
+
     const get = (tag) => {
-      const m = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
+      const m = entry.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
       return m ? m[1].replace(/\s+/g, ' ').trim() : '';
     };
 
@@ -382,7 +385,7 @@ async function enrichArxiv(normalized, id) {
     const summary = get('summary');
     const published = get('published');
 
-    const authorMatches = [...xml.matchAll(/<name>([\s\S]*?)<\/name>/gi)].map(m => m[1].trim());
+    const authorMatches = [...entry.matchAll(/<name>([\s\S]*?)<\/name>/gi)].map(m => m[1].trim());
     const authors = uniq(authorMatches).join(', ');
 
     return {
@@ -398,6 +401,35 @@ async function enrichArxiv(normalized, id) {
       source: 'Manual input (arXiv)',
       citations: 'Unknown',
       institutions: []
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function enrichSemanticScholarArxiv(id) {
+  try {
+    const url = `https://api.semanticscholar.org/graph/v1/paper/ARXIV:${encodeURIComponent(id)}?fields=title,abstract,authors,venue,year,citationCount`;
+    const r = await fetch(url);
+    if (!r.ok) return null;
+    const d = await r.json();
+
+    const authors = (d.authors || []).map(a => a.name).filter(Boolean).join(', ');
+    const institutions = uniq((d.authors || []).flatMap(a => (a.affiliations || []).map(x => (x.name || x)).filter(Boolean)));
+
+    return {
+      title: d.title || `arXiv ${id}`,
+      url: `https://arxiv.org/abs/${id}`,
+      pdf_url: `https://arxiv.org/pdf/${id}`,
+      authors,
+      institutions,
+      abstract: d.abstract || '',
+      category: 'arXiv',
+      date: d.year ? String(d.year) : '',
+      relevance: 'medium',
+      venue: d.venue || 'arXiv',
+      source: 'Manual input (Semantic Scholar)',
+      citations: d.citationCount ?? 'Unknown'
     };
   } catch {
     return null;
@@ -507,6 +539,10 @@ async function manualPaperFromUrl(url) {
     const canonical = `https://arxiv.org/abs/${id}`;
     const enriched = await enrichArxiv(canonical, id);
     if (enriched) return { ...enriched, source: 'Manual input (HF->arXiv)' };
+
+    const ss = await enrichSemanticScholarArxiv(id);
+    if (ss) return { ...ss, source: 'Manual input (HF->SemanticScholar)' };
+
     return {
       title: `arXiv ${id}`,
       url: canonical,
@@ -530,6 +566,10 @@ async function manualPaperFromUrl(url) {
     const canonical = `https://arxiv.org/abs/${id}`;
     const enriched = await enrichArxiv(canonical, id);
     if (enriched) return enriched;
+
+    const ss = await enrichSemanticScholarArxiv(id);
+    if (ss) return ss;
+
     return {
       title: `Manual arXiv paper: ${id}`,
       url: canonical,
