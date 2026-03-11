@@ -20,6 +20,11 @@
         <section class="section">
             <h2>⭐ Important Papers (Your Watchlist)</h2>
             <p class="section-desc">Mark any paper with the checkbox. Your selection is saved in your browser and shown here.</p>
+            <div class="tool-row">
+                <button id="export-priority-btn" class="filter-btn">Suggest Priority Topics JSON</button>
+                <button id="copy-priority-btn" class="filter-btn" style="display:none;">Copy JSON</button>
+            </div>
+            <textarea id="priority-json-output" class="priority-output" placeholder="Generated priority_topics.json suggestions will appear here..." style="display:none;"></textarea>
             <div id="important-list" class="paper-list">
                 <div class="empty">No papers starred yet.</div>
             </div>

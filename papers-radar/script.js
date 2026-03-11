@@ -100,6 +100,60 @@ function setupImportantCheckboxes() {
     });
 }
 
+function extractTopicSuggestions(papers) {
+    const seedPhrases = [
+        'lidar odometry','loop closure','3d place recognition','slam','visual slam',
+        'point cloud','localization','sensor fusion','spatial ai','3d perception',
+        'autonomous driving','occupancy','bev','depth estimation','robot learning',
+        'gaussian splatting','nerf','multimodal','scene understanding','mapping'
+    ];
+
+    const text = papers.map(p => ((p.title || '') + ' ' + (p.abstract || '')).toLowerCase()).join(' ');
+    const hits = seedPhrases.filter(k => text.includes(k));
+
+    // Keep 8-14 topics, unique, stable order by domain importance first
+    const defaults = ['lidar odometry','loop closure','3d place recognition','slam','spatial ai','point cloud','localization','sensor fusion'];
+    const merged = [...new Set([...hits, ...defaults])].slice(0, 14);
+
+    return {
+        priority_ratio: 0.25,
+        topics: merged
+    };
+}
+
+function setupPriorityExport() {
+    const exportBtn = document.getElementById('export-priority-btn');
+    const copyBtn = document.getElementById('copy-priority-btn');
+    const output = document.getElementById('priority-json-output');
+    if (!exportBtn || !copyBtn || !output) return;
+
+    exportBtn.addEventListener('click', () => {
+        const important = ALL_PAPERS.filter(p => STARRED.has(paperId(p)));
+        if (!important.length) {
+            output.style.display = '';
+            output.value = '// No important papers selected yet. Check a few papers first.';
+            copyBtn.style.display = 'none';
+            return;
+        }
+
+        const suggested = extractTopicSuggestions(important);
+        output.style.display = '';
+        output.value = JSON.stringify(suggested, null, 2);
+        copyBtn.style.display = '';
+    });
+
+    copyBtn.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(output.value || '');
+            copyBtn.textContent = 'Copied ✓';
+            setTimeout(() => copyBtn.textContent = 'Copy JSON', 1200);
+        } catch {
+            copyBtn.textContent = 'Copy failed';
+            setTimeout(() => copyBtn.textContent = 'Copy JSON', 1200);
+        }
+    });
+}
+
 function renderImportantList() {
     const el = document.getElementById('important-list');
     if (!el) return;
@@ -149,6 +203,7 @@ async function loadData() {
         setupFilters();
         setupImportantCheckboxes();
         renderImportantList();
+        setupPriorityExport();
 
     } catch (e) {
         ['important-list','top-picks-list','arxiv-list','github-list','pwc-list'].forEach(id => {
