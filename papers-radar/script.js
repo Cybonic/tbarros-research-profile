@@ -377,7 +377,12 @@ function setupCardActions() {
 
 function normalizePaperUrl(url) {
   try {
-    const u = new URL(url.trim());
+    let s = String(url || '').trim();
+    // Handle Slack-style wrapped links: <https://...>
+    if (s.startsWith('<') && s.endsWith('>')) s = s.slice(1, -1).trim();
+    // Remove trailing punctuation accidentally copied
+    s = s.replace(/[),.;]+$/, '');
+    const u = new URL(s);
     return u.toString();
   } catch {
     return '';
