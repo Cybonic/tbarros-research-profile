@@ -146,7 +146,46 @@ function setupImportantCheckboxes() {
             if (cb.checked) STARRED.add(id);
             else STARRED.delete(id);
             saveStarred();
-            renderImportantList();
+            loadData(); // re-render so selected cards move to top
+        });
+    });
+}
+
+function sortImportantFirst(items) {
+    return [...items].sort((a, b) => {
+        const sa = STARRED.has(paperId(a)) ? 0 : 1;
+        const sb = STARRED.has(paperId(b)) ? 0 : 1;
+        if (sa !== sb) return sa - sb;
+        return 0;
+    });
+}
+
+function renderSelectedDropdown() {
+    const box = document.getElementById('selected-list');
+    const summary = document.querySelector('#selected-dropdown summary');
+    if (!box || !summary) return;
+
+    const selected = ALL_PAPERS.filter(p => STARRED.has(paperId(p)) && !DISMISSED.has(paperId(p)));
+    summary.textContent = `⭐ Selected Papers (${selected.length})`;
+
+    if (!selected.length) {
+        box.innerHTML = '<div class="empty">No selected papers yet.</div>';
+        return;
+    }
+
+    box.innerHTML = selected.slice(0, 50).map(p => {
+        const id = paperId(p);
+        return `<div class="selected-item">
+            <a href="${p.url || '#'}" target="_blank">${p.title || 'Untitled'}</a>
+            <button class="paper-link unselect-btn" data-id="${id}" type="button">Unselect</button>
+        </div>`;
+    }).join('');
+
+    box.querySelectorAll('.unselect-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            STARRED.delete(btn.dataset.id);
+            saveStarred();
+            loadData();
         });
     });
 }
@@ -295,17 +334,20 @@ async function loadData() {
 
         ALL_PAPERS = [...arxiv, ...pwc];
 
-        const topPicks = arxiv.filter(p => p.relevance === 'high').slice(0, 6);
+        const topPicks = sortImportantFirst(arxiv.filter(p => p.relevance === 'high')).slice(0, 6);
+        const arxivSorted = sortImportantFirst(arxiv);
+        const pwcSorted = sortImportantFirst(pwc);
 
         renderSection('top-picks-list', topPicks, paperCard, 'No top picks yet.');
-        renderSection('arxiv-list', arxiv, paperCard, 'No arXiv papers yet.');
+        renderSection('arxiv-list', arxivSorted, paperCard, 'No arXiv papers yet.');
         renderSection('github-list', github, repoCard, 'No GitHub repos yet.');
-        renderSection('pwc-list', pwc, paperCard, 'No Papers with Code entries yet.');
+        renderSection('pwc-list', pwcSorted, paperCard, 'No Papers with Code entries yet.');
 
         setupFilters();
         setupImportantCheckboxes();
         setupPreviewToggles();
         renderImportantList();
+        renderSelectedDropdown();
         setupPriorityExport();
 
     } catch (e) {

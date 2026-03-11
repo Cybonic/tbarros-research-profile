@@ -435,6 +435,39 @@ button.paper-link {
     accent-color: #e67e22;
 }
 
+/* Selected dropdown */
+.selected-dropdown {
+    border: 1px solid var(--border);
+    background: var(--light);
+    padding: 8px 10px;
+}
+.selected-dropdown summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.selected-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+}
+.selected-item a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.86em;
+    line-height: 1.4;
+}
+.selected-item a:hover { text-decoration: underline; }
+
 /* Tool row */
 .tool-row {
     display: flex;

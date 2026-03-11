@@ -16,10 +16,20 @@
             <p class="agent-note">🤖 Automatically curated weekly — sources: arXiv cs.RO · cs.CV · cs.LG, Papers with Code, GitHub trending. Filtered by research keywords. ~25% of crawl focus is reserved for your priority topics profile.</p>
         </header>
 
+        <!-- Selected papers dropdown -->
+        <section class="section" style="padding-bottom:20px;margin-bottom:20px;">
+            <details id="selected-dropdown" class="selected-dropdown">
+                <summary>⭐ Selected Papers (0)</summary>
+                <div id="selected-list" class="selected-list">
+                    <div class="empty">No selected papers yet.</div>
+                </div>
+            </details>
+        </section>
+
         <!-- Important papers -->
         <section class="section">
             <h2>⭐ Important Papers (Your Watchlist)</h2>
-            <p class="section-desc">Mark any paper with the checkbox. Your selection is saved in your browser and shown here.</p>
+            <p class="section-desc">Mark any paper with the checkbox. Selected papers move to the top and are listed in the dropdown above.</p>
             <div class="tool-row">
                 <button id="export-priority-btn" class="filter-btn">Suggest Priority Topics JSON</button>
                 <button id="copy-priority-btn" class="filter-btn" style="display:none;">Copy JSON</button>
@@ -89,6 +99,6 @@
             <p>Updated automatically every Monday at 10:00 UTC &nbsp;·&nbsp; <a href="../research-radar/">Research Radar</a> &nbsp;·&nbsp; <a href="../funding-radar/">Funding Radar</a></p>
         </footer>
     </div>
-    <script src="script.js?v=20260311-8"></script>
+    <script src="script.js?v=20260311-9"></script>
 </body>
 </html>
