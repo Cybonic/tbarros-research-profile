@@ -8,10 +8,12 @@ const KEYWORDS = ['lidar','slam','3d mapping','spatial ai','place recognition','
 const STAR_KEY = 'papers_radar_starred_v1';
 const DISMISS_KEY = 'papers_radar_dismissed_v1';
 const TRACKED_KEY = 'papers_radar_tracked_tokens_v1';
+const MANUAL_KEY = 'papers_radar_manual_links_v1';
 
 let STARRED = new Set();
 let DISMISSED = new Set();
 let TRACKED = { authors: [], institutions: [], keywords: [] };
+let MANUAL = [];
 let ALL_PAPERS = [];
 
 function uniq(arr) { return [...new Set((arr || []).map(x => String(x).trim()).filter(Boolean))]; }
@@ -29,12 +31,20 @@ function loadState() {
   } catch {
     TRACKED = { authors: [], institutions: [], keywords: [] };
   }
+
+  try {
+    const raw = JSON.parse(localStorage.getItem(MANUAL_KEY) || '[]');
+    MANUAL = Array.isArray(raw) ? raw : [];
+  } catch {
+    MANUAL = [];
+  }
 }
 
 function saveState() {
   localStorage.setItem(STAR_KEY, JSON.stringify([...STARRED]));
   localStorage.setItem(DISMISS_KEY, JSON.stringify([...DISMISSED]));
   localStorage.setItem(TRACKED_KEY, JSON.stringify(TRACKED));
+  localStorage.setItem(MANUAL_KEY, JSON.stringify(MANUAL));
 }
 
 function paperId(p) { return p.url || p.title || Math.random().toString(36).slice(2); }
@@ -292,10 +302,70 @@ function setupCardActions() {
       const id = btn.dataset.id;
       DISMISSED.add(id);
       STARRED.delete(id);
+      MANUAL = MANUAL.filter(p => paperId(p) !== id);
       saveState();
       loadData();
     });
   });
+}
+
+function normalizePaperUrl(url) {
+  try {
+    const u = new URL(url.trim());
+    return u.toString();
+  } catch {
+    return '';
+  }
+}
+
+function manualPaperFromUrl(url) {
+  const normalized = normalizePaperUrl(url);
+  if (!normalized) return null;
+
+  let title = normalized;
+  let pdf = '';
+  if (normalized.includes('arxiv.org/abs/')) {
+    const id = normalized.split('/abs/')[1]?.split(/[?#]/)[0] || '';
+    title = `Manual arXiv paper: ${id}`;
+    pdf = `https://arxiv.org/pdf/${id}`;
+  }
+
+  return {
+    title,
+    url: normalized,
+    pdf_url: pdf,
+    authors: '',
+    abstract: '',
+    category: 'manual',
+    date: '',
+    relevance: 'medium',
+    venue: 'Manual link',
+    source: 'Manual input'
+  };
+}
+
+function setupManualAdd() {
+  const input = document.getElementById('manual-paper-url');
+  const btn = document.getElementById('manual-paper-add');
+  if (!input || !btn) return;
+
+  const submit = () => {
+    const paper = manualPaperFromUrl(input.value || '');
+    if (!paper) return;
+
+    const exists = MANUAL.some(p => p.url === paper.url);
+    if (!exists) MANUAL.unshift(paper);
+
+    STARRED.add(paperId(paper));
+    saveState();
+    input.value = '';
+    loadData();
+  };
+
+  btn.onclick = submit;
+  input.onkeydown = (e) => {
+    if (e.key === 'Enter') submit();
+  };
 }
 
 function renderSelectedDropdown() {
@@ -365,8 +435,9 @@ async function loadData() {
 
     const arxiv = arxivRaw.filter(p => !DISMISSED.has(paperId(p))).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
     const pwc = pwcRaw.filter(p => !DISMISSED.has(paperId(p))).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
+    const manual = MANUAL.filter(p => !DISMISSED.has(paperId(p))).map(p => ({ ...p, _trackedHits: computeTrackedHits(p) }));
 
-    ALL_PAPERS = [...arxiv, ...pwc];
+    ALL_PAPERS = [...manual, ...arxiv, ...pwc];
 
     const topPicks = [...arxiv].filter(p => p.relevance === 'high').sort((a,b)=>scorePaper(b)-scorePaper(a)).slice(0, 6);
     const arxivSorted = [...arxiv].sort((a,b)=>scorePaper(b)-scorePaper(a));
@@ -383,6 +454,7 @@ async function loadData() {
     renderTrackedLists();
     setupTokenActions();
     setupCardActions();
+    setupManualAdd();
     setupPriorityExport();
 
   } catch {

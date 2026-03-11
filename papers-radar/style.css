@@ -453,6 +453,16 @@ button.paper-link {
     flex-direction: column;
     gap: 6px;
 }
+
+.manual-url-input {
+    flex: 1;
+    min-width: 260px;
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    font-size: 0.84em;
+    background: #fff;
+    color: var(--text);
+}
 .selected-item {
     display: flex;
     justify-content: space-between;
