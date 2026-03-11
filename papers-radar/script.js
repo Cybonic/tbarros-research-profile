@@ -18,6 +18,23 @@ let ALL_PAPERS = [];
 
 function uniq(arr) { return [...new Set((arr || []).map(x => String(x).trim()).filter(Boolean))]; }
 
+async function fetchTextSmart(url) {
+  try {
+    const r = await fetch(url);
+    if (r.ok) return await r.text();
+  } catch {}
+  // CORS fallback proxy (client-side static site constraint)
+  const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+  const r2 = await fetch(proxy);
+  if (!r2.ok) throw new Error(`Fetch failed for ${url}`);
+  return await r2.text();
+}
+
+async function fetchJsonSmart(url) {
+  const txt = await fetchTextSmart(url);
+  return JSON.parse(txt);
+}
+
 function loadState() {
   try { STARRED = new Set(JSON.parse(localStorage.getItem(STAR_KEY) || '[]')); } catch { STARRED = new Set(); }
   try { DISMISSED = new Set(JSON.parse(localStorage.getItem(DISMISS_KEY) || '[]')); } catch { DISMISSED = new Set(); }
@@ -369,9 +386,7 @@ function normalizePaperUrl(url) {
 
 async function enrichArxiv(normalized, id) {
   try {
-    const r = await fetch(`https://export.arxiv.org/api/query?id_list=${encodeURIComponent(id)}`);
-    if (!r.ok) return null;
-    const xml = await r.text();
+    const xml = await fetchTextSmart(`https://export.arxiv.org/api/query?id_list=${encodeURIComponent(id)}`);
 
     const entryMatch = xml.match(/<entry>([\s\S]*?)<\/entry>/i);
     const entry = entryMatch ? entryMatch[1] : xml;
@@ -410,9 +425,7 @@ async function enrichArxiv(normalized, id) {
 async function enrichSemanticScholarArxiv(id) {
   try {
     const url = `https://api.semanticscholar.org/graph/v1/paper/ARXIV:${encodeURIComponent(id)}?fields=title,abstract,authors,venue,year,citationCount`;
-    const r = await fetch(url);
-    if (!r.ok) return null;
-    const d = await r.json();
+    const d = await fetchJsonSmart(url);
 
     const authors = (d.authors || []).map(a => a.name).filter(Boolean).join(', ');
     const institutions = uniq((d.authors || []).flatMap(a => (a.affiliations || []).map(x => (x.name || x)).filter(Boolean)));
@@ -438,9 +451,7 @@ async function enrichSemanticScholarArxiv(id) {
 
 async function enrichCrossref(normalized, doi) {
   try {
-    const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`);
-    if (!r.ok) return null;
-    const data = await r.json();
+    const data = await fetchJsonSmart(`https://api.crossref.org/works/${encodeURIComponent(doi)}`);
     const m = data?.message || {};
     const title = (m.title && m.title[0]) || normalized;
     const authors = (m.author || []).map(a => [a.given, a.family].filter(Boolean).join(' ').trim()).filter(Boolean).join(', ');
@@ -469,9 +480,7 @@ async function enrichCrossref(normalized, doi) {
 
 async function enrichFromGenericPage(normalized) {
   try {
-    const r = await fetch(normalized);
-    if (!r.ok) return null;
-    const html = await r.text();
+    const html = await fetchTextSmart(normalized);
 
     const pick = (re) => {
       const m = html.match(re);
