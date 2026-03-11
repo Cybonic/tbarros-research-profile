@@ -75,12 +75,12 @@ function paperCard(p) {
         <div class="paper-meta">${p.authors ? p.authors.slice(0, 100) + (p.authors.length > 100 ? '…' : '') : ''} ${p.date ? '· ' + fmtDate(p.date) : ''}</div>
         <div class="paper-tags">${catTag}${tags}</div>
         ${previewBlock}
-        ${pdfBlock}
         <div class="paper-links">
             <button class="paper-link preview-toggle" data-id="${id}" type="button">Preview</button>
             <button class="paper-link pdf-toggle" data-id="${id}" type="button">PDF inline</button>
             ${links.join('')}
         </div>
+        ${pdfBlock}
     </div>`;
 }
 

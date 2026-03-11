@@ -360,13 +360,15 @@ button.paper-link {
 }
 
 .pdf-inline-wrap {
-    margin-top: 8px;
+    margin-top: 10px;
     border: 1px solid var(--border);
     background: #fff;
     width: 100%;
-    height: min(72vh, 880px);
-    min-height: 520px;
-    overflow: hidden;
+    height: 260px;              /* small default height */
+    min-height: 180px;
+    max-height: 88vh;
+    overflow: auto;
+    resize: vertical;           /* user can manually expand/shrink */
 }
 
 .pdf-inline-wrap iframe {
@@ -374,6 +376,16 @@ button.paper-link {
     height: 100%;
     border: none;
     display: block;
+}
+
+.pdf-inline-wrap::after {
+    content: "↕ drag to resize";
+    display: block;
+    font-size: 0.72em;
+    color: #888;
+    padding: 2px 8px 6px;
+    text-align: right;
+    pointer-events: none;
 }
 
 /* Important checkbox */
