@@ -661,6 +661,9 @@ function setupManualAdd() {
       const exists = MANUAL.some(p => paperId(p) === pid);
       if (!exists) MANUAL.unshift(paper);
 
+      // If this paper was removed before, bringing it back should un-dismiss it
+      DISMISSED.delete(pid);
+
       STARRED.add(pid);
       saveState();
       input.value = '';
