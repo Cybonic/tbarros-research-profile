@@ -113,15 +113,15 @@ function paperCard(p) {
 
   const preview = (p.abstract || '').slice(0, 420);
   const previewBlock = preview
-    ? `<div class="paper-preview" id="preview-${id}" style="display:none;">${preview}${(p.abstract || '').length > 420 ? '…' : ''}</div>`
-    : `<div class="paper-preview" id="preview-${id}" style="display:none; color:#999;">No abstract preview available.</div>`;
+    ? `<div class="paper-preview" style="display:none;">${preview}${(p.abstract || '').length > 420 ? '…' : ''}</div>`
+    : `<div class="paper-preview" style="display:none; color:#999;">No abstract preview available.</div>`;
 
   const inlinePdf = (p.pdf_url || '').trim();
   const pdfBlock = inlinePdf
-    ? `<div class="pdf-inline-wrap" id="pdf-${id}" style="display:none;"><iframe src="${inlinePdf}#toolbar=0&navpanes=0&scrollbar=1&zoom=page-fit&view=FitH" loading="lazy" referrerpolicy="no-referrer"></iframe></div>`
-    : `<div class="pdf-inline-wrap" id="pdf-${id}" style="display:none;"><div class="empty">No PDF link available.</div></div>`;
+    ? `<div class="pdf-inline-wrap" style="display:none;"><iframe src="${inlinePdf}#toolbar=0&navpanes=0&scrollbar=1&zoom=page-fit&view=FitH" loading="lazy" referrerpolicy="no-referrer"></iframe></div>`
+    : `<div class="pdf-inline-wrap" style="display:none;"><div class="empty">No PDF link available.</div></div>`;
 
-  const metaBox = `<div class="paper-metadata" id="meta-${id}" style="display:none;">
+  const metaBox = `<div class="paper-metadata" style="display:none;">
       <div><strong>Authors:</strong> ${p.authors || 'Unknown'}</div>
       <div class="token-row">${authorTokens || '<span class="empty">No author tokens</span>'}</div>
       <div><strong>Institutions:</strong> ${institutions}</div>
@@ -269,7 +269,8 @@ function setupCardActions() {
 
   document.querySelectorAll('.preview-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
-      const panel = document.getElementById(`preview-${btn.dataset.id}`);
+      const card = btn.closest('.paper-card');
+      const panel = card?.querySelector('.paper-preview');
       if (!panel) return;
       const show = panel.style.display === 'none';
       panel.style.display = show ? 'block' : 'none';
@@ -279,7 +280,8 @@ function setupCardActions() {
 
   document.querySelectorAll('.pdf-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
-      const panel = document.getElementById(`pdf-${btn.dataset.id}`);
+      const card = btn.closest('.paper-card');
+      const panel = card?.querySelector('.pdf-inline-wrap');
       if (!panel) return;
       const show = panel.style.display === 'none';
       panel.style.display = show ? 'block' : 'none';
@@ -289,7 +291,8 @@ function setupCardActions() {
 
   document.querySelectorAll('.meta-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
-      const panel = document.getElementById(`meta-${btn.dataset.id}`);
+      const card = btn.closest('.paper-card');
+      const panel = card?.querySelector('.paper-metadata');
       if (!panel) return;
       const show = panel.style.display === 'none';
       panel.style.display = show ? 'block' : 'none';
