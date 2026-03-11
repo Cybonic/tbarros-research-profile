@@ -842,6 +842,51 @@ function setupPriorityExport() {
   };
 }
 
+function setupProfileSync() {
+  const exportBtn = document.getElementById('export-profile-btn');
+  const importBtn = document.getElementById('import-profile-btn');
+  const box = document.getElementById('profile-json-output');
+  if (!exportBtn || !importBtn || !box) return;
+
+  exportBtn.onclick = async () => {
+    const payload = {
+      version: 1,
+      exported_at: new Date().toISOString(),
+      starred: [...STARRED],
+      dismissed: [...DISMISSED],
+      tracked: TRACKED,
+      manual: MANUAL
+    };
+    box.style.display = '';
+    box.value = JSON.stringify(payload, null, 2);
+    try { await navigator.clipboard.writeText(box.value); exportBtn.textContent = 'Copied ✓'; }
+    catch { exportBtn.textContent = 'Exported'; }
+    setTimeout(() => (exportBtn.textContent = 'Export profile'), 1200);
+  };
+
+  importBtn.onclick = async () => {
+    const txt = (box.value || '').trim();
+    if (!txt) return;
+    try {
+      const p = JSON.parse(txt);
+      STARRED = new Set(p.starred || []);
+      DISMISSED = new Set(p.dismissed || []);
+      TRACKED = {
+        authors: uniq(p?.tracked?.authors || []),
+        institutions: uniq(p?.tracked?.institutions || []),
+        keywords: uniq(p?.tracked?.keywords || []),
+      };
+      MANUAL = Array.isArray(p.manual) ? dedupePapers(p.manual) : [];
+      saveState();
+      await loadData();
+      importBtn.textContent = 'Imported ✓';
+    } catch {
+      importBtn.textContent = 'Invalid JSON';
+    }
+    setTimeout(() => (importBtn.textContent = 'Import profile'), 1200);
+  };
+}
+
 async function loadData() {
   loadState();
   try {
@@ -880,6 +925,7 @@ async function loadData() {
     setupCardActions();
     setupManualAdd();
     setupPriorityExport();
+    setupProfileSync();
 
   } catch {
     ['important-list','top-picks-list','arxiv-list','github-list','pwc-list'].forEach(id => {
