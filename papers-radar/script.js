@@ -596,6 +596,27 @@ async function manualPaperFromUrl(url) {
     if (enriched) return enriched;
   }
 
+  // IEEE Xplore fallback (extract arnumber)
+  const ieee = normalized.match(/ieeexplore\.ieee\.org\/(?:abstract\/document|document|stamp\/stamp\.jsp\?arnumber=)(\d+)/i)
+    || normalized.match(/[?&]arnumber=(\d+)/i);
+  if (ieee) {
+    const ar = ieee[1];
+    return {
+      title: `IEEE Xplore paper #${ar}`,
+      url: `https://ieeexplore.ieee.org/document/${ar}`,
+      pdf_url: `https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=${ar}`,
+      authors: '',
+      abstract: 'IEEE metadata endpoint is restricted without API/browser session. Add DOI for full auto-enrichment.',
+      category: 'IEEE',
+      date: '',
+      relevance: 'medium',
+      venue: 'IEEE Xplore',
+      source: 'Manual input (IEEE fallback)',
+      citations: 'Unknown',
+      institutions: []
+    };
+  }
+
   // Generic page enrichment (title/desc + arXiv link sniffing)
   const generic = await enrichFromGenericPage(normalized);
   if (generic) return generic;
