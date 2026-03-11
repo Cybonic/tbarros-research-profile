@@ -630,24 +630,45 @@ function setupManualAdd() {
     const old = btn.textContent;
     btn.textContent = 'Adding...';
 
-    const paper = await manualPaperFromUrl(raw);
-    if (!paper) {
+    try {
+      let paper = null;
+      try {
+        paper = await manualPaperFromUrl(raw);
+      } catch {
+        paper = null;
+      }
+
+      // Hard fallback: ALWAYS add something
+      if (!paper) {
+        const normalized = normalizePaperUrl(raw) || raw;
+        paper = {
+          title: normalized,
+          url: normalized,
+          pdf_url: '',
+          authors: '',
+          abstract: '',
+          category: 'manual',
+          date: '',
+          relevance: 'medium',
+          venue: 'Manual link',
+          source: 'Manual input (hard fallback)',
+          citations: 'Unknown',
+          institutions: []
+        };
+      }
+
+      const pid = paperId(paper);
+      const exists = MANUAL.some(p => paperId(p) === pid);
+      if (!exists) MANUAL.unshift(paper);
+
+      STARRED.add(pid);
+      saveState();
+      input.value = '';
+      await loadData();
+    } finally {
       btn.textContent = old;
       btn.disabled = false;
-      return;
     }
-
-    const pid = paperId(paper);
-    const exists = MANUAL.some(p => paperId(p) === pid);
-    if (!exists) MANUAL.unshift(paper);
-
-    STARRED.add(paperId(paper));
-    saveState();
-    input.value = '';
-    await loadData();
-
-    btn.textContent = old;
-    btn.disabled = false;
   };
 
   btn.onclick = submit;
