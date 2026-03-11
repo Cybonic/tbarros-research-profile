@@ -1,5 +1,19 @@
 [
   {
+    "title": "IEEE Xplore paper #11247687",
+    "url": "https://ieeexplore.ieee.org/document/11247687",
+    "pdf_url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11247687",
+    "authors": "",
+    "institutions": [],
+    "abstract": "IEEE metadata endpoint is restricted in this environment. Use DOI/arXiv link for full metadata when available.",
+    "category": "IEEE",
+    "date": "",
+    "relevance": "medium",
+    "venue": "IEEE Xplore",
+    "citations": "Unknown",
+    "source": "ieee-paper-parser"
+  },
+  {
     "title": "LoGeR: Long-Context Geometric Reconstruction with Hybrid Memory",
     "url": "https://arxiv.org/abs/2603.03269",
     "pdf_url": "https://arxiv.org/pdf/2603.03269",
