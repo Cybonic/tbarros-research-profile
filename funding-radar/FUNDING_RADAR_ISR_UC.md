@@ -10,27 +10,26 @@
 
 | Change | Programme | Deadline | What changed | ISR/UC fit |
 |---|---|---:|---|---|
-| 🔴 **UPDATED** | **Eurostars Call 10 (EUREKA)** | **2026-03-19** | Countdown now critical (**3 days left**). SME-led consortium still mandatory. | ✅ As research partner (AI/Robotics/industrial digital R&D) |
-| 🔴 **UPDATED** | **PRR Reindustrializar Portugal (IAPMEI)** | **2026-03-31** | Urgency increased (**15 days left**). No extension confirmed. | ✅ As R&D partner with industry (digitization/AI/robotics) |
-| 🟠 **UPDATED** | **CELTIC-NEXT Spring 2026 (EUREKA Cluster)** | **2026-04-30** | Now inside active build window (**~6 weeks left**) for consortium finalization. | ✅ Strong for AI comms/signal processing/autonomous systems |
+| 🟠 **UPDATED** | **Eurostars Call 10 (EUREKA)** | **2026-03-31** *(portal listing)* | EUREKA programmes page now shows **31 Mar 2026** (previously tracked as 19 Mar). Treat as potential extension until confirmed on dedicated call page. | ✅ As research partner (SME-led consortium required) |
+| 🟠 **UPDATED** | **EUROGIA2030 Call 30 (EUREKA Cluster)** | **2026-05-27** *(portal listing)* | EUREKA programmes page now shows **27 May 2026** (previously tracked as 8 Sep). | ✅ Relevant for AI for energy / industrial optimization |
 
 ---
 
 ## Removed / Closed in this cycle
 
-- None newly closed since prior update window.
+- No newly closed opportunities detected in this scan.
 
 ---
 
 ## Top 3 Actions (this week only)
 
-1. **Eurostars (Mar 19):** Confirm immediately whether an SME lead exists; if yes, finalize submission package now.
-2. **PRR Reindustrializar (Mar 31):** Lock industrial partner + scope; request immediate eligibility confirmation with IAPMEI.
-3. **CELTIC-NEXT (Apr 30):** Freeze consortium and work packages this week to de-risk April submission.
+1. **Confirm Eurostars deadline with EUREKA PT contact now** and decide go/no-go this week.
+2. **Re-baseline EUROGIA timeline** to a May submission track and assign proposal owner.
+3. **Keep PRR Reindustrializar prep active** (industrial partner + eligibility check) while deadline notice remains unchanged on IAPMEI pages.
 
 ---
 
 ## Notes
 
-- This compact file intentionally omits unchanged opportunities from prior cycles.
+- Web search API remains unavailable (no Brave key), so this update uses direct portal fetches.
 - Verify final call texts/portal notices before submission.
