@@ -1,244 +1,498 @@
 {
-  "last_scan": "2026-03-07 00:01 UTC",
+  "last_scan": "2026-03-10 09:00 UTC",
   "scan_sources": {
-    "euraxess_portugal": "ok",
-    "euraxess_professor": "ok",
-    "euraxess_investigador": "ok",
-    "euraxess_robotics": "ok",
-    "euraxess_ai": "ok",
-    "uc_apply": "ok",
-    "sigarra_spup": "ok",
-    "sigarra_feup": "ok",
-    "ulisboa_concursos": "ok",
-    "ipleiria_carreira": "ok",
-    "ipc_docentes": "ok",
-    "ua_noticias": "js-heavy",
-    "ua_concursos_docentes": "js-heavy",
-    "ubi_homepage": "js-heavy",
-    "ist_tecnico_noticias": "ok",
-    "uminho_homepage": "js-heavy",
-    "dre_auxiliar": "error",
-    "dre_concurso2026": "error"
-  },
-  "notes": {
-    "euraxess": "Queries (professor/investigador/robotics/AI) all returned same 10 results — filter parameters appear ignored without JS. Portugal-filtered page shows mostly BI research grants (studentships), not faculty positions. No professor/investigador faculty positions found from Portugal in page-1 results.",
-    "uc_apply": "10 open procedures found. 2 directly in Informatics/CS/AI area. Strong hit: IT136-26-3 (IA).",
-    "sigarra_spup": "Shows U.Porto-wide openings. Faculty concurso docente openings visible: FEUP Minas (217/2026), FEUP Mecânica (216/2026), FEUP Civil (145/2026), FMUP Patologia (198/2026), FBAUP Artes (214/2026), FPCEUP Psicologia (117/2026). None in CS/AI/Robotics. Also: BI research grant in NorteIA+ (Transparent AI) at FPCEUP — not a faculty post.",
-    "sigarra_feup": "Page shows procurement contracts only (equipment purchases), not faculty openings. Faculty posts for FEUP visible via SPUP page.",
-    "ulisboa": "Faculdade de Ciências had 2 CS openings (Programação, Organização Sist. Computacionais) — both PAST (deadline 17/02/2026). Current open: Arquitetura (FA) + Finanças (ISEG). No CS/AI open at ULisboa currently.",
-    "ipleiria": "Active concursos primarily health/nursing. One Informatics (web dev) from 2025 with rectification in 2026 — deadline unclear.",
-    "ipc": "All active procedures past deadline or in jury evaluation phase. No CS/AI.",
-    "ua_ubi_uminho": "All js-heavy — no content extractable. UA concursos page returned title only.",
-    "ist_tecnico": "News page accessible but no concurso docente openings listed. Faculty recruitment not visible in recent news.",
-    "dre": "Both DRE search URLs failed (Readability + Firecrawl returned no content)."
+    "uc": "ok",
+    "up": "ok",
+    "feup": "empty",
+    "ulisboa": "ok",
+    "ipleiria": "ok"
   },
   "positions": [
     {
       "university": "Universidade de Coimbra",
-      "title": "Professor Auxiliar",
-      "department": "Engenharia Informática / Fundamentos de Inteligência Artificial ou Educação em Informática ou Criatividade Computacional",
-      "deadline": "2026-03-30",
+      "title": "Docentes 1 posto IT136-26-10 - Professor Catedrático XXXXXXX / XXXXXXXXX UC Candidaturas encerradas",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.apply.uc.pt/procedure/m3tqb247475yp6s7",
+      "source": "apply.uc.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Docentes 1 posto IT136-26-3 - Professor Auxiliar Engenharia Informática / Fundamentos de Inteligência Artificial ou Educação em Informática ou Criatividade Computacional UC Candidaturas até 2026-03-30",
+      "department": "",
+      "deadline": "unknown",
       "link": "https://www.apply.uc.pt/procedure/4heji9qkt401gmid",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": true,
-      "notes": "Ref IT136-26-3. DIRECT HIT — Artificial Intelligence in the title. 1 post. Apply via UC Apply portal. Deadline: 30 March 2026."
+      "source": "apply.uc.pt",
+      "relevant": true
     },
     {
       "university": "Universidade de Coimbra",
-      "title": "Professor Auxiliar",
-      "department": "Engenharia Informática / Interação Humano-Computador",
-      "deadline": "2026-03-30",
-      "link": "https://www.apply.uc.pt/procedure/lwvmp7ydcojrk9ym",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": "partial",
-      "notes": "Ref IT136-26-4. CS/Informatics area (HCI). 1 post. Deadline: 30 March 2026."
-    },
-    {
-      "university": "Universidade de Coimbra",
-      "title": "Professor Auxiliar",
-      "department": "Matemática / Didática da Matemática ou Ensino da Matemática",
-      "deadline": "2026-04-07",
+      "title": "Docentes 1 posto IT136-26-7 - Professor Auxiliar Matemática / Didática da Matemática ou Ensino da Matemática UC Candidaturas até 2026-04-07",
+      "department": "",
+      "deadline": "unknown",
       "link": "https://www.apply.uc.pt/procedure/rv1rcd19f88q418h",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": false,
-      "notes": "Ref IT136-26-7. Math/Education field. 1 post."
+      "source": "apply.uc.pt",
+      "relevant": null
     },
     {
       "university": "Universidade de Coimbra",
-      "title": "Professor Catedrático",
-      "department": "Serviço Social / Serviço Social",
-      "deadline": "2026-03-20",
-      "link": "https://www.apply.uc.pt/procedure/u27qtntv35at5mvh",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": false,
-      "notes": "Ref IT136-26-1. Social Work. Not relevant."
+      "title": "Docentes 1 posto IT136-26-4 - Professor Auxiliar Engenharia Informática / Interação Humano-Computador UC Candidaturas até 2026-03-30",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.apply.uc.pt/procedure/lwvmp7ydcojrk9ym",
+      "source": "apply.uc.pt",
+      "relevant": true
     },
     {
       "university": "Universidade de Coimbra",
-      "title": "Professor Catedrático",
-      "department": "Psicologia / Psicologia",
-      "deadline": "2026-03-20",
-      "link": "https://www.apply.uc.pt/procedure/znknhiiq8jue061b",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": false,
-      "notes": "Ref IT136-26-2. Psychology. Not relevant."
-    },
-    {
-      "university": "Universidade de Coimbra",
-      "title": "Professor Auxiliar",
-      "department": "Ciências da Vida / Plâncton Marinho",
-      "deadline": "2026-03-30",
+      "title": "Docentes 1 posto IT136-26-5 - Professor Auxiliar Ciências da Vida / Plâncton Marinho UC Candidaturas até 2026-03-30",
+      "department": "",
+      "deadline": "unknown",
       "link": "https://www.apply.uc.pt/procedure/qa5ths9xa051vkgd",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": false,
-      "notes": "Ref IT136-26-5. Marine Plankton. Not relevant."
+      "source": "apply.uc.pt",
+      "relevant": null
     },
     {
       "university": "Universidade de Coimbra",
-      "title": "Professor Auxiliar",
-      "department": "Ciências da Saúde / Fisiopatologia molecular do cancro e biomarcadores moleculares tumorais",
-      "deadline": "2026-04-01",
-      "link": "https://www.apply.uc.pt/procedure/j7tz1iot1htwucm9",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": false,
-      "notes": "Ref IT136-26-6. Biomedical. Not relevant."
-    },
-    {
-      "university": "Universidade de Coimbra",
-      "title": "Professor Auxiliar",
-      "department": "Ciências da Saúde, Medicina Dentária / Odontopediatria",
-      "deadline": "2026-04-14",
+      "title": "Docentes 1 posto IT136-26-9 - Professor Auxiliar Ciências da Saúde, Medicina Dentária / Odontopediatria UC Candidaturas até 2026-04-14",
+      "department": "",
+      "deadline": "unknown",
       "link": "https://www.apply.uc.pt/procedure/et8s8qz6qkhrw5tz",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": false,
-      "notes": "Ref IT136-26-9. Dentistry. Not relevant."
+      "source": "apply.uc.pt",
+      "relevant": null
     },
     {
       "university": "Universidade de Coimbra",
-      "title": "Professor Auxiliar",
-      "department": "Ciências da Saúde, Medicina / Medicina Física e Reabilitação",
-      "deadline": "2026-04-10",
-      "link": "https://www.apply.uc.pt/procedure/l8lugk6plc0b0ymv",
-      "source": "https://www.apply.uc.pt/search?filters=group_key:==:69536e:AND",
-      "relevant": false,
-      "notes": "Ref IT136-26-8. Medicine. Not relevant."
+      "title": "Docentes 1 posto IT136-26-6 - Professor Auxiliar Ciências da Saúde, Medicina / Fisiopatologia, Fisiopatologia molecular do cancro e biomarcadores moleculares tumorais UC Candidaturas até 2026-04-01",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.apply.uc.pt/procedure/j7tz1iot1htwucm9",
+      "source": "apply.uc.pt",
+      "relevant": null
     },
     {
-      "university": "Universidade do Porto – FEUP",
-      "title": "Professor Auxiliar",
-      "department": "Engenharia de Minas",
+      "university": "Universidade de Coimbra",
+      "title": "Docentes 1 posto IT136-26-1 - Professor Catedrático Serviço Social / Serviço Social UC Candidaturas até 2026-03-20",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.apply.uc.pt/procedure/u27qtntv35at5mvh",
+      "source": "apply.uc.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Docentes 1 posto IT136-26-2 - Professor Catedrático Psicologia / Psicologia UC Candidaturas até 2026-03-20",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.apply.uc.pt/procedure/znknhiiq8jue061b",
+      "source": "apply.uc.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Coimbra",
+      "title": "Docentes 1 posto IT136-26-8 - Professor Auxiliar Ciências da Saúde, Medicina / Medicina Física e Reabilitação UC Candidaturas até 2026-04-10",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.apply.uc.pt/procedure/l8lugk6plc0b0ymv",
+      "source": "apply.uc.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade do Porto",
+      "title": "FADEUP| Um/a Doutorado/a Equiparado/a a Investigador/a Auxiliar| Projeto SMARTCHANGE| Ref� INVTERM-FADEUP-26-1",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88951",
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
+    },
+    {
+      "university": "Universidade do Porto",
+      "title": "FEUP | Concurso para um/a Professor/a Auxiliar | Engenharia de Minas- Edital n� 217/2026-DOCPUB-FEUP-26-4",
+      "department": "",
       "deadline": "unknown",
       "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88871",
-      "source": "https://sigarra.up.pt/spup/pt/noticias_geral.lista_noticias",
-      "relevant": false,
-      "notes": "Edital 217/2026 – DOCPUB-FEUP-26-4. Mining Engineering. Check edital for exact deadline."
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
     },
     {
-      "university": "Universidade do Porto – FEUP",
-      "title": "Professor Associado",
-      "department": "Engenharia Mecânica",
+      "university": "Universidade do Porto",
+      "title": "FEUP | Concurso para um/a Professor/a Associado/a | Engenharia Mec�nica - Edital n� 216/2026-DOCPUB-FEUP-26-1",
+      "department": "",
       "deadline": "unknown",
       "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88851",
-      "source": "https://sigarra.up.pt/spup/pt/noticias_geral.lista_noticias",
-      "relevant": false,
-      "notes": "Edital 216/2026 – DOCPUB-FEUP-26-1. Mechanical Engineering. Check edital for exact deadline."
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
     },
     {
-      "university": "Universidade do Porto – FEUP",
-      "title": "Professor Associado",
-      "department": "Engenharia Civil",
+      "university": "Universidade do Porto",
+      "title": "FBAUP | Concurso para um/a Professor/a Catedr�tico/a | Artes Pl�sticas - Edital n.� 214/2026 - DOCPUB-FBAUP-26-1",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88811",
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
+    },
+    {
+      "university": "Universidade do Porto",
+      "title": "FMUP| Um/a Professor/a Auxiliar| Patologia| Edital 198/2026 - Ref. DOCPUB-FMUP-26-1",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88771",
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
+    },
+    {
+      "university": "Universidade do Porto",
+      "title": "FEUP| Concurso para uma vaga de Professor/a Associado/a | Engenharia Civil - Edital n.� 145/2026 - DOCPUB-FEUP-26-5",
+      "department": "",
       "deadline": "unknown",
       "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88691",
-      "source": "https://sigarra.up.pt/spup/pt/noticias_geral.lista_noticias",
-      "relevant": false,
-      "notes": "Edital 145/2026 – DOCPUB-FEUP-26-5. Civil Engineering."
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
     },
     {
-      "university": "Universidade de Lisboa – Faculdade de Arquitetura",
-      "title": "Professor Associado",
-      "department": "Arquitetura",
-      "deadline": "2026-04-14",
+      "university": "Universidade do Porto",
+      "title": "FPCEUP| 1 Professor/a Catedr�tico/a| Psicologia e Metodologia de Investiga��o| Edital 117/2026, de 03 de fevereiro| DOCPUB-FPCEUP-26-1",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88531",
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
+    },
+    {
+      "university": "Universidade do Porto",
+      "title": "FEP | Processo de recrutamento e sele��o de 1 Professor/a Auxiliar (CT por tempo indeterminado) para a �rea disciplinar de Economia (em particular nos dom�nios da Economia do Trabalho e da Avalia��o de Pol�ticas P�blicas) | Ref.� DOCPRIV-FEP-26-2",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88371",
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
+    },
+    {
+      "university": "Universidade do Porto",
+      "title": "FEP | Processo de recrutamento e sele��o de 1 Professor/a Auxiliar (CT por tempo indeterminado) para a �rea disciplinar de Matem�tica e Sistemas de Informa��o | Ref.� DOCPRIV-FEP-26-1",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88372",
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
+    },
+    {
+      "university": "Universidade do Porto",
+      "title": "FEP | Processo de recrutamento e sele��o de 1 Professor/a Auxiliar (CT por tempo indeterminado) para a �rea disciplinar de Economia, em particular nos dom�nios da Economia dos Recursos Naturais e Economia do Desenvolvimento Sustent�vel. | Ref.� DOCPRIV-FEP-26-3",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://sigarra.up.pt/spup/pt/noticias_geral.ver_noticia?p_nr=88391",
+      "source": "sigarra.up.pt/spup",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 237/2026 concurso para recrutamento de um professor associado, área disciplinar de Arquitetura (execução sentença Tribunal Administrativo e Fiscal de Sintra)",
+      "department": "",
+      "deadline": "unknown",
       "link": "https://www.ulisboa.pt/recrutamento/edital-no-2372026-concurso-para-recrutamento-de-um-professor-associado-area",
-      "source": "https://www.ulisboa.pt/info/concursos-para-docentes",
-      "relevant": false,
-      "notes": "Edital 237/2026. Architecture. Execution of court sentence (Tribunal Administrativo). Not relevant."
+      "source": "ulisboa.pt",
+      "relevant": null
     },
     {
-      "university": "Universidade de Lisboa – ISEG",
-      "title": "Professor Auxiliar",
-      "department": "Finanças",
-      "deadline": "2026-03-24",
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 144/2026 concurso documental internacional para dois professores auxiliares na área disciplinar de Finanças",
+      "department": "",
+      "deadline": "unknown",
       "link": "https://www.ulisboa.pt/recrutamento/edital-no-1442026-concurso-documental-internacional-para-dois-professores-auxiliares",
-      "source": "https://www.ulisboa.pt/info/concursos-para-docentes",
-      "relevant": false,
-      "notes": "Edital 144/2026. 2 vacancies. Finance/Economics. Not relevant."
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1263/2025 concurso para recrutamento de um professor catedrático, na área disciplinar de Economia Pública e do Bem-Estar",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-12632025-concurso-para-recrutamento-de-um-professor-catedratico-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1183/2025 concurso para recrutamento de um professor auxiliar, na área disciplinar de Microeconomia, no âmbito do programa FCT Tenure",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-11832025-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1182/2025 concurso para recrutamento de um professor auxiliar, na área disciplinar de Estatística e Ciências Atuariais, ao abrigo do programa FCT Tenure",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-11822025-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1181/2025 concurso para recrutamento de um professor auxiliar nas áreas de Direito, História ou Sociologia, ao abrigo do programa FCT Tenure",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-11812025-concurso-para-recrutamento-de-um-professor-auxiliar-nas-areas-de",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1159/2025 concurso para recrutamento de um professor catedrático, na área disciplinar de Análise e Matemática Financeira",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-11592025-concurso-para-recrutamento-de-um-professor-catedratico-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 18/2026 concurso para recrutamento de um professor auxiliar, na área disciplinar de Ciência e Tecnologia da Programação",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-182026-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 17/2026 concurso para recrutamento de um professor auxiliar, na área disciplinar de Organização de Sistemas Computacionais",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-172026-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1742/2025 concurso para recrutamento de um professor catedrático, na área disciplinar de Biologia Marinha",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-17422025-concurso-para-recrutamento-de-um-professor-catedratico-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1582/2025 - concurso para recrutamento de um professor auxiliar, na área disciplinar de Bioquímica",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-15822025-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1322/2025 concurso para recrutamento de um professor auxiliar na área disciplinar de Metodologias da Computação",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-13222025-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1231/2025 concurso para recrutamento de um professor auxiliar na área disciplinar de Química Macromolecular e dos Materiais",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-12312025-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1230/2025 concurso para recrutamento de um professor auxiliar na área disciplinar de Investigação Operacional",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-12302025-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1167/2025 concurso para recrutamento de um professor auxiliar na área disciplinar de Ciência e Tecnologia da Programação",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-11672025-concurso-para-recrutamento-de-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 2005/2025 concurso para recrutamento de 1 (um) Professor Auxiliar, na área disciplinar de Pedagogia e Metodologias de Intervenção nas Atividades Motoras (PMI)",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-20052025-concurso-para-recrutamento-de-1-um-professor-auxiliar-na-area",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1864/2025 concurso para um professor catedrático, na área disciplinar de Ciências Jurídico-Económicas",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-18642025-concurso-para-um-professor-catedratico-na-area-disciplinar-de",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1863/2025 concurso para quatro professores associados na área disciplinar de Ciências Jurídico-Políticas",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-18632025-concurso-para-quatro-professores-associados-na-area-disciplinar-de",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1862/2025 concurso para seis professores associados na área disciplinar de Ciências Jurídicas",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-18622025-concurso-para-seis-professores-associados-na-area-disciplinar-de",
+      "source": "ulisboa.pt",
+      "relevant": null
+    },
+    {
+      "university": "Universidade de Lisboa",
+      "title": "Edital nº 1861/2025 concurso para três professores associados, na área disciplinar de Ciências Histórico-Jurídicas",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ulisboa.pt/recrutamento/edital-no-18612025-concurso-para-tres-professores-associados-na-area-disciplinar-de",
+      "source": "ulisboa.pt",
+      "relevant": null
     },
     {
       "university": "Instituto Politécnico de Leiria",
-      "title": "Professor Adjunto",
-      "department": "Engenharia Informática / Desenvolvimento de Aplicações Web, Multiplataforma e Multidispositivo",
+      "title": "body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-",
+      "department": "",
       "deadline": "unknown",
-      "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
-      "source": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
-      "relevant": "partial",
-      "notes": "Edital 1555/2025, rectified by Declaração de Retificação 80/2026/2 (rectification in 2026 suggests possibly still active). ESTG. CS/Informatics adjacent. Deadline not listed — check DRE or ESTG directly."
+      "link": "https://www.ipleiria.pt/wp-json/",
+      "source": "ipleiria.pt",
+      "relevant": null
     },
     {
       "university": "Instituto Politécnico de Leiria",
-      "title": "Professor Adjunto",
-      "department": "Enfermagem / Saúde Infantil e Pediátrica",
+      "title": "Serviço de Gestão de Pessoas",
+      "department": "",
       "deadline": "unknown",
-      "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
-      "source": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
-      "relevant": false,
-      "notes": "Edital 202/2026. Nursing. Not relevant."
+      "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/",
+      "source": "ipleiria.pt",
+      "relevant": null
     },
     {
       "university": "Instituto Politécnico de Leiria",
-      "title": "Professor Adjunto",
-      "department": "Enfermagem / Saúde Comunitária",
+      "title": "Concursos e contratos",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/",
+      "source": "ipleiria.pt",
+      "relevant": null
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Carreira docente",
+      "department": "",
       "deadline": "unknown",
       "link": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
-      "source": "https://www.ipleiria.pt/politecnico/servico_gestao_pessoas/concursos-e-contratos/carreira-docente/",
-      "relevant": false,
-      "notes": "Edital 201/2026. Nursing. Not relevant."
-    }
-  ],
-  "past_deadline_positions_excluded": [
-    {
-      "university": "Universidade de Coimbra",
-      "title": "Professor Catedrático",
-      "department": "XXXXXXX / XXXXXXXX",
-      "deadline": "encerradas",
-      "notes": "IT136-26-10. Applications closed."
+      "source": "ipleiria.pt",
+      "relevant": null
     },
     {
-      "university": "Universidade de Lisboa – Faculdade de Ciências",
-      "title": "Professor Auxiliar",
-      "department": "Ciência e Tecnologia da Programação",
-      "deadline": "2026-02-17",
-      "notes": "Edital 18/2026. CS/Programming. PAST."
+      "university": "Instituto Politécnico de Leiria",
+      "title": "YouTube do Politécnico de Leiria",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.youtube.com/user/IPLeiriaOficial",
+      "source": "ipleiria.pt",
+      "relevant": null
     },
     {
-      "university": "Universidade de Lisboa – Faculdade de Ciências",
-      "title": "Professor Auxiliar",
-      "department": "Organização de Sistemas Computacionais",
-      "deadline": "2026-02-17",
-      "notes": "Edital 17/2026. CS/Systems. PAST."
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Facebook do Politécnico de Leiria",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.facebook.com/pages/IPLeiria/113647781986221?sk=wall",
+      "source": "ipleiria.pt",
+      "relevant": null
     },
     {
-      "university": "Instituto Politécnico de Coimbra – ISEC",
-      "title": "Professor Adjunto",
-      "department": "Engenharia Mecânica / Tecnologias de Fabrico",
-      "deadline": "2026-01-05",
-      "notes": "PRPD/5/2025. Deadline passed."
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Instagram do Politécnico de Leiria",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.instagram.com/politecnico_de_leiria",
+      "source": "ipleiria.pt",
+      "relevant": null
     },
     {
-      "university": "Instituto Politécnico de Coimbra – ISCAC",
-      "title": "Professor Adjunto",
-      "department": "Sistemas de Informação de Gestão",
-      "deadline": "2025-10-13",
-      "notes": "PRPD/1/2025. Long past."
+      "university": "Instituto Politécnico de Leiria",
+      "title": "LinkedIn do Politécnico de Leiria",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.linkedin.com/edu/instituto-polit%C3%A9cnico-de-leiria-16064",
+      "source": "ipleiria.pt",
+      "relevant": null
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Campus 5 HUB Saúde",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://citechcare.ipleiria.pt",
+      "source": "ipleiria.pt",
+      "relevant": null
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Caldas da Rainha Campus 3 ESAD.CR",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ipleiria.pt/esadcr/",
+      "source": "ipleiria.pt",
+      "relevant": null
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Peniche Campus 4 ESTM",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ipleiria.pt/estm/",
+      "source": "ipleiria.pt",
+      "relevant": null
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Marinha Grande CDRSP",
+      "department": "",
+      "deadline": "unknown",
+      "link": "http://cdrsp.ipleiria.pt/",
+      "source": "ipleiria.pt",
+      "relevant": null
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Torres Vedras Núcleo de Formação",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ipleiria.pt/nucleo-torres-vedras",
+      "source": "ipleiria.pt",
+      "relevant": null
+    },
+    {
+      "university": "Instituto Politécnico de Leiria",
+      "title": "Pombal Núcleo de Formação",
+      "department": "",
+      "deadline": "unknown",
+      "link": "https://www.ipleiria.pt/nucleo-de-pombal/",
+      "source": "ipleiria.pt",
+      "relevant": null
     }
   ]
 }
