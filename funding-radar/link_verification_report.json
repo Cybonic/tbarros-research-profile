@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-03-16T21:34:03.312361+00:00",
+  "calls_file": "/swift_workspace/Dropbox/tbarros-research/funding-radar/calls.json",
+  "total_checked": 10,
+  "exists_ok": 6,
+  "title_match_ok": 3,
+  "checks": [
+    {
+      "program": "PRR Reindustrializar",
+      "url": "https://www.iapmei.pt/PRODUTOS-E-SERVICOS/Incentivos-Financiamento/Sistemas-de-Incentivos/PRR.aspx",
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://www.iapmei.pt/Paginas/Pagina-nao-encontrada.aspx",
+      "title_match": false,
+      "match_score": 0.0,
+      "page_title": "IAPMEI - Página Inicial",
+      "page_h1": null,
+      "error": null
+    },
+    {
+      "program": "MSCA Doctoral Networks",
+      "url": "https://marie-sklodowska-curie-actions.ec.europa.eu/calls",
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://marie-sklodowska-curie-actions.ec.europa.eu/funding",
+      "title_match": false,
+      "match_score": 0.0,
+      "page_title": "Funding - Marie Skłodowska-Curie Actions",
+      "page_h1": "Funding opportunities",
+      "error": null
+    },
+    {
+      "program": "Horizon Europe — Digital Cluster",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home",
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home",
+      "title_match": false,
+      "match_score": 0.0,
+      "page_title": "EU Funding & Tenders Portal",
+      "page_h1": null,
+      "error": null
+    },
+    {
+      "program": "Portugal 2030 — Research Excellence",
+      "url": "https://www.portugal2030.pt/pt/proponentes/avisos-de-abertura",
+      "exists": false,
+      "status_code": 404,
+      "final_url": null,
+      "title_match": false,
+      "match_score": 0.0,
+      "page_title": null,
+      "page_h1": null,
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "program": "ERC Starting Grants",
+      "url": "https://erc.europa.eu/apply-grant/starting-grant",
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://erc.europa.eu/apply-grant/starting-grant",
+      "title_match": true,
+      "match_score": 0.667,
+      "page_title": "ERC Starting Grant - Funding Opportunities for Early-Career Researchers",
+      "page_h1": "Starting Grant",
+      "error": null
+    },
+    {
+      "program": "KDT Joint Undertaking",
+      "url": "https://www.kdt-ju.europa.eu/calls",
+      "exists": false,
+      "status_code": null,
+      "final_url": null,
+      "title_match": false,
+      "match_score": 0.0,
+      "page_title": null,
+      "page_h1": null,
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+    },
+    {
+      "program": "Digital Europe — AI Track",
+      "url": "https://digital-strategy.ec.europa.eu/en/activities/digital-programme",
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://digital-strategy.ec.europa.eu/en/activities/digital-programme",
+      "title_match": true,
+      "match_score": 0.667,
+      "page_title": "The Digital Europe Programme | Shaping Europe’s digital future",
+      "page_h1": "The Digital Europe Programme",
+      "error": null
+    },
+    {
+      "program": "FCT Grants",
+      "url": "https://www.fct.pt/financiamento/programas-de-financiamento/",
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://www.fct.pt/financiamento/programas-de-financiamento/",
+      "title_match": true,
+      "match_score": 0.5,
+      "page_title": "Programas de Financiamento - FCT",
+      "page_h1": "Programas de Financiamento",
+      "error": null
+    },
+    {
+      "program": "Eurostars Call 10",
+      "url": "https://www.eurekanetwork.org/programmes/",
+      "exists": false,
+      "status_code": 403,
+      "final_url": null,
+      "title_match": false,
+      "match_score": 0.0,
+      "page_title": null,
+      "page_h1": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "program": "EUROGIA2030 Call 30",
+      "url": "https://www.eurekanetwork.org/programmes/",
+      "exists": false,
+      "status_code": 403,
+      "final_url": null,
+      "title_match": false,
+      "match_score": 0.0,
+      "page_title": null,
+      "page_h1": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    }
+  ]
+}
