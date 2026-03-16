@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-16T21:22:20Z",
+  "timestamp": "2026-03-16T21:39:56Z",
   "calls": [
     {
       "program": "PRR Reindustrializar",
@@ -9,7 +9,13 @@
       "eligible": "R&D + companies (all sizes)",
       "objective": "R&D innovation + production resilience",
       "link": "https://www.iapmei.pt/PRODUTOS-E-SERVICOS/Incentivos-Financiamento/Sistemas-de-Incentivos/PRR.aspx",
-      "status": "🔴"
+      "status": "🔴",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://www.iapmei.pt/Paginas/Pagina-nao-encontrada.aspx",
+        "checked_at": "2026-03-16T21:39:50.026624+00:00"
+      }
     },
     {
       "program": "MSCA Doctoral Networks",
@@ -19,7 +25,13 @@
       "eligible": "R&D host institutions",
       "objective": "Train PhD students in AI & Robotics",
       "link": "https://marie-sklodowska-curie-actions.ec.europa.eu/calls",
-      "status": "🟡"
+      "status": "🟡",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://marie-sklodowska-curie-actions.ec.europa.eu/funding",
+        "checked_at": "2026-03-16T21:39:50.434122+00:00"
+      }
     },
     {
       "program": "Horizon Europe — Digital Cluster",
@@ -28,8 +40,14 @@
       "support": "100%",
       "eligible": "R&D institutions, companies",
       "objective": "AI for industrial automation & digital innovation",
-      "link": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home",
-      "status": "🟡"
+      "link": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-search",
+      "status": "🟡",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-search",
+        "checked_at": "2026-03-16T21:39:50.715478+00:00"
+      }
     },
     {
       "program": "Portugal 2030 — Research Excellence",
@@ -38,8 +56,14 @@
       "support": "75%",
       "eligible": "Portuguese R&D institutions",
       "objective": "Advanced research in digital technologies",
-      "link": "https://www.portugal2030.pt/pt/proponentes/avisos-de-abertura",
-      "status": "🟡"
+      "link": "https://www.portugal2030.pt/avisos/",
+      "status": "🟡",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://portugal2030.pt/avisos/",
+        "checked_at": "2026-03-16T21:39:53.095239+00:00"
+      }
     },
     {
       "program": "ERC Starting Grants",
@@ -49,7 +73,13 @@
       "eligible": "Researchers (2–7 yrs post-PhD)",
       "objective": "Frontier research excellence",
       "link": "https://erc.europa.eu/apply-grant/starting-grant",
-      "status": "🟢"
+      "status": "🟢",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://erc.europa.eu/apply-grant/starting-grant",
+        "checked_at": "2026-03-16T21:39:53.393832+00:00"
+      }
     },
     {
       "program": "KDT Joint Undertaking",
@@ -58,8 +88,14 @@
       "support": "40–60%",
       "eligible": "R&D + companies (SME priority)",
       "objective": "AI hardware & embedded systems R&D",
-      "link": "https://www.kdt-ju.europa.eu/calls",
-      "status": "🟢"
+      "link": "https://www.chips-ju.europa.eu/",
+      "status": "🟢",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://www.chips-ju.europa.eu/",
+        "checked_at": "2026-03-16T21:39:54.149647+00:00"
+      }
     },
     {
       "program": "Digital Europe — AI Track",
@@ -69,7 +105,13 @@
       "eligible": "R&D + companies (all sizes)",
       "objective": "Trustworthy AI innovation & testing",
       "link": "https://digital-strategy.ec.europa.eu/en/activities/digital-programme",
-      "status": "🟢"
+      "status": "🟢",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://digital-strategy.ec.europa.eu/en/activities/digital-programme",
+        "checked_at": "2026-03-16T21:39:54.372285+00:00"
+      }
     },
     {
       "program": "FCT Grants",
@@ -79,7 +121,13 @@
       "eligible": "R&D institutions, researchers",
       "objective": "All fields research & innovation",
       "link": "https://www.fct.pt/financiamento/programas-de-financiamento/",
-      "status": "🔵"
+      "status": "🔵",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://www.fct.pt/financiamento/programas-de-financiamento/",
+        "checked_at": "2026-03-16T21:39:54.618901+00:00"
+      }
     },
     {
       "program": "Eurostars Call 10",
@@ -88,8 +136,14 @@
       "support": "TBD",
       "eligible": "R&D + companies",
       "objective": "See call details",
-      "link": "https://www.eurekanetwork.org/programmes/",
-      "status": "🟡"
+      "link": "https://www.eurekanetwork.org/programmes/eurostars/",
+      "status": "🟡",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://www.eurekanetwork.org/programmes-and-calls/eurostars/",
+        "checked_at": "2026-03-16T21:39:55.490076+00:00"
+      }
     },
     {
       "program": "EUROGIA2030 Call 30",
@@ -98,8 +152,14 @@
       "support": "TBD",
       "eligible": "R&D + companies",
       "objective": "See call details",
-      "link": "https://www.eurekanetwork.org/programmes/",
-      "status": "🟡"
+      "link": "https://www.eurekanetwork.org/programmes/eurogia2030/",
+      "status": "🟡",
+      "link_check": {
+        "ok": true,
+        "status": 200,
+        "final_url": "https://www.eurekanetwork.org/programmes-and-calls/eureka-clusters/eurogia2030-call-30/",
+        "checked_at": "2026-03-16T21:39:56.721052+00:00"
+      }
     }
   ]
 }

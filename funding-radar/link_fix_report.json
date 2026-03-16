@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-03-16T21:39:56.730543+00:00",
+  "calls_file": "/swift_workspace/Dropbox/tbarros-research/funding-radar/calls.json",
+  "fixes_applied": 5,
+  "fixes": [
+    {
+      "program": "Horizon Europe — Digital Cluster",
+      "old_link": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home",
+      "new_link": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-search",
+      "reason": "program_canonical"
+    },
+    {
+      "program": "Portugal 2030 — Research Excellence",
+      "old_link": "https://www.portugal2030.pt/pt/proponentes/avisos-de-abertura",
+      "new_link": "https://www.portugal2030.pt/avisos/",
+      "reason": "program_canonical"
+    },
+    {
+      "program": "KDT Joint Undertaking",
+      "old_link": "https://www.kdt-ju.europa.eu/calls",
+      "new_link": "https://www.chips-ju.europa.eu/",
+      "reason": "program_canonical"
+    },
+    {
+      "program": "Eurostars Call 10",
+      "old_link": "https://www.eurekanetwork.org/programmes/",
+      "new_link": "https://www.eurekanetwork.org/programmes/eurostars/",
+      "reason": "program_canonical"
+    },
+    {
+      "program": "EUROGIA2030 Call 30",
+      "old_link": "https://www.eurekanetwork.org/programmes/",
+      "new_link": "https://www.eurekanetwork.org/programmes/eurogia2030/",
+      "reason": "program_canonical"
+    }
+  ]
+}

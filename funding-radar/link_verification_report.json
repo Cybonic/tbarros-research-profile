@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-03-16T21:34:03.312361+00:00",
+  "generated_at": "2026-03-16T21:40:00.467441+00:00",
   "calls_file": "/swift_workspace/Dropbox/tbarros-research/funding-radar/calls.json",
   "total_checked": 10,
-  "exists_ok": 6,
-  "title_match_ok": 3,
+  "exists_ok": 8,
+  "title_match_ok": 4,
   "checks": [
     {
       "program": "PRR Reindustrializar",
@@ -31,10 +31,10 @@
     },
     {
       "program": "Horizon Europe — Digital Cluster",
-      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home",
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-search",
       "exists": true,
       "status_code": 200,
-      "final_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home",
+      "final_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-search",
       "title_match": false,
       "match_score": 0.0,
       "page_title": "EU Funding & Tenders Portal",
@@ -43,15 +43,15 @@
     },
     {
       "program": "Portugal 2030 — Research Excellence",
-      "url": "https://www.portugal2030.pt/pt/proponentes/avisos-de-abertura",
-      "exists": false,
-      "status_code": 404,
-      "final_url": null,
-      "title_match": false,
-      "match_score": 0.0,
-      "page_title": null,
-      "page_h1": null,
-      "error": "HTTPError: HTTP Error 404: Not Found"
+      "url": "https://www.portugal2030.pt/avisos/",
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://portugal2030.pt/avisos/",
+      "title_match": true,
+      "match_score": 0.5,
+      "page_title": "Avisos - Portugal 2030",
+      "page_h1": "Avisos",
+      "error": null
     },
     {
       "program": "ERC Starting Grants",
@@ -67,15 +67,15 @@
     },
     {
       "program": "KDT Joint Undertaking",
-      "url": "https://www.kdt-ju.europa.eu/calls",
-      "exists": false,
-      "status_code": null,
-      "final_url": null,
+      "url": "https://www.chips-ju.europa.eu/",
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://www.chips-ju.europa.eu/",
       "title_match": false,
       "match_score": 0.0,
-      "page_title": null,
+      "page_title": "Home  · Chips Ju",
       "page_h1": null,
-      "error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+      "error": null
     },
     {
       "program": "Digital Europe — AI Track",
@@ -103,7 +103,7 @@
     },
     {
       "program": "Eurostars Call 10",
-      "url": "https://www.eurekanetwork.org/programmes/",
+      "url": "https://www.eurekanetwork.org/programmes/eurostars/",
       "exists": false,
       "status_code": 403,
       "final_url": null,
@@ -115,7 +115,7 @@
     },
     {
       "program": "EUROGIA2030 Call 30",
-      "url": "https://www.eurekanetwork.org/programmes/",
+      "url": "https://www.eurekanetwork.org/programmes/eurogia2030/",
       "exists": false,
       "status_code": 403,
       "final_url": null,
