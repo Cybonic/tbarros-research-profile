@@ -33,7 +33,7 @@ CANONICAL_BY_PROGRAM = {
     "Digital Europe — AI Track": "https://digital-strategy.ec.europa.eu/en/activities/digital-programme",
     "FCT Grants": "https://www.fct.pt/financiamento/programas-de-financiamento/",
     # EUREKA blocks some bots; point to program pages under same domain.
-    "Eurostars Call 10": "https://www.eurekanetwork.org/programmes/eurostars/",
+    "Eurostars Call 10": "https://www.eurekanetwork.org/programmes-and-calls/eurostars/eurostars-call-for-projects-september-2026/",
     "EUROGIA2030 Call 30": "https://www.eurekanetwork.org/programmes/eurogia2030/",
 }
 

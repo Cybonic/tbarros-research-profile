@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-16T21:40:00.467441+00:00",
+  "generated_at": "2026-03-16T21:51:57.599723+00:00",
   "calls_file": "/swift_workspace/Dropbox/tbarros-research/funding-radar/calls.json",
   "total_checked": 10,
   "exists_ok": 8,
@@ -103,7 +103,7 @@
     },
     {
       "program": "Eurostars Call 10",
-      "url": "https://www.eurekanetwork.org/programmes/eurostars/",
+      "url": "https://www.eurekanetwork.org/programmes-and-calls/eurostars/eurostars-call-for-projects-september-2026/",
       "exists": false,
       "status_code": 403,
       "final_url": null,
