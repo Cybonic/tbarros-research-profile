@@ -106,18 +106,24 @@ function populateNews(data) {
         });
 
     const announcementsList = document.getElementById('announcements-list');
-    [...announcements].sort(byDate).forEach(a => {
-        const li = document.createElement('li');
-        li.innerHTML = `<span class="news-date">${fmt(a.date)}</span> ${a.title} — <a href="${a.link}" target="_blank">Read more</a>`;
-        announcementsList.appendChild(li);
-    });
+    [...announcements]
+        .filter(a => isUpcoming(a.date))
+        .sort(byDate)
+        .forEach(a => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="news-date">${fmt(a.date)}</span> ${a.title} — <a href="${a.link}" target="_blank">Read more</a>`;
+            announcementsList.appendChild(li);
+        });
 
     const comingSoonList = document.getElementById('coming-soon-list');
-    [...coming_soon].sort(byDate).forEach(cs => {
-        const li = document.createElement('li');
-        li.innerHTML = `<span class="news-date">${fmt(cs.date)}</span> ${cs.program} <span style="color:var(--text-light);font-size:0.85em">${cs.status}</span>`;
-        comingSoonList.appendChild(li);
-    });
+    [...coming_soon]
+        .filter(cs => isUpcoming(cs.date))
+        .sort(byDate)
+        .forEach(cs => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="news-date">${fmt(cs.date)}</span> ${cs.program} <span style="color:var(--text-light);font-size:0.85em">${cs.status}</span>`;
+            comingSoonList.appendChild(li);
+        });
 }
 
 function getStatusClass(status) {
