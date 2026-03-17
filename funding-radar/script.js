@@ -23,9 +23,46 @@ async function loadData() {
     }
 }
 
+function parseDeadline(deadline) {
+    if (!deadline) return null;
+    // Keep non-exact deadlines visible (e.g., Q2 2026, Rolling)
+    if (/rolling|q[1-4]/i.test(deadline)) return null;
+
+    // Handle ranges like "30/01/2026 - 30/09/2026" by taking the end date.
+    const parts = String(deadline).split('-').map(s => s.trim());
+    const candidate = parts.length > 1 ? parts[parts.length - 1] : String(deadline).trim();
+
+    // dd/mm/yyyy
+    const m = candidate.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+    if (m) {
+        const [, dd, mm, yyyy] = m;
+        return new Date(`${yyyy}-${mm}-${dd}T23:59:59`);
+    }
+
+    // Fallback to Date parser for formats like "Mar 31, 2026"
+    const d = new Date(candidate);
+    return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function isActiveCall(call) {
+    const d = parseDeadline(call.deadline);
+    if (!d) return true;
+    const now = new Date();
+    return d >= now;
+}
+
 function populateCalls(data) {
     const tbody = document.getElementById('calls-tbody');
-    data.calls.forEach(call => {
+    const activeCalls = data.calls.filter(isActiveCall);
+
+    if (activeCalls.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = '<td colspan="8" style="text-align:center;color:#666;">No active announcements.</td>';
+        tbody.appendChild(row);
+        return;
+    }
+
+    activeCalls.forEach(call => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td class="status-${getStatusClass(call.status)}">${call.status}</td>
