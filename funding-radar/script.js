@@ -82,15 +82,28 @@ function fmt(dateStr) {
     return new Date(dateStr).toLocaleDateString('en-US', DATE_FMT);
 }
 
+function isUpcoming(dateStr) {
+    const d = new Date(dateStr);
+    if (Number.isNaN(d.getTime())) return true;
+    // Keep entries whose date is today or in the future.
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    d.setHours(0, 0, 0, 0);
+    return d >= today;
+}
+
 function populateNews(data) {
     const { webinars, announcements, coming_soon } = data.news;
 
     const webinarsList = document.getElementById('webinars-list');
-    [...webinars].sort(byDate).forEach(w => {
-        const li = document.createElement('li');
-        li.innerHTML = `<span class="news-date">${fmt(w.date)}</span> ${w.title} — <a href="${w.link}" target="_blank">Register</a>`;
-        webinarsList.appendChild(li);
-    });
+    [...webinars]
+        .filter(w => isUpcoming(w.date))
+        .sort(byDate)
+        .forEach(w => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="news-date">${fmt(w.date)}</span> ${w.title} — <a href="${w.link}" target="_blank">Register</a>`;
+            webinarsList.appendChild(li);
+        });
 
     const announcementsList = document.getElementById('announcements-list');
     [...announcements].sort(byDate).forEach(a => {
