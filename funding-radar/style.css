@@ -200,6 +200,22 @@ body {
 }
 .news-list a:hover { color: var(--text-light); }
 
+/* Recently outdated items (<=30 days past deadline/date): keep visible but faded/struck */
+.stale-item {
+    opacity: 0.45;
+}
+
+.calls-table tr.stale-item td,
+.news-list li.stale-item {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+}
+
+.calls-table tr.stale-item a,
+.news-list li.stale-item a {
+    color: var(--text-light);
+}
+
 /* Resources */
 .resources-list {
     list-style: none;

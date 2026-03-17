@@ -44,86 +44,105 @@ function parseDeadline(deadline) {
     return Number.isNaN(d.getTime()) ? null : d;
 }
 
-function isActiveCall(call) {
-    const d = parseDeadline(call.deadline);
-    if (!d) return true;
+function classifyByDate(dateObj) {
+    if (!dateObj) return 'active';
     const now = new Date();
-    return d >= now;
+    const ms = now - dateObj;
+    if (ms <= 0) return 'active';
+    const days = ms / (1000 * 60 * 60 * 24);
+    if (days <= 30) return 'stale';
+    return 'expired';
+}
+
+function renderCallRow(call, stale = false) {
+    const row = document.createElement('tr');
+    if (stale) row.classList.add('stale-item');
+    row.innerHTML = `
+        <td class="status-${getStatusClass(call.status)}">${call.status}</td>
+        <td><strong>${call.program}</strong></td>
+        <td>${call.deadline}</td>
+        <td>${call.budget}</td>
+        <td>${call.support}</td>
+        <td>${call.eligible}</td>
+        <td>${call.objective}</td>
+        <td><a href="${call.link}" class="call-link" target="_blank">Details →</a></td>
+    `;
+    return row;
 }
 
 function populateCalls(data) {
     const tbody = document.getElementById('calls-tbody');
-    const activeCalls = data.calls.filter(isActiveCall);
 
-    if (activeCalls.length === 0) {
+    const activeCalls = [];
+    const staleCalls = [];
+
+    data.calls.forEach(call => {
+        const cls = classifyByDate(parseDeadline(call.deadline));
+        if (cls === 'active') activeCalls.push(call);
+        else if (cls === 'stale') staleCalls.push(call);
+    });
+
+    [...activeCalls, ...staleCalls].forEach(call => {
+        const stale = staleCalls.includes(call);
+        tbody.appendChild(renderCallRow(call, stale));
+    });
+
+    if (activeCalls.length === 0 && staleCalls.length === 0) {
         const row = document.createElement('tr');
         row.innerHTML = '<td colspan="8" style="text-align:center;color:#666;">No active announcements.</td>';
         tbody.appendChild(row);
-        return;
     }
-
-    activeCalls.forEach(call => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td class="status-${getStatusClass(call.status)}">${call.status}</td>
-            <td><strong>${call.program}</strong></td>
-            <td>${call.deadline}</td>
-            <td>${call.budget}</td>
-            <td>${call.support}</td>
-            <td>${call.eligible}</td>
-            <td>${call.objective}</td>
-            <td><a href="${call.link}" class="call-link" target="_blank">Details →</a></td>
-        `;
-        tbody.appendChild(row);
-    });
 }
 
 function fmt(dateStr) {
     return new Date(dateStr).toLocaleDateString('en-US', DATE_FMT);
 }
 
-function isUpcoming(dateStr) {
+function parseNewsDate(dateStr) {
     const d = new Date(dateStr);
-    if (Number.isNaN(d.getTime())) return true;
-    // Keep entries whose date is today or in the future.
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    d.setHours(0, 0, 0, 0);
-    return d >= today;
+    return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function appendNewsSection(listEl, items, renderFn) {
+    const active = [];
+    const stale = [];
+
+    items.forEach(item => {
+        const cls = classifyByDate(parseNewsDate(item.date));
+        if (cls === 'active') active.push(item);
+        else if (cls === 'stale') stale.push(item);
+    });
+
+    [...active.sort(byDate), ...stale.sort(byDate)].forEach(item => {
+        const li = renderFn(item);
+        if (stale.includes(item)) li.classList.add('stale-item');
+        listEl.appendChild(li);
+    });
 }
 
 function populateNews(data) {
     const { webinars, announcements, coming_soon } = data.news;
 
     const webinarsList = document.getElementById('webinars-list');
-    [...webinars]
-        .filter(w => isUpcoming(w.date))
-        .sort(byDate)
-        .forEach(w => {
-            const li = document.createElement('li');
-            li.innerHTML = `<span class="news-date">${fmt(w.date)}</span> ${w.title} — <a href="${w.link}" target="_blank">Register</a>`;
-            webinarsList.appendChild(li);
-        });
+    appendNewsSection(webinarsList, webinars, (w) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="news-date">${fmt(w.date)}</span> ${w.title} — <a href="${w.link}" target="_blank">Register</a>`;
+        return li;
+    });
 
     const announcementsList = document.getElementById('announcements-list');
-    [...announcements]
-        .filter(a => isUpcoming(a.date))
-        .sort(byDate)
-        .forEach(a => {
-            const li = document.createElement('li');
-            li.innerHTML = `<span class="news-date">${fmt(a.date)}</span> ${a.title} — <a href="${a.link}" target="_blank">Read more</a>`;
-            announcementsList.appendChild(li);
-        });
+    appendNewsSection(announcementsList, announcements, (a) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="news-date">${fmt(a.date)}</span> ${a.title} — <a href="${a.link}" target="_blank">Read more</a>`;
+        return li;
+    });
 
     const comingSoonList = document.getElementById('coming-soon-list');
-    [...coming_soon]
-        .filter(cs => isUpcoming(cs.date))
-        .sort(byDate)
-        .forEach(cs => {
-            const li = document.createElement('li');
-            li.innerHTML = `<span class="news-date">${fmt(cs.date)}</span> ${cs.program} <span style="color:var(--text-light);font-size:0.85em">${cs.status}</span>`;
-            comingSoonList.appendChild(li);
-        });
+    appendNewsSection(comingSoonList, coming_soon, (cs) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="news-date">${fmt(cs.date)}</span> ${cs.program} <span style="color:var(--text-light);font-size:0.85em">${cs.status}</span>`;
+        return li;
+    });
 }
 
 function getStatusClass(status) {
