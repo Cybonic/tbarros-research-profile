@@ -1,0 +1,57 @@
+name: Radar Reusable
+
+on:
+  workflow_call:
+    inputs:
+      radar_name:
+        required: true
+        type: string
+      radar_path:
+        required: true
+        type: string
+      run_update:
+        required: false
+        default: false
+        type: boolean
+      validate_cmd:
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  radar:
+    name: ${{ inputs.radar_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Run funding update scripts
+        if: ${{ inputs.run_update }}
+        run: |
+          python funding-radar/sync_calls_from_md.py
+          python funding-radar/fix_calls_links.py --no-probe
+          python funding-radar/verify_calls_links.py || true
+
+      - name: Validate radar files
+        run: |
+          ${{ inputs.validate_cmd }}
+
+      - name: Commit and push radar changes
+        run: |
+          git config user.name "Radar Bot"
+          git config user.email "radar@tiagobarros-research.com"
+          git add "${{ inputs.radar_path }}/"
+          if git diff --cached --quiet; then
+            echo "No changes to commit for ${{ inputs.radar_name }}"
+            exit 0
+          fi
+          git commit -m "Auto-update: ${{ inputs.radar_name }} $(date +%Y-%m-%d)"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push

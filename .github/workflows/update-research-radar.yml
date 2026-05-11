@@ -1,0 +1,17 @@
+name: Update Research Radar
+
+on:
+  schedule:
+    - cron: "10 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  research-radar:
+    uses: ./.github/workflows/radar-reusable.yml
+    with:
+      radar_name: research-radar
+      radar_path: research-radar
+      run_update: false
+      validate_cmd: |
+        python -m json.tool research-radar/results.json > /dev/null
+    secrets: inherit

@@ -1,0 +1,20 @@
+name: Update Papers Radar
+
+on:
+  schedule:
+    - cron: "5 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  papers-radar:
+    uses: ./.github/workflows/radar-reusable.yml
+    with:
+      radar_name: papers-radar
+      radar_path: papers-radar
+      run_update: false
+      validate_cmd: |
+        python -m json.tool papers-radar/results.json > /dev/null
+        python -m json.tool papers-radar/manual_papers.json > /dev/null
+        python -m json.tool papers-radar/priority_topics.json > /dev/null
+        python -m json.tool papers-radar/tracked_tokens.json > /dev/null
+    secrets: inherit
