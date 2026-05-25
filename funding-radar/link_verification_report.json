@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-18T10:36:29.948974+00:00",
+  "generated_at": "2026-05-25T10:39:46.983641+00:00",
   "calls_file": "/home/runner/work/tbarros-research-profile/tbarros-research-profile/funding-radar/calls.json",
   "total_checked": 10,
-  "exists_ok": 8,
-  "title_match_ok": 4,
+  "exists_ok": 10,
+  "title_match_ok": 6,
   "checks": [
     {
       "program": "PRR Reindustrializar",
@@ -104,26 +104,26 @@
     {
       "program": "Eurostars Call 10",
       "url": "https://www.eurekanetwork.org/programmes-and-calls/eurostars/eurostars-call-for-projects-september-2026/",
-      "exists": false,
-      "status_code": 403,
-      "final_url": null,
-      "title_match": false,
-      "match_score": 0.0,
-      "page_title": null,
-      "page_h1": null,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://www.eurekanetwork.org/programmes-and-calls/eurostars/eurostars-call-for-projects-september-2026/",
+      "title_match": true,
+      "match_score": 1.0,
+      "page_title": "Eurostars Call 11 for projects - deadline September 2026 - Eureka Network",
+      "page_h1": "Eurostars Call 11 for projects – deadline September 2026",
+      "error": null
     },
     {
       "program": "EUROGIA2030 Call 30",
       "url": "https://www.eurekanetwork.org/programmes/eurogia2030/",
-      "exists": false,
-      "status_code": 403,
-      "final_url": null,
-      "title_match": false,
-      "match_score": 0.0,
-      "page_title": null,
-      "page_h1": null,
-      "error": "HTTPError: HTTP Error 403: Forbidden"
+      "exists": true,
+      "status_code": 200,
+      "final_url": "https://www.eurekanetwork.org/programmes-and-calls/eureka-clusters/eurogia2030-call-30/",
+      "title_match": true,
+      "match_score": 1.0,
+      "page_title": "EUROGIA2030 – Call 30 - Eureka Network",
+      "page_h1": "EUROGIA2030 – Call 30",
+      "error": null
     }
   ]
 }
