@@ -1,8 +1,6 @@
 name: Update Funding Radar
 
 on:
-  schedule:
-    - cron: "0 9 * * 1"
   workflow_dispatch:
 
 jobs:
@@ -11,12 +9,11 @@ jobs:
     with:
       radar_name: funding-radar
       radar_path: funding-radar
-      run_update: true
-      update_cmd: |
-        python funding-radar/sync_calls_from_md.py
-        python funding-radar/fix_calls_links.py --no-probe
-        python funding-radar/verify_calls_links.py || true
+      run_update: false
       validate_cmd: |
+        python -m py_compile funding-radar/sync_calls_from_md.py funding-radar/fix_calls_links.py funding-radar/verify_calls_links.py
         python -m json.tool funding-radar/calls.json > /dev/null
         python -m json.tool funding-radar/news.json > /dev/null
+        python -m json.tool funding-radar/link_fix_report.json > /dev/null
+        python -m json.tool funding-radar/link_verification_report.json > /dev/null
     secrets: inherit
