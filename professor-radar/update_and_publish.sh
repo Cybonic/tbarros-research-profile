@@ -12,11 +12,14 @@ if [[ -n "$dirty" ]]; then
     exit 1
 fi
 
-python3 professor-radar/update_professor_radar.py
+python3 professor-radar/update_professor_radar.py --results professor-radar/candidate_facts.json
+python3 professor-radar/codex_decide_positions.py --apply
 python3 professor-radar/update_professor_radar.py --self-test
-python3 -m py_compile professor-radar/update_professor_radar.py
+python3 -m py_compile professor-radar/update_professor_radar.py professor-radar/codex_decide_positions.py
 python3 -m json.tool professor-radar/results.json >/dev/null
 python3 -m json.tool professor-radar/scan_state.json >/dev/null
+python3 -m json.tool professor-radar/candidate_facts.json >/dev/null
+python3 -m json.tool professor-radar/codex_decision_report.json >/dev/null
 
 git add professor-radar/results.json professor-radar/scan_state.json
 if git diff --cached --quiet; then

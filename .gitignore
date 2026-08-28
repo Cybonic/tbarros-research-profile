@@ -2,6 +2,8 @@ papers-radar/results.prev.json
 research-radar/results.prev.json
 professor-radar/results.prev.json
 professor-radar/__pycache__/
+professor-radar/candidate_facts.json
+professor-radar/codex_decision_report.json
 funding-radar/__pycache__/
 funding-radar/.source-cache/
 funding-radar/candidate_facts.json

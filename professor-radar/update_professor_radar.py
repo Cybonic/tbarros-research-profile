@@ -22,6 +22,12 @@ def deadline(s):
     m=re.search(r"(?:candidaturas?|deadline|applications?|ate|until)[^\d]{0,30}(20\d{2})-(\d{2})-(\d{2})",s)
     return "-".join(m.groups()) if m else "unknown"
 
+def evidence(text, terms, radius=150):
+    normalized=fold(text)
+    positions=[normalized.find(term) for term in terms if normalized.find(term)>=0]
+    if not positions: return ""
+    at=min(positions); return normalized[max(0,at-radius):at+radius]
+
 class Links(HTMLParser):
     def __init__(self): super().__init__(convert_charrefs=True); self.out=[]; self.href=None; self.text=[]
     def handle_starttag(self,tag,attrs):
@@ -51,7 +57,8 @@ def load(path,default):
 
 def scan(src,old):
     raw,charset=fetch(src["url"]); digest=hashlib.sha256(raw).hexdigest()
-    if old.get("listing_sha256")==digest: return old.get("positions",[]),old,"unchanged"
+    cached=old.get("positions",[])
+    if old.get("listing_sha256")==digest and all("candidate_id" in item and "content_hash" in item for item in cached): return cached,old,"unchanged"
     found=[]; listing=decode(raw,charset); links=candidates(listing,src["url"],src["allowed_hosts"]); expanded=[]
     # Expand generic category/search links once. A category page is never itself a result.
     for url,label in links:
@@ -69,7 +76,8 @@ def scan(src,old):
         except (HTTPError,URLError,TimeoutError,ValueError): pass
         closes=deadline(text)
         if closes!="unknown" and closes < datetime.date.today().isoformat(): continue
-        found.append({"university":src["university"],"title":" ".join(label.split())[:500],"department":"","deadline":closes,"link":url,"source":urlparse(url).hostname or src["id"],"relevant":True})
+        clean_title=" ".join(label.split())[:500]
+        found.append({"candidate_id":hashlib.sha256(url.encode()).hexdigest()[:16],"university":src["university"],"title":clean_title,"department":"","deadline":closes,"link":url,"source":urlparse(url).hostname or src["id"],"relevant":True,"rank_evidence":evidence(text,ROLE),"area_evidence":evidence(text,AREAS),"content_hash":hashlib.sha256(fold(text).encode()).hexdigest()})
     found.sort(key=lambda x:(x["deadline"]=="unknown",x["deadline"],x["link"]))
     state={"listing_sha256":digest,"positions":found}; return found,state,"ok" if found else "empty"
 
