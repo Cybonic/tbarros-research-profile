@@ -16,17 +16,20 @@ Among the 13 non-past calls, 2 are high-priority and 11 are medium-priority for 
 | Air navigation competition — organizer not stated | 1 | 0 |
 | Bluepharma / University of Coimbra | 1 | 0 |
 | CMU Portugal / FCT | 3 | 0 |
-| EIT Urban Mobility | 1 | 0 |
+| Chips Joint Undertaking / FCT | 1 | 1 |
+| EIT Urban Mobility | 2 | 1 |
 | EUREKA / Eurostars | 1 | 1 |
-| European Commission — Horizon Europe | 7 | 4 |
+| EUREKA Network | 1 | 1 |
+| EUREKA SMART Cluster | 1 | 1 |
+| European Commission — Horizon Europe | 8 | 5 |
 | European Commission — LIFE Programme | 1 | 1 |
 | European Commission — Marie Skłodowska-Curie Actions | 3 | 2 |
 | European Innovation Council | 2 | 1 |
 | European Partnership Agroecology | 1 | 0 |
 | European Partnership for Brain Health | 1 | 0 |
 | European Rare Diseases Research Alliance | 1 | 0 |
-| European Research Council | 3 | 2 |
-| Fundação para a Ciência e a Tecnologia (FCT) | 9 | 0 |
+| European Research Council | 4 | 3 |
+| Fundação para a Ciência e a Tecnologia (FCT) | 13 | 4 |
 | INOVA+ | 1 | 0 |
 | MIT Portugal / FCT | 2 | 0 |
 | Portuguese Olympic and Paralympic Committees | 1 | 0 |
@@ -35,7 +38,22 @@ Among the 13 non-past calls, 2 are high-priority and 11 are medium-priority for 
 | University of Coimbra — J. Norberto Pires Prize | 1 | 1 |
 | la Caixa Foundation | 1 | 0 |
 
-## Open and future calls
+## Newly verified from official portals
+
+| Deadline | Call | Funding source | Priority | Scope | Official source |
+|---|---|---|---|---|---|
+| 2026-08-31 | EIT Urban Mobility — Financial Support to Startups Open Call | EIT Urban Mobility | **High** | Urban mobility innovation, including AI-driven mobility and autonomous systems | [Official page](https://www.eiturbanmobility.eu/join-us/call-for-proposals/) |
+| 2026-09-11 | FCT Bilateral Cooperation Portugal–Germany 2026 | Fundação para a Ciência e a Tecnologia (FCT) | **Medium** | Cross-domain bilateral research; robotics and AI proposals require a matching partner | [Official page](https://myfct.fct.pt/MyFCT/CallDetail.aspx) |
+| 2026-09-15 | FCT Advanced Computing Projects — Round E (A0/A1) | Fundação para a Ciência e a Tecnologia (FCT) | **High** | Experimental and development access for advanced computing and AI projects | [Official page](https://www.fct.pt/concursos/concurso-de-projetos-de-computacao-avancada-6-ed-a0-a1-lote-e-) |
+| 2026-09-15 | FCT Advanced Computing Projects — Round E Fast Track (A2/A3) | Fundação para a Ciência e a Tecnologia (FCT) | **High** | Regular and larger-scale advanced-computing access for AI and robotics workloads | [Official page](https://myfct.fct.pt/MyFCT/CallDetail.aspx) |
+| 2026-09-15 | FCT Bilateral Cooperation Portugal–France (PESSOA) 2026 | Fundação para a Ciência e a Tecnologia (FCT) | **Medium** | Cross-domain bilateral research; robotics and AI proposals require a matching partner | [Official page](https://myfct.fct.pt/MyFCT/CallDetail.aspx) |
+| 2026-09-17 | Chips JU 2026 Electronic Components and Systems Calls | Chips Joint Undertaking / FCT | **High** | Advanced electronics, 6G, photonics, software-defined vehicles and autonomous-driving computing architectures | [Official page](https://www.fct.pt/concursos/concursos-ecs-de-2026-da-parceria-europeia-chips-ju) |
+| 2026-10-14 | ERC Starting Grant 2027 | European Research Council | **Medium** | Bottom-up frontier research, including AI, robotics and autonomous systems | [Official page](https://erc.europa.eu/apply-grant/starting-grant) |
+| 2026-10-26 | EUREKA Disaster Resilience, Response and Recovery Call 2026 | EUREKA Network | **High** | AI analytics, remote sensing, autonomous drones, robotics, detection and resilient communications | [Official page](https://www.eurekanetwork.org/programmes-and-calls/network-projects/eureka-call-for-disaster-resilience-response-and-recovery-projects-2026/) |
+| 2027-01-26 | SMART Call 10 — Project Outline | EUREKA SMART Cluster | **High** | Advanced manufacturing projects, including industrial robotics, autonomy and AI | [Official page](https://www.eurekanetwork.org/programmes-and-calls/eureka-clusters/smart-call-10-2026/) |
+| 2027-02-02 | HORIZON-CL4-2027-01-MAT-PROD-49 — Proof of Market | European Commission — Horizon Europe | **Medium** | Commercialization of Cluster 4 digital, industry and space research results | [Official page](https://research-and-innovation.ec.europa.eu/research-area/industrial-research-and-innovation/eu-valorisation-policy/knowledge-valorisation-platform/thematic-focus/knowledge-valorisation-horizon-europe-work-programme-2026-2027_en) |
+
+## Open and future workbook calls
 
 | Deadline | Call | Funding source (inferred) | Priority | Rationale | Additional information |
 |---|---|---|---|---|---|

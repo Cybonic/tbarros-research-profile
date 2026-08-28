@@ -22,7 +22,7 @@ python3 -m json.tool funding-radar/news.json >/dev/null
 python3 -m json.tool funding-radar/link_fix_report.json >/dev/null
 python3 -m json.tool funding-radar/link_verification_report.json >/dev/null
 
-git add funding-radar/FUNDING_SOURCES.md funding-radar/calls.json funding-radar/news.json funding-radar/link_fix_report.json funding-radar/link_verification_report.json
+git add funding-radar/FUNDING_SOURCES.md funding-radar/calls.json funding-radar/news.json funding-radar/link_fix_report.json funding-radar/link_verification_report.json funding-radar/verified_calls.json
 if git diff --cached --quiet; then
     echo "Funding Radar is already current."
     exit 0

@@ -94,6 +94,8 @@ body {
     margin-bottom: 10px;
 }
 
+.news-subsection h4 { margin: 16px 0 6px; font-size: 0.88em; font-weight: 600; color: var(--text); }
+
 /* Table */
 .table-wrapper {
     overflow-x: auto;

@@ -73,7 +73,12 @@ def load(workbook: Path) -> list[dict]:
     return sorted(rows, key=lambda row: (row["deadline"], row["call"]))
 
 
-def render(rows: list[dict], as_of: date) -> str:
+def load_verified(path: Path) -> list[dict]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return sorted(data.get("calls", []), key=lambda item: (item["deadline"], item["program"]))
+
+
+def render(rows: list[dict], as_of: date, verified: list[dict]) -> str:
     future = [row for row in rows if row["deadline"] >= as_of]
     past = [row for row in rows if row["deadline"] < as_of]
     high = sum(row["priority"] == "High" for row in future)
@@ -92,9 +97,15 @@ def render(rows: list[dict], as_of: date) -> str:
         "",
     ]
     lines += ["## Funding bodies represented", "", "| Funding source | Total calls | Open/future |", "|---|---:|---:|"]
-    for body in sorted({row["funder"] for row in rows}):
-        lines.append(f"| {clean(body)} | {sum(row['funder'] == body for row in rows)} | {sum(row['funder'] == body for row in future)} |")
-    lines += ["", "## Open and future calls", "", "| Deadline | Call | Funding source (inferred) | Priority | Rationale | Additional information |", "|---|---|---|---|---|---|"]
+    bodies = sorted({row["funder"] for row in rows} | {item["funder"] for item in verified})
+    for body in bodies:
+        total = sum(row["funder"] == body for row in rows) + sum(item["funder"] == body for item in verified)
+        active = sum(row["funder"] == body for row in future) + sum(item["funder"] == body and date.fromisoformat(item["deadline"]) >= as_of for item in verified)
+        lines.append(f"| {clean(body)} | {total} | {active} |")
+    lines += ["", "## Newly verified from official portals", "", "| Deadline | Call | Funding source | Priority | Scope | Official source |", "|---|---|---|---|---|---|"]
+    for item in verified:
+        lines.append(f"| {item['deadline']} | {clean(item['program'])} | {clean(item['funder'])} | **{item['priority']}** | {clean(item['objective'])} | [Official page]({item['link']}) |")
+    lines += ["", "## Open and future workbook calls", "", "| Deadline | Call | Funding source (inferred) | Priority | Rationale | Additional information |", "|---|---|---|---|---|---|"]
     for row in future:
         lines.append(f"| {row['deadline']} | {clean(row['call'])} | {clean(row['funder'])} | **{row['priority']}** | {clean(row['reason'])} | {clean(row['info']) or '—'} |")
     lines += ["", "## Past calls retained for source history", "", "| Deadline | Call | Funding source (inferred) | Priority | Additional information |", "|---|---|---|---|---|"]
@@ -123,11 +134,13 @@ def dashboard_call(row: dict, as_of: date) -> dict:
     }
 
 
-def update_dashboard(rows: list[dict], as_of: date, calls_path: Path) -> None:
+def update_dashboard(rows: list[dict], as_of: date, calls_path: Path, verified: list[dict]) -> None:
     data = json.loads(calls_path.read_text(encoding="utf-8"))
-    retained = [call for call in data.get("calls", []) if call.get("source") != "funding_calls.xlsx"]
+    superseded = {"ERC Starting Grants", "KDT Joint Undertaking"}
+    retained = [call for call in data.get("calls", []) if call.get("source") not in ("funding_calls.xlsx", "verified_official_scan") and call.get("program") not in superseded]
     workbook_calls = [dashboard_call(row, as_of) for row in rows if row["deadline"] >= as_of]
-    data["calls"] = retained + workbook_calls
+    verified_calls = [{"program": item["program"], "deadline": datetime.fromisoformat(item["deadline"]).strftime("%b %d, %Y"), "budget": item["budget"], "support": item["support"], "eligible": item["eligible"], "objective": item["objective"], "link": item["link"], "status": "🔴" if (date.fromisoformat(item["deadline"]) - as_of).days <= 30 else "🟡" if (date.fromisoformat(item["deadline"]) - as_of).days <= 90 else "🟢", "source": "verified_official_scan"} for item in verified if date.fromisoformat(item["deadline"]) >= as_of]
+    data["calls"] = retained + workbook_calls + verified_calls
     data["timestamp"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     calls_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -137,11 +150,13 @@ def main() -> int:
     parser.add_argument("--workbook", type=Path, default=ROOT / "funding_calls.xlsx")
     parser.add_argument("--output", type=Path, default=ROOT / "FUNDING_SOURCES.md")
     parser.add_argument("--calls", type=Path, default=ROOT / "calls.json")
+    parser.add_argument("--verified", type=Path, default=ROOT / "verified_calls.json")
     parser.add_argument("--as-of", type=date.fromisoformat, default=date.today())
     args = parser.parse_args()
     rows = load(args.workbook)
-    args.output.write_text(render(rows, args.as_of), encoding="utf-8")
-    update_dashboard(rows, args.as_of, args.calls)
+    verified = load_verified(args.verified)
+    args.output.write_text(render(rows, args.as_of, verified), encoding="utf-8")
+    update_dashboard(rows, args.as_of, args.calls, verified)
     print(f"wrote {args.output} with {len(rows)} calls")
     return 0
 

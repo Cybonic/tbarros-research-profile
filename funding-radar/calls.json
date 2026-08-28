@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-28T16:40:19Z",
+  "timestamp": "2026-08-28T16:45:43Z",
   "calls": [
     {
       "program": "PRR Reindustrializar",
@@ -63,38 +63,6 @@
         "status": 200,
         "final_url": "https://portugal2030.pt/avisos/",
         "checked_at": "2026-03-16T21:39:53.095239+00:00"
-      }
-    },
-    {
-      "program": "ERC Starting Grants",
-      "deadline": "Q2 2026",
-      "budget": "€1.5M",
-      "support": "100%",
-      "eligible": "Researchers (2–7 yrs post-PhD)",
-      "objective": "Frontier research excellence",
-      "link": "https://erc.europa.eu/apply-grant/starting-grant",
-      "status": "🟢",
-      "link_check": {
-        "ok": true,
-        "status": 200,
-        "final_url": "https://erc.europa.eu/apply-grant/starting-grant",
-        "checked_at": "2026-03-16T21:39:53.393832+00:00"
-      }
-    },
-    {
-      "program": "KDT Joint Undertaking",
-      "deadline": "Q2–Q3 2026",
-      "budget": "€1M–€10M+",
-      "support": "40–60%",
-      "eligible": "R&D + companies (SME priority)",
-      "objective": "AI hardware & embedded systems R&D",
-      "link": "https://www.chips-ju.europa.eu/",
-      "status": "🟢",
-      "link_check": {
-        "ok": true,
-        "status": 200,
-        "final_url": "https://www.chips-ju.europa.eu/",
-        "checked_at": "2026-03-16T21:39:54.149647+00:00"
       }
     },
     {
@@ -303,6 +271,116 @@
       "link": "",
       "status": "🟢",
       "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "EIT Urban Mobility — Financial Support to Startups Open Call",
+      "deadline": "Aug 31, 2026",
+      "budget": "See call",
+      "support": "Financial support and acceleration",
+      "eligible": "European urban-mobility startups",
+      "objective": "Urban mobility innovation, including AI-driven mobility and autonomous systems",
+      "link": "https://www.eiturbanmobility.eu/join-us/call-for-proposals/",
+      "status": "🔴",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "FCT Bilateral Cooperation Portugal–Germany 2026",
+      "deadline": "Sep 11, 2026",
+      "budget": "See call",
+      "support": "Bilateral research mobility",
+      "eligible": "Portuguese research teams with German partners",
+      "objective": "Cross-domain bilateral research; robotics and AI proposals require a matching partner",
+      "link": "https://myfct.fct.pt/MyFCT/CallDetail.aspx",
+      "status": "🔴",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "FCT Advanced Computing Projects — Round E (A0/A1)",
+      "deadline": "Sep 15, 2026",
+      "budget": "Up to 5,000 GPU hours (A1)",
+      "support": "In-kind HPC, AI and cloud resources",
+      "eligible": "Portuguese research and innovation teams",
+      "objective": "Experimental and development access for advanced computing and AI projects",
+      "link": "https://www.fct.pt/concursos/concurso-de-projetos-de-computacao-avancada-6-ed-a0-a1-lote-e-",
+      "status": "🔴",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "FCT Advanced Computing Projects — Round E Fast Track (A2/A3)",
+      "deadline": "Sep 15, 2026",
+      "budget": "See call",
+      "support": "In-kind HPC, AI and cloud resources",
+      "eligible": "Portuguese research and innovation teams",
+      "objective": "Regular and larger-scale advanced-computing access for AI and robotics workloads",
+      "link": "https://myfct.fct.pt/MyFCT/CallDetail.aspx",
+      "status": "🔴",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "FCT Bilateral Cooperation Portugal–France (PESSOA) 2026",
+      "deadline": "Sep 15, 2026",
+      "budget": "See call",
+      "support": "Bilateral research mobility",
+      "eligible": "Portuguese research teams with French partners",
+      "objective": "Cross-domain bilateral research; robotics and AI proposals require a matching partner",
+      "link": "https://myfct.fct.pt/MyFCT/CallDetail.aspx",
+      "status": "🔴",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "Chips JU 2026 Electronic Components and Systems Calls",
+      "deadline": "Sep 17, 2026",
+      "budget": "€3.5M Portuguese envelope",
+      "support": "Call-dependent; some EU topics at 100%",
+      "eligible": "Consortia with Portuguese companies and research entities",
+      "objective": "Advanced electronics, 6G, photonics, software-defined vehicles and autonomous-driving computing architectures",
+      "link": "https://www.fct.pt/concursos/concursos-ecs-de-2026-da-parceria-europeia-chips-ju",
+      "status": "🔴",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "ERC Starting Grant 2027",
+      "deadline": "Oct 14, 2026",
+      "budget": "Up to €1.5M plus eligible additional funding",
+      "support": "Up to 100% eligible direct costs plus indirect-cost contribution",
+      "eligible": "Researchers 0–10 years after PhD with an eligible host",
+      "objective": "Bottom-up frontier research, including AI, robotics and autonomous systems",
+      "link": "https://erc.europa.eu/apply-grant/starting-grant",
+      "status": "🟡",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "EUREKA Disaster Resilience, Response and Recovery Call 2026",
+      "deadline": "Oct 26, 2026",
+      "budget": "Country-dependent",
+      "support": "International collaborative R&D",
+      "eligible": "Eligible organizations in participating countries",
+      "objective": "AI analytics, remote sensing, autonomous drones, robotics, detection and resilient communications",
+      "link": "https://www.eurekanetwork.org/programmes-and-calls/network-projects/eureka-call-for-disaster-resilience-response-and-recovery-projects-2026/",
+      "status": "🟡",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "SMART Call 10 — Project Outline",
+      "deadline": "Jan 26, 2027",
+      "budget": "Country-dependent",
+      "support": "Bottom-up international collaborative R&D",
+      "eligible": "Organizations in participating countries, including Portugal",
+      "objective": "Advanced manufacturing projects, including industrial robotics, autonomy and AI",
+      "link": "https://www.eurekanetwork.org/programmes-and-calls/eureka-clusters/smart-call-10-2026/",
+      "status": "🟢",
+      "source": "verified_official_scan"
+    },
+    {
+      "program": "HORIZON-CL4-2027-01-MAT-PROD-49 — Proof of Market",
+      "deadline": "Feb 02, 2027",
+      "budget": "See topic",
+      "support": "Innovation Action",
+      "eligible": "Small consortia exploiting eligible Horizon Europe/Horizon 2020 results",
+      "objective": "Commercialization of Cluster 4 digital, industry and space research results",
+      "link": "https://research-and-innovation.ec.europa.eu/research-area/industrial-research-and-innovation/eu-valorisation-policy/knowledge-valorisation-platform/thematic-focus/knowledge-valorisation-horizon-europe-work-programme-2026-2027_en",
+      "status": "🟢",
+      "source": "verified_official_scan"
     }
   ]
 }
