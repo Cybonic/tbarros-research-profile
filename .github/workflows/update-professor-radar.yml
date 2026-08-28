@@ -1,8 +1,6 @@
 name: Update Professor Radar
 
 on:
-  schedule:
-    - cron: "15 9 * * 1"
   workflow_dispatch:
 
 jobs:
@@ -11,9 +9,7 @@ jobs:
     with:
       radar_name: professor-radar
       radar_path: professor-radar
-      run_update: true
-      update_cmd: |
-        python professor-radar/update_professor_radar.py
+      run_update: false
       validate_cmd: |
         python professor-radar/update_professor_radar.py --self-test
         python -m py_compile professor-radar/update_professor_radar.py

@@ -18,11 +18,12 @@ The user explicitly reversed the earlier private-only decision on 2026-08-28. Th
 - `update_professor_radar.py`: standard-library-only scanner and filter.
 - `scan_state.json`: generated listing hashes and cached matches.
 - `skill/SKILL.md`: compact operating instructions.
-- `.github/workflows/update-professor-radar.yml`: Monday scheduler.
+- `update_and_publish.sh`: local scan, validation, commit, rebase, and push command.
+- `.github/workflows/update-professor-radar.yml`: optional manual validation only; it never updates data.
 
 ## Efficient weekly design
 
-The schedule is Monday at 09:15 UTC. Each listing is capped at 2 MB and hashed. An unchanged listing reuses cached results. Changed pages are parsed locally; detail pages are fetched only for same-domain recruitment links whose labels do not already establish rank and relevance. Routine runs use no LLM tokens.
+Updates run locally and are then pushed to GitHub. Run `bash professor-radar/update_and_publish.sh`; a local scheduler may invoke it weekly. GitHub Actions must not scan or generate Professor Radar data. Each listing is capped at 2 MB and hashed. An unchanged listing reuses cached results. Changed pages are parsed locally; detail pages are fetched only for same-domain recruitment links whose labels do not already establish rank and relevance. Routine runs use no LLM tokens.
 
 Output fields are `last_scan`, `scan_sources`, and `positions`. Positions contain `university`, `title`, `department`, `deadline` (`YYYY-MM-DD` or `unknown`), `link`, `source`, and `relevant`.
 

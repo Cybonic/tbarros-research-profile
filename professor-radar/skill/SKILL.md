@@ -5,7 +5,7 @@ description: Maintain the private Portuguese Professor Auxiliar radar for AI, ro
 
 # Update Professor Radar
 
-Read `professor-radar/PROJECT_MEMORY.md` first. Prefer the deterministic `update_professor_radar.py`; routine runs must not use an LLM to parse pages. Maintain official listing URLs in `sources.json`. Add small source-specific parsing only when the generic parser cannot handle a portal.
+Read `professor-radar/PROJECT_MEMORY.md` first. Use `update_and_publish.sh` for routine local updates and GitHub publication. GitHub Actions must not generate the data. Prefer the deterministic `update_professor_radar.py`; routine runs must not use an LLM to parse pages. Maintain official listing URLs in `sources.json`. Add small source-specific parsing only when the generic parser cannot handle a portal.
 
 Preserve the public dashboard and show only verified matching positions. Do not expose scan caches or internal diagnostics. External notifications still require explicit authorization.
 
