@@ -78,7 +78,11 @@ def load_verified(path: Path) -> list[dict]:
     return sorted(data.get("calls", []), key=lambda item: (item["deadline"], item["program"]))
 
 
-def render(rows: list[dict], as_of: date, verified: list[dict]) -> str:
+def load_workbook_links(path: Path) -> dict[str, dict]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def render(rows: list[dict], as_of: date, verified: list[dict], links: dict[str, dict]) -> str:
     future = [row for row in rows if row["deadline"] >= as_of]
     past = [row for row in rows if row["deadline"] < as_of]
     high = sum(row["priority"] == "High" for row in future)
@@ -89,7 +93,7 @@ def render(rows: list[dict], as_of: date, verified: list[dict]) -> str:
         f"**Workbook:** `funding_calls.xlsx`",
         f"**Analysed:** {as_of.isoformat()}",
         f"**Coverage:** {len(rows)} calls ({len(future)} open/future by deadline; {len(past)} past)",
-        "**URLs:** The workbook contains no official source URLs. Funding bodies below are inferred from call names and must be verified before application.",
+        f"**Official links:** {sum(row['call'] in links for row in future)} of {len(future)} open/future workbook entries resolved to official sources; unresolved entries remain explicitly marked pending.",
         "",
         "## Analysis",
         "",
@@ -105,9 +109,11 @@ def render(rows: list[dict], as_of: date, verified: list[dict]) -> str:
     lines += ["", "## Newly verified from official portals", "", "| Deadline | Call | Funding source | Priority | Scope | Official source |", "|---|---|---|---|---|---|"]
     for item in verified:
         lines.append(f"| {item['deadline']} | {clean(item['program'])} | {clean(item['funder'])} | **{item['priority']}** | {clean(item['objective'])} | [Official page]({item['link']}) |")
-    lines += ["", "## Open and future workbook calls", "", "| Deadline | Call | Funding source (inferred) | Priority | Rationale | Additional information |", "|---|---|---|---|---|---|"]
+    lines += ["", "## Open and future workbook calls", "", "| Deadline | Call | Funding source (inferred) | Priority | Rationale | Additional information | Official source |", "|---|---|---|---|---|---|---|"]
     for row in future:
-        lines.append(f"| {row['deadline']} | {clean(row['call'])} | {clean(row['funder'])} | **{row['priority']}** | {clean(row['reason'])} | {clean(row['info']) or '—'} |")
+        source = links.get(row["call"])
+        official = f"[Official page]({source['url']})<br>{clean(source['note'])}" if source else "**Official notice not located**"
+        lines.append(f"| {row['deadline']} | {clean(row['call'])} | {clean(row['funder'])} | **{row['priority']}** | {clean(row['reason'])} | {clean(row['info']) or '—'} | {official} |")
     lines += ["", "## Past calls retained for source history", "", "| Deadline | Call | Funding source (inferred) | Priority | Additional information |", "|---|---|---|---|---|"]
     for row in past:
         lines.append(f"| {row['deadline']} | {clean(row['call'])} | {clean(row['funder'])} | {row['priority']} | {clean(row['info']) or '—'} |")
@@ -115,30 +121,33 @@ def render(rows: list[dict], as_of: date, verified: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def dashboard_call(row: dict, as_of: date) -> dict:
+def dashboard_call(row: dict, as_of: date, links: dict[str, dict]) -> dict:
     days = (row["deadline"] - as_of).days
     status = "🔴" if days <= 30 else "🟡" if days <= 90 else "🟢"
     info = row["info"] or "See official call conditions"
     support_match = re.search(r"(?:co-?funding(?: of)?|funding)\s*(?:of\s*)?(\d+%)", info, re.I)
     budget_match = re.search(r"(?:€|€\s*)([\d.,]+(?:\s*[kKmM])?)", info)
+    source = links.get(row["call"], {})
+    note = source.get("note", "")
+    objective = f"{info} Verification note: {note}" if "unverified" in note else info
     return {
         "program": row["call"],
         "deadline": row["deadline"].strftime("%b %d, %Y"),
         "budget": f"€{budget_match.group(1)}" if budget_match else "See call",
         "support": support_match.group(1) if support_match else "See call",
         "eligible": "Verify in official call",
-        "objective": info,
-        "link": "",
+        "objective": objective,
+        "link": source.get("url", ""),
         "status": status,
         "source": "funding_calls.xlsx",
     }
 
 
-def update_dashboard(rows: list[dict], as_of: date, calls_path: Path, verified: list[dict]) -> None:
+def update_dashboard(rows: list[dict], as_of: date, calls_path: Path, verified: list[dict], links: dict[str, dict]) -> None:
     data = json.loads(calls_path.read_text(encoding="utf-8"))
     superseded = {"ERC Starting Grants", "KDT Joint Undertaking"}
     retained = [call for call in data.get("calls", []) if call.get("source") not in ("funding_calls.xlsx", "verified_official_scan") and call.get("program") not in superseded]
-    workbook_calls = [dashboard_call(row, as_of) for row in rows if row["deadline"] >= as_of]
+    workbook_calls = [dashboard_call(row, as_of, links) for row in rows if row["deadline"] >= as_of]
     verified_calls = [{"program": item["program"], "deadline": datetime.fromisoformat(item["deadline"]).strftime("%b %d, %Y"), "budget": item["budget"], "support": item["support"], "eligible": item["eligible"], "objective": item["objective"], "link": item["link"], "status": "🔴" if (date.fromisoformat(item["deadline"]) - as_of).days <= 30 else "🟡" if (date.fromisoformat(item["deadline"]) - as_of).days <= 90 else "🟢", "source": "verified_official_scan"} for item in verified if date.fromisoformat(item["deadline"]) >= as_of]
     data["calls"] = retained + workbook_calls + verified_calls
     data["timestamp"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -151,12 +160,14 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=ROOT / "FUNDING_SOURCES.md")
     parser.add_argument("--calls", type=Path, default=ROOT / "calls.json")
     parser.add_argument("--verified", type=Path, default=ROOT / "verified_calls.json")
+    parser.add_argument("--workbook-links", type=Path, default=ROOT / "workbook_call_links.json")
     parser.add_argument("--as-of", type=date.fromisoformat, default=date.today())
     args = parser.parse_args()
     rows = load(args.workbook)
     verified = load_verified(args.verified)
-    args.output.write_text(render(rows, args.as_of, verified), encoding="utf-8")
-    update_dashboard(rows, args.as_of, args.calls, verified)
+    links = load_workbook_links(args.workbook_links)
+    args.output.write_text(render(rows, args.as_of, verified, links), encoding="utf-8")
+    update_dashboard(rows, args.as_of, args.calls, verified, links)
     print(f"wrote {args.output} with {len(rows)} calls")
     return 0
 

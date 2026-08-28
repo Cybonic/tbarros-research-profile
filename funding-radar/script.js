@@ -65,7 +65,7 @@ function renderCallRow(call, stale = false) {
         <td>${call.support}</td>
         <td>${call.eligible}</td>
         <td>${call.objective}</td>
-        <td>${call.link ? `<a href="${call.link}" class="call-link" target="_blank" rel="noopener">Details →</a>` : '<span class="source-pending">Official link pending</span>'}</td>
+        <td>${call.link ? `<a href="${call.link}" class="call-link" target="_blank" rel="noopener">Official call →</a>` : '<span class="source-pending">Official notice pending</span>'}</td>
     `;
     return row;
 }

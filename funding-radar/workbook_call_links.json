@@ -1,0 +1,50 @@
+{
+  "ERC PLUS Grant": {
+    "url": "https://erc.europa.eu/apply-grant/erc-plus-grant",
+    "note": "Official ERC scheme and open-call page"
+  },
+  "MSCA Postdoctoral Fellowships 2026": {
+    "url": "https://rea.ec.europa.eu/funding-and-grants/horizon-europe-marie-sklodowska-curie-actions/msca-postdoctoral-fellowships_en",
+    "note": "Official European Research Executive Agency call page"
+  },
+  "Eurostars Call 11 for projects": {
+    "url": "https://www.eurekanetwork.org/programmes-and-calls/eurostars/eurostars-call-for-projects-september-2026/",
+    "note": "Official EUREKA call page"
+  },
+  "HORIZON-CL5-2026-09": {
+    "url": "https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/eur-2232-m-cross-sectoral-solutions-climate-transition-sustainable-secure-and-competitive-energy_en",
+    "note": "Official CINEA call page"
+  },
+  "ERC Proof of Concept": {
+    "url": "https://erc.europa.eu/apply-grant/proof-concept",
+    "note": "Official ERC scheme and open-call page"
+  },
+  "HORIZON-CL6-2026-01": {
+    "url": "https://rea.ec.europa.eu/funding-and-grants/horizon-europe-cluster-6-food-bioeconomy-natural-resources-agriculture-and-environment/circular-economy-and-bioeconomy-sectors_en",
+    "note": "Official REA page for the HORIZON-CL6-2026-01 circular economy and bioeconomy call family"
+  },
+  "LIFE programme": {
+    "url": "https://cinea.ec.europa.eu/life-calls-proposals-2026_en",
+    "note": "Official CINEA overview of the 2026 LIFE calls"
+  },
+  "Innovation Prize J. Norberto Pires": {
+    "url": "https://www.uc.pt/premionorbertopires/",
+    "note": "Official University of Coimbra page; it still shows the 2025 application round, so the workbook's 2026 deadline is unverified"
+  },
+  "HORIZON-CL5-2026-10": {
+    "url": "https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/horizon-europe-eu263-million-available-batteries-and-mobility-call_en",
+    "note": "Official CINEA call page"
+  },
+  "EIC Pathfinder Challenges": {
+    "url": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder/eic-pathfinder-challenges-2026_en",
+    "note": "Official European Innovation Council call page"
+  },
+  "MSCA Doctoral Networks 2026": {
+    "url": "https://rea.ec.europa.eu/funding-and-grants/horizon-europe-marie-sklodowska-curie-actions/msca-doctoral-networks_en",
+    "note": "Official European Research Executive Agency call page"
+  },
+  "HORIZON-CL5-2026-11": {
+    "url": "https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/eur-1315-million-available-horizon-europe-energy-call_en",
+    "note": "Official CINEA call page"
+  }
+}

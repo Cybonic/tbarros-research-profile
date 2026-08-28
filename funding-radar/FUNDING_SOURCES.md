@@ -3,7 +3,7 @@
 **Workbook:** `funding_calls.xlsx`
 **Analysed:** 2026-08-28
 **Coverage:** 43 calls (13 open/future by deadline; 30 past)
-**URLs:** The workbook contains no official source URLs. Funding bodies below are inferred from call names and must be verified before application.
+**Official links:** 12 of 13 open/future workbook entries resolved to official sources; unresolved entries remain explicitly marked pending.
 
 ## Analysis
 
@@ -55,21 +55,21 @@ Among the 13 non-past calls, 2 are high-priority and 11 are medium-priority for 
 
 ## Open and future workbook calls
 
-| Deadline | Call | Funding source (inferred) | Priority | Rationale | Additional information |
-|---|---|---|---|---|---|
-| 2026-09-02 | ERC PLUS Grant | European Research Council | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | All areas |
-| 2026-09-09 | MSCA Postdoctoral Fellowships 2026 | European Commission — Marie Skłodowska-Curie Actions | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | All areas |
-| 2026-09-10 | Eurostars Call 11 for projects | EUREKA / Eurostars | **High** | Direct AI, robotics, computing, digital, or technology-development fit | Co-funding of 85% \| 36 months |
-| 2026-09-15 | HORIZON-CL5-2026-09 | European Commission — Horizon Europe | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Energy, materials and sustainable housing |
-| 2026-09-17 | ERC Proof of Concept | European Research Council | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | All areas |
-| 2026-09-17 | HORIZON-CL6-2026-01 | European Commission — Horizon Europe | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Food, Bioeconomy, Natural Resources, Agriculture and Environment |
-| 2026-09-22 | LIFE programme | European Commission — LIFE Programme | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Programme for the Environment and Climate Action (LIFE) \| nature, energy, climate action |
-| 2026-09-30 | Innovation Prize J. Norberto Pires | University of Coimbra — J. Norberto Pires Prize | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | 6k€ award \| all areas |
-| 2026-10-08 | HORIZON-CL5-2026-10 | European Commission — Horizon Europe | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Batteries and mobility |
-| 2026-10-24 | GENESIS FCTUC | University of Coimbra — FCTUC | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | For Junior Researchers \| 12 months \| 10k€ \| funding inside UC (projects may have 2 external entities, but without access to funding) |
-| 2026-10-28 | EIC Pathfinder Challenges | European Innovation Council | **High** | Direct AI, robotics, computing, digital, or technology-development fit | Funding research projects for consortia with academia and companies, advancing research to develop technologies. TRL1-4. 100% funding.<br>Topics: (1) Advanced Materials for Miniaturised Energy Harvesting Systems, (2) Biotechnology for Healthy Ageing and (3) DeepRAP: Deep Reasoning, Abstraction & Planning towards trustworthy Cognitive AI System |
-| 2026-11-24 | MSCA Doctoral Networks 2026 | European Commission — Marie Skłodowska-Curie Actions | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | All areas |
-| 2026-12-01 | HORIZON-CL5-2026-11 | European Commission — Horizon Europe | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Management and improvement of energy resources and systems |
+| Deadline | Call | Funding source (inferred) | Priority | Rationale | Additional information | Official source |
+|---|---|---|---|---|---|---|
+| 2026-09-02 | ERC PLUS Grant | European Research Council | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | All areas | [Official page](https://erc.europa.eu/apply-grant/erc-plus-grant)<br>Official ERC scheme and open-call page |
+| 2026-09-09 | MSCA Postdoctoral Fellowships 2026 | European Commission — Marie Skłodowska-Curie Actions | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | All areas | [Official page](https://rea.ec.europa.eu/funding-and-grants/horizon-europe-marie-sklodowska-curie-actions/msca-postdoctoral-fellowships_en)<br>Official European Research Executive Agency call page |
+| 2026-09-10 | Eurostars Call 11 for projects | EUREKA / Eurostars | **High** | Direct AI, robotics, computing, digital, or technology-development fit | Co-funding of 85% \| 36 months | [Official page](https://www.eurekanetwork.org/programmes-and-calls/eurostars/eurostars-call-for-projects-september-2026/)<br>Official EUREKA call page |
+| 2026-09-15 | HORIZON-CL5-2026-09 | European Commission — Horizon Europe | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Energy, materials and sustainable housing | [Official page](https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/eur-2232-m-cross-sectoral-solutions-climate-transition-sustainable-secure-and-competitive-energy_en)<br>Official CINEA call page |
+| 2026-09-17 | ERC Proof of Concept | European Research Council | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | All areas | [Official page](https://erc.europa.eu/apply-grant/proof-concept)<br>Official ERC scheme and open-call page |
+| 2026-09-17 | HORIZON-CL6-2026-01 | European Commission — Horizon Europe | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Food, Bioeconomy, Natural Resources, Agriculture and Environment | [Official page](https://rea.ec.europa.eu/funding-and-grants/horizon-europe-cluster-6-food-bioeconomy-natural-resources-agriculture-and-environment/circular-economy-and-bioeconomy-sectors_en)<br>Official REA page for the HORIZON-CL6-2026-01 circular economy and bioeconomy call family |
+| 2026-09-22 | LIFE programme | European Commission — LIFE Programme | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Programme for the Environment and Climate Action (LIFE) \| nature, energy, climate action | [Official page](https://cinea.ec.europa.eu/life-calls-proposals-2026_en)<br>Official CINEA overview of the 2026 LIFE calls |
+| 2026-09-30 | Innovation Prize J. Norberto Pires | University of Coimbra — J. Norberto Pires Prize | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | 6k€ award \| all areas | [Official page](https://www.uc.pt/premionorbertopires/)<br>Official University of Coimbra page; it still shows the 2025 application round, so the workbook's 2026 deadline is unverified |
+| 2026-10-08 | HORIZON-CL5-2026-10 | European Commission — Horizon Europe | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Batteries and mobility | [Official page](https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/horizon-europe-eu263-million-available-batteries-and-mobility-call_en)<br>Official CINEA call page |
+| 2026-10-24 | GENESIS FCTUC | University of Coimbra — FCTUC | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | For Junior Researchers \| 12 months \| 10k€ \| funding inside UC (projects may have 2 external entities, but without access to funding) | **Official notice not located** |
+| 2026-10-28 | EIC Pathfinder Challenges | European Innovation Council | **High** | Direct AI, robotics, computing, digital, or technology-development fit | Funding research projects for consortia with academia and companies, advancing research to develop technologies. TRL1-4. 100% funding.<br>Topics: (1) Advanced Materials for Miniaturised Energy Harvesting Systems, (2) Biotechnology for Healthy Ageing and (3) DeepRAP: Deep Reasoning, Abstraction & Planning towards trustworthy Cognitive AI System | [Official page](https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder/eic-pathfinder-challenges-2026_en)<br>Official European Innovation Council call page |
+| 2026-11-24 | MSCA Doctoral Networks 2026 | European Commission — Marie Skłodowska-Curie Actions | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | All areas | [Official page](https://rea.ec.europa.eu/funding-and-grants/horizon-europe-marie-sklodowska-curie-actions/msca-doctoral-networks_en)<br>Official European Research Executive Agency call page |
+| 2026-12-01 | HORIZON-CL5-2026-11 | European Commission — Horizon Europe | **Medium** | Broad or adjacent fit requiring a suitable robotics/AI application | Management and improvement of energy resources and systems | [Official page](https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/eur-1315-million-available-horizon-europe-energy-call_en)<br>Official CINEA call page |
 
 ## Past calls retained for source history
 
