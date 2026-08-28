@@ -10,62 +10,63 @@ from pathlib import Path
 import re
 import sys
 from urllib.request import Request, urlopen
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 API_URL = "https://api.openai.com/v1/responses"
 MODEL = "gpt-5.3-codex"
 
-CALL_SCHEMA = {
-    "type": "object", "additionalProperties": False,
-    "required": ["program", "deadline", "funder", "priority", "fit_score", "budget", "support", "eligible", "objective", "why_now", "link", "evidence", "confidence"],
-    "properties": {
-        "program": {"type": "string"}, "deadline": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
-        "funder": {"type": "string"}, "priority": {"type": "string", "enum": ["High", "Medium"]},
-        "fit_score": {"type": "integer", "minimum": 1, "maximum": 5}, "budget": {"type": "string"},
-        "support": {"type": "string"}, "eligible": {"type": "string"}, "objective": {"type": "string"},
-        "why_now": {"type": "string"}, "link": {"type": "string", "pattern": "^https://"},
-        "evidence": {"type": "string"}, "confidence": {"type": "string", "enum": ["high", "medium"]},
-    },
-}
 DECISION_SCHEMA = {
     "type": "object", "additionalProperties": False,
-    "required": ["scan_summary", "additions", "updates", "removals", "rejected"],
+    "required": ["scan_summary", "decisions"],
     "properties": {
-        "scan_summary": {"type": "string"}, "additions": {"type": "array", "items": CALL_SCHEMA},
-        "updates": {"type": "array", "items": {"type": "object", "additionalProperties": False,
-            "required": ["match_program", "reason", "call"],
-            "properties": {"match_program": {"type": "string"}, "reason": {"type": "string"}, "call": CALL_SCHEMA}}},
-        "removals": {"type": "array", "items": {"type": "object", "additionalProperties": False,
-            "required": ["program", "reason"], "properties": {"program": {"type": "string"}, "reason": {"type": "string"}}}},
-        "rejected": {"type": "array", "items": {"type": "object", "additionalProperties": False,
-            "required": ["program", "reason"], "properties": {"program": {"type": "string"}, "reason": {"type": "string"}}}},
+        "scan_summary": {"type": "string"},
+        "decisions": {"type": "array", "items": {"type": "object", "additionalProperties": False,
+            "required": ["candidate_id", "action", "priority", "fit_score", "why_now", "reason"],
+            "properties": {"candidate_id": {"type": "string"}, "action": {"type": "string", "enum": ["publish", "reject"]},
+                "priority": {"type": "string", "enum": ["High", "Medium", "None"]},
+                "fit_score": {"type": "integer", "minimum": 0, "maximum": 5},
+                "why_now": {"type": "string"}, "reason": {"type": "string"}}}},
     },
 }
 
-INSTRUCTIONS = """You are the editorial decision engine for a public research Funding Radar based at the University of Coimbra, Portugal.
-Search current OFFICIAL funder pages and decide only material changes for competitive funding in robotics, AI, autonomous systems, and electrical/computer engineering across application domains.
+INSTRUCTIONS = """You are only the editorial decision engine for a public research Funding Radar based at the University of Coimbra, Portugal.
+Local CLI tools already fetched official pages, parsed HTML, extracted facts, filtered expired records, normalized URLs, and deduplicated unchanged content. Do not search, parse, create facts, alter URLs, or alter deadlines. Decide only whether each supplied candidate is worth publishing.
 
 Publication gates (all mandatory):
 - Direct technical relevance, or a concrete application route for the target fields; generic all-area calls need a specific credible route.
 - Portuguese university/research teams are eligible or can participate in an eligible consortium.
-- A future, exact deadline is confirmed on an official funder page.
-- The link is a direct official call/scheme page, not news aggregation, a search page, or a consultancy.
+- The supplied evidence credibly supports the deadline, eligibility, and scope.
 - The opportunity is actionable: meaningful research funding, compute, mobility, commercialization, or consortium support.
 
-Prefer fewer high-value entries. Reject weak, duplicative, expired, purely local opportunities with no verified notice, generic prizes, events, and calls whose relevance is only the word 'digital'. Use concise factual fields. `why_now` must state the fit and next action in at most 30 words. Never infer missing money or eligibility; write 'See official call' where appropriate. Remove an existing entry only when official evidence shows expiry, cancellation, or material ineligibility. Return deltas, not the full catalogue."""
+Prefer fewer high-value entries. Reject weak, duplicative, generic prizes, events, and calls whose relevance is only the word 'digital'. For publish decisions, `why_now` must state fit and next action in at most 30 words. For rejects use an empty `why_now`, priority None, and fit 0-2. Return one decision for every candidate ID and nothing else."""
 
 
 def compact_context(as_of: date) -> dict:
-    verified = json.loads((ROOT / "verified_calls.json").read_text(encoding="utf-8"))["calls"]
     calls = json.loads((ROOT / "calls.json").read_text(encoding="utf-8"))["calls"]
+    facts = json.loads((ROOT / "candidate_facts.json").read_text(encoding="utf-8"))
+    published_hashes = {c.get("content_hash") for c in calls if c.get("content_hash")}
+    rejected_hashes = set()
+    report_path = ROOT / "codex_decision_report.json"
+    if report_path.exists():
+        prior = json.loads(report_path.read_text(encoding="utf-8"))
+        hashes = prior.get("candidate_hashes", {})
+        rejected_hashes = {hashes.get(item["candidate_id"]) for item in prior.get("decision", {}).get("decisions", []) if item.get("action") == "reject"}
+    candidates = [c for c in facts["candidates"] if c["content_hash"] not in published_hashes | rejected_hashes]
+    def compact(c):
+        return {"id": c["id"], "program": c["program"], "deadline": c["deadline"], "official_url": c["official_url"],
+            "fit_terms": c["fit_terms"], "budget_evidence": c["budget_evidence"],
+            "eligibility_evidence": [s[:180] for s in c["eligibility_evidence"][:1]],
+            "deadline_evidence": [s[:160] for s in c["deadline_evidence"][:1]], "scope_evidence": [s[:180] for s in c["scope_evidence"][:1]]}
     active = [{"program": c["program"], "deadline": c["deadline"], "link": c.get("link", "")} for c in calls]
-    return {"as_of": as_of.isoformat(), "target": "Portugal-based university research in AI, robotics, autonomy, electrical and computer engineering", "editable_verified_calls": verified, "all_published_for_deduplication": active}
+    return {"as_of": as_of.isoformat(), "target": "Portugal university research: AI, robotics, autonomy, electrical/computer engineering",
+        "candidates": [compact(c) for c in candidates[:30]], "published_for_deduplication": active}
 
 
 def request_decision(context: dict, api_key: str, timeout: int) -> tuple[dict, dict]:
     body = {"model": MODEL, "store": False, "instructions": INSTRUCTIONS,
-        "input": "Perform the weekly official-source scan and return only justified deltas. Current compact state:\n" + json.dumps(context, ensure_ascii=False, separators=(",", ":")),
-        "tools": [{"type": "web_search"}], "max_tool_calls": 12, "reasoning": {"effort": "medium"},
+        "input": "Decide publication value from these CLI-extracted candidate facts:\n" + json.dumps(context, ensure_ascii=False, separators=(",", ":")),
+        "reasoning": {"effort": "low"},
         "text": {"format": {"type": "json_schema", "name": "funding_radar_decision", "strict": True, "schema": DECISION_SCHEMA}},
         "metadata": {"job": "funding-radar-weekly"}}
     req = Request(API_URL, data=json.dumps(body).encode(), headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"})
@@ -77,36 +78,38 @@ def request_decision(context: dict, api_key: str, timeout: int) -> tuple[dict, d
     return json.loads("".join(texts)), raw
 
 
-def validate_call(call: dict, as_of: date) -> None:
-    if date.fromisoformat(call["deadline"]) < as_of:
-        raise ValueError(f"past deadline for {call['program']}: {call['deadline']}")
-    if not re.match(r"^https://[^/]+/.+", call["link"]):
-        raise ValueError(f"non-direct HTTPS URL for {call['program']}")
-    if call["fit_score"] < 3:
-        raise ValueError(f"fit below publication threshold for {call['program']}")
+def validate_candidate(candidate: dict, as_of: date) -> None:
+    if date.fromisoformat(candidate["deadline"]) < as_of: raise ValueError(f"past candidate: {candidate['program']}")
+    if not re.match(r"^https://[^/]+/.+", candidate["official_url"]): raise ValueError(f"invalid official URL: {candidate['program']}")
+    if not candidate["deadline_evidence"] or not candidate["scope_evidence"]: raise ValueError(f"insufficient extracted evidence: {candidate['program']}")
 
 
 def apply_decision(decision: dict, as_of: date) -> dict:
     path = ROOT / "verified_calls.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     current = {item["program"]: item for item in data["calls"]}
+    facts = json.loads((ROOT / "candidate_facts.json").read_text(encoding="utf-8"))
+    candidates = {item["id"]: item for item in facts["candidates"]}
+    expected = {item["id"] for item in compact_context(as_of)["candidates"]}
+    received = {item["candidate_id"] for item in decision["decisions"]}
+    if received != expected: raise ValueError(f"decision IDs differ from candidates: missing={expected-received}, extra={received-expected}")
     changes = {"added": [], "updated": [], "removed": []}
-    for item in decision["removals"]:
-        if item["program"] in current:
-            del current[item["program"]]; changes["removed"].append(item["program"])
-    for update in decision["updates"]:
-        validate_call(update["call"], as_of)
-        if update["match_program"] not in current:
-            raise ValueError(f"update target is not editable: {update['match_program']}")
-        del current[update["match_program"]]
-        current[update["call"]["program"]] = update["call"]
-        changes["updated"].append(update["call"]["program"])
-    published_names = {c["program"].casefold() for c in json.loads((ROOT / "calls.json").read_text(encoding="utf-8"))["calls"]}
-    for call in decision["additions"]:
-        validate_call(call, as_of)
-        if call["program"].casefold() in published_names or call["program"] in current:
-            continue
-        current[call["program"]] = call; changes["added"].append(call["program"])
+    by_url = {item.get("link"): name for name, item in current.items()}
+    for choice in decision["decisions"]:
+        if choice["action"] != "publish": continue
+        if choice["fit_score"] < 3 or choice["priority"] == "None": raise ValueError(f"invalid publish score: {choice['candidate_id']}")
+        candidate = candidates[choice["candidate_id"]]; validate_candidate(candidate, as_of)
+        old_name = by_url.get(candidate["official_url"])
+        call = {"program": candidate["program"], "deadline": candidate["deadline"],
+            "funder": urlparse(candidate["source_portal"]).hostname or "Official funding source", "priority": choice["priority"],
+            "fit_score": choice["fit_score"], "budget": candidate["budget_evidence"], "support": "See official call",
+            "eligible": " ".join(candidate["eligibility_evidence"])[:500] or "Verify in official call",
+            "objective": " ".join(candidate["scope_evidence"])[:500], "why_now": choice["why_now"],
+            "link": candidate["official_url"], "evidence": " ".join(candidate["deadline_evidence"])[:500],
+            "confidence": "high" if candidate["eligibility_evidence"] else "medium", "content_hash": candidate["content_hash"]}
+        if old_name: del current[old_name]; changes["updated"].append(call["program"])
+        else: changes["added"].append(call["program"])
+        current[call["program"]] = call
     data["verified_at"] = as_of.isoformat()
     data["calls"] = sorted(current.values(), key=lambda item: (item["deadline"], item["program"]))
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -123,10 +126,12 @@ def main() -> int:
     args = parser.parse_args(); context = compact_context(args.as_of)
     if args.prepare_only:
         payload = json.dumps(context, ensure_ascii=False, separators=(",", ":"))
-        print(f"model={MODEL} context_bytes={len(payload.encode())} published={len(context['all_published_for_deduplication'])} editable={len(context['editable_verified_calls'])}")
+        print(f"model={MODEL} context_bytes={len(payload.encode())} candidates={len(context['candidates'])} published={len(context['published_for_deduplication'])}")
         return 0
     raw = {}
-    if args.response_file:
+    if not context["candidates"] and not args.response_file:
+        decision = {"scan_summary": "Local CLI scan found no new or changed candidates requiring editorial review.", "decisions": []}
+    elif args.response_file:
         decision = json.loads(args.response_file.read_text(encoding="utf-8"))
     else:
         key = os.environ.get("OPENAI_API_KEY")
@@ -134,8 +139,11 @@ def main() -> int:
             print("OPENAI_API_KEY is required; no funding data was changed.", file=sys.stderr); return 2
         decision, raw = request_decision(context, key, args.timeout)
     changes = apply_decision(decision, args.as_of) if args.apply else {"added": [], "updated": [], "removed": []}
+    facts = json.loads((ROOT / "candidate_facts.json").read_text(encoding="utf-8"))
+    candidate_hashes = {item["id"]: item["content_hash"] for item in facts["candidates"]}
     report = {"generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(), "model": raw.get("model", MODEL),
         "response_id": raw.get("id"), "usage": raw.get("usage"), "applied": args.apply, "changes": changes, "decision": decision}
+    report["candidate_hashes"] = candidate_hashes
     (ROOT / "codex_decision_report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Codex decision: +{len(changes['added'])} ~{len(changes['updated'])} -{len(changes['removed'])}; report=funding-radar/codex_decision_report.json")
     return 0

@@ -7,7 +7,7 @@ description: Maintain and locally publish the ISR/UC Funding Radar, including cu
 
 Read `funding-radar/PROJECT_MEMORY.md` first. Use `update_and_publish.sh` for routine local synchronization and publication. GitHub Actions must not generate Funding Radar data.
 
-Treat `FUNDING_RADAR_ISR_UC.md` as curated input, not proof that calls are current. `codex_decide_updates.py` controls web-discovered deltas through one compact GPT-5.3-Codex Responses API request with official-source search and structured output. Preserve its publication gates and fail-closed behavior. Do not send full page bodies or unchanged repository files to the model.
+Treat `FUNDING_RADAR_ISR_UC.md` as curated input, not proof that calls are current. Run `scan_funding_sources.py` first: local code must do fetching, caching, diffs, parsing, normalization, evidence extraction, and hard filtering. `codex_decide_updates.py` may receive only compact changed candidate facts and may only decide publish/reject, priority, fit, and action rationale. Never give the model web search, raw HTML, full pages, or factual-field authority. Preserve validation and fail-closed behavior.
 
 When `funding_calls.xlsx` changes, run `import_funding_sources.py` and preserve every row in `FUNDING_SOURCES.md`, separating non-past calls from historical ones. The workbook has no URLs; maintain reviewed official mappings in `workbook_call_links.json`. Never invent links, hide verification caveats, or present inferred funding bodies as verified.
 

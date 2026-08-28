@@ -3,3 +3,6 @@ research-radar/results.prev.json
 professor-radar/results.prev.json
 professor-radar/__pycache__/
 funding-radar/__pycache__/
+funding-radar/.source-cache/
+funding-radar/candidate_facts.json
+funding-radar/source_scan_state.json
