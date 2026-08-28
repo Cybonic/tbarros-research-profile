@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-28T16:33:33Z",
+  "timestamp": "2026-08-28T16:40:19Z",
   "calls": [
     {
       "program": "PRR Reindustrializar",
@@ -160,6 +160,149 @@
         "final_url": "https://www.eurekanetwork.org/programmes-and-calls/eureka-clusters/eurogia2030-call-30/",
         "checked_at": "2026-03-16T21:39:56.721052+00:00"
       }
+    },
+    {
+      "program": "ERC PLUS Grant",
+      "deadline": "Sep 02, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "All areas",
+      "link": "",
+      "status": "🔴",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "MSCA Postdoctoral Fellowships 2026",
+      "deadline": "Sep 09, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "All areas",
+      "link": "",
+      "status": "🔴",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "Eurostars Call 11 for projects",
+      "deadline": "Sep 10, 2026",
+      "budget": "See call",
+      "support": "85%",
+      "eligible": "Verify in official call",
+      "objective": "Co-funding of 85% | 36 months",
+      "link": "",
+      "status": "🔴",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "HORIZON-CL5-2026-09",
+      "deadline": "Sep 15, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "Energy, materials and sustainable housing",
+      "link": "",
+      "status": "🔴",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "ERC Proof of Concept",
+      "deadline": "Sep 17, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "All areas",
+      "link": "",
+      "status": "🔴",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "HORIZON-CL6-2026-01",
+      "deadline": "Sep 17, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "Food, Bioeconomy, Natural Resources, Agriculture and Environment",
+      "link": "",
+      "status": "🔴",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "LIFE programme",
+      "deadline": "Sep 22, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "Programme for the Environment and Climate Action (LIFE) | nature, energy, climate action",
+      "link": "",
+      "status": "🔴",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "Innovation Prize J. Norberto Pires",
+      "deadline": "Sep 30, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "6k€ award | all areas",
+      "link": "",
+      "status": "🟡",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "HORIZON-CL5-2026-10",
+      "deadline": "Oct 08, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "Batteries and mobility",
+      "link": "",
+      "status": "🟡",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "GENESIS FCTUC",
+      "deadline": "Oct 24, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "For Junior Researchers | 12 months | 10k€ | funding inside UC (projects may have 2 external entities, but without access to funding)",
+      "link": "",
+      "status": "🟡",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "EIC Pathfinder Challenges",
+      "deadline": "Oct 28, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "Funding research projects for consortia with academia and companies, advancing research to develop technologies. TRL1-4. 100% funding.\nTopics: (1) Advanced Materials for Miniaturised Energy Harvesting Systems, (2) Biotechnology for Healthy Ageing and (3) DeepRAP: Deep Reasoning, Abstraction & Planning towards trustworthy Cognitive AI System",
+      "link": "",
+      "status": "🟡",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "MSCA Doctoral Networks 2026",
+      "deadline": "Nov 24, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "All areas",
+      "link": "",
+      "status": "🟡",
+      "source": "funding_calls.xlsx"
+    },
+    {
+      "program": "HORIZON-CL5-2026-11",
+      "deadline": "Dec 01, 2026",
+      "budget": "See call",
+      "support": "See call",
+      "eligible": "Verify in official call",
+      "objective": "Management and improvement of energy resources and systems",
+      "link": "",
+      "status": "🟢",
+      "source": "funding_calls.xlsx"
     }
   ]
 }

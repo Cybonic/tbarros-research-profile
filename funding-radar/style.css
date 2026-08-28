@@ -65,6 +65,8 @@ body {
     font-style: italic;
 }
 
+.source-pending { color: var(--text-light); font-size: 0.85em; white-space: nowrap; }
+
 /* Sections */
 .section {
     margin-bottom: 45px;

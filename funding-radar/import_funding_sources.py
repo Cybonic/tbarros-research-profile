@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import argparse
-from datetime import date, datetime
+from datetime import date, datetime, timezone
+import json
 from pathlib import Path
 import re
 
@@ -103,14 +104,44 @@ def render(rows: list[dict], as_of: date) -> str:
     return "\n".join(lines)
 
 
+def dashboard_call(row: dict, as_of: date) -> dict:
+    days = (row["deadline"] - as_of).days
+    status = "🔴" if days <= 30 else "🟡" if days <= 90 else "🟢"
+    info = row["info"] or "See official call conditions"
+    support_match = re.search(r"(?:co-?funding(?: of)?|funding)\s*(?:of\s*)?(\d+%)", info, re.I)
+    budget_match = re.search(r"(?:€|€\s*)([\d.,]+(?:\s*[kKmM])?)", info)
+    return {
+        "program": row["call"],
+        "deadline": row["deadline"].strftime("%b %d, %Y"),
+        "budget": f"€{budget_match.group(1)}" if budget_match else "See call",
+        "support": support_match.group(1) if support_match else "See call",
+        "eligible": "Verify in official call",
+        "objective": info,
+        "link": "",
+        "status": status,
+        "source": "funding_calls.xlsx",
+    }
+
+
+def update_dashboard(rows: list[dict], as_of: date, calls_path: Path) -> None:
+    data = json.loads(calls_path.read_text(encoding="utf-8"))
+    retained = [call for call in data.get("calls", []) if call.get("source") != "funding_calls.xlsx"]
+    workbook_calls = [dashboard_call(row, as_of) for row in rows if row["deadline"] >= as_of]
+    data["calls"] = retained + workbook_calls
+    data["timestamp"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    calls_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--workbook", type=Path, default=ROOT / "funding_calls.xlsx")
     parser.add_argument("--output", type=Path, default=ROOT / "FUNDING_SOURCES.md")
+    parser.add_argument("--calls", type=Path, default=ROOT / "calls.json")
     parser.add_argument("--as-of", type=date.fromisoformat, default=date.today())
     args = parser.parse_args()
     rows = load(args.workbook)
     args.output.write_text(render(rows, args.as_of), encoding="utf-8")
+    update_dashboard(rows, args.as_of, args.calls)
     print(f"wrote {args.output} with {len(rows)} calls")
     return 0
 

@@ -65,7 +65,7 @@ function renderCallRow(call, stale = false) {
         <td>${call.support}</td>
         <td>${call.eligible}</td>
         <td>${call.objective}</td>
-        <td><a href="${call.link}" class="call-link" target="_blank">Details →</a></td>
+        <td>${call.link ? `<a href="${call.link}" class="call-link" target="_blank" rel="noopener">Details →</a>` : '<span class="source-pending">Official link pending</span>'}</td>
     `;
     return row;
 }
@@ -82,6 +82,8 @@ function populateCalls(data) {
         else if (cls === 'stale') staleCalls.push(call);
     });
 
+    activeCalls.sort((a, b) => (parseDeadline(a.deadline) || new Date('9999-12-31')) - (parseDeadline(b.deadline) || new Date('9999-12-31')));
+    staleCalls.sort((a, b) => parseDeadline(a.deadline) - parseDeadline(b.deadline));
     [...activeCalls, ...staleCalls].forEach(call => {
         const stale = staleCalls.includes(call);
         tbody.appendChild(renderCallRow(call, stale));
