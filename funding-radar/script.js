@@ -64,6 +64,7 @@ function renderCallRow(call, stale = false) {
         <td>${call.budget}</td>
         <td>${call.support}</td>
         <td>${call.eligible}</td>
+        <td>${call.fit || '—'}</td>
         <td>${call.objective}</td>
         <td>${call.link ? `<a href="${call.link}" class="call-link" target="_blank" rel="noopener">Official call →</a>` : '<span class="source-pending">Official notice pending</span>'}</td>
     `;
@@ -91,7 +92,7 @@ function populateCalls(data) {
 
     if (activeCalls.length === 0 && staleCalls.length === 0) {
         const row = document.createElement('tr');
-        row.innerHTML = '<td colspan="8" style="text-align:center;color:#666;">No active announcements.</td>';
+        row.innerHTML = '<td colspan="9" style="text-align:center;color:#666;">No active announcements.</td>';
         tbody.appendChild(row);
     }
 }

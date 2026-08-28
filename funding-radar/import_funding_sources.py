@@ -137,6 +137,7 @@ def dashboard_call(row: dict, as_of: date, links: dict[str, dict]) -> dict:
         "support": support_match.group(1) if support_match else "See call",
         "eligible": "Verify in official call",
         "objective": objective,
+        "fit": f"{row['priority']} (workbook screening)",
         "link": source.get("url", ""),
         "status": status,
         "source": "funding_calls.xlsx",
@@ -148,7 +149,7 @@ def update_dashboard(rows: list[dict], as_of: date, calls_path: Path, verified: 
     superseded = {"ERC Starting Grants", "KDT Joint Undertaking"}
     retained = [call for call in data.get("calls", []) if call.get("source") not in ("funding_calls.xlsx", "verified_official_scan") and call.get("program") not in superseded]
     workbook_calls = [dashboard_call(row, as_of, links) for row in rows if row["deadline"] >= as_of]
-    verified_calls = [{"program": item["program"], "deadline": datetime.fromisoformat(item["deadline"]).strftime("%b %d, %Y"), "budget": item["budget"], "support": item["support"], "eligible": item["eligible"], "objective": item["objective"], "link": item["link"], "status": "🔴" if (date.fromisoformat(item["deadline"]) - as_of).days <= 30 else "🟡" if (date.fromisoformat(item["deadline"]) - as_of).days <= 90 else "🟢", "source": "verified_official_scan"} for item in verified if date.fromisoformat(item["deadline"]) >= as_of]
+    verified_calls = [{"program": item["program"], "deadline": datetime.fromisoformat(item["deadline"]).strftime("%b %d, %Y"), "budget": item["budget"], "support": item["support"], "eligible": item["eligible"], "objective": item.get("why_now", item["objective"]), "fit": f"{item['fit_score']}/5 {item['priority']}" if "fit_score" in item else item["priority"], "link": item["link"], "status": "🔴" if (date.fromisoformat(item["deadline"]) - as_of).days <= 30 else "🟡" if (date.fromisoformat(item["deadline"]) - as_of).days <= 90 else "🟢", "source": "verified_official_scan"} for item in verified if date.fromisoformat(item["deadline"]) >= as_of]
     data["calls"] = retained + workbook_calls + verified_calls
     data["timestamp"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     calls_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

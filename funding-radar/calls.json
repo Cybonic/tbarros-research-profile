@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-28T16:49:36Z",
+  "timestamp": "2026-08-28T16:55:53Z",
   "calls": [
     {
       "program": "PRR Reindustrializar",
@@ -136,6 +136,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "All areas",
+      "fit": "Medium (workbook screening)",
       "link": "https://erc.europa.eu/apply-grant/erc-plus-grant",
       "status": "🔴",
       "source": "funding_calls.xlsx"
@@ -147,6 +148,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "All areas",
+      "fit": "Medium (workbook screening)",
       "link": "https://rea.ec.europa.eu/funding-and-grants/horizon-europe-marie-sklodowska-curie-actions/msca-postdoctoral-fellowships_en",
       "status": "🔴",
       "source": "funding_calls.xlsx"
@@ -158,6 +160,7 @@
       "support": "85%",
       "eligible": "Verify in official call",
       "objective": "Co-funding of 85% | 36 months",
+      "fit": "High (workbook screening)",
       "link": "https://www.eurekanetwork.org/programmes-and-calls/eurostars/eurostars-call-for-projects-september-2026/",
       "status": "🔴",
       "source": "funding_calls.xlsx"
@@ -169,6 +172,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "Energy, materials and sustainable housing",
+      "fit": "Medium (workbook screening)",
       "link": "https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/eur-2232-m-cross-sectoral-solutions-climate-transition-sustainable-secure-and-competitive-energy_en",
       "status": "🔴",
       "source": "funding_calls.xlsx"
@@ -180,6 +184,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "All areas",
+      "fit": "Medium (workbook screening)",
       "link": "https://erc.europa.eu/apply-grant/proof-concept",
       "status": "🔴",
       "source": "funding_calls.xlsx"
@@ -191,6 +196,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "Food, Bioeconomy, Natural Resources, Agriculture and Environment",
+      "fit": "Medium (workbook screening)",
       "link": "https://rea.ec.europa.eu/funding-and-grants/horizon-europe-cluster-6-food-bioeconomy-natural-resources-agriculture-and-environment/circular-economy-and-bioeconomy-sectors_en",
       "status": "🔴",
       "source": "funding_calls.xlsx"
@@ -202,6 +208,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "Programme for the Environment and Climate Action (LIFE) | nature, energy, climate action",
+      "fit": "Medium (workbook screening)",
       "link": "https://cinea.ec.europa.eu/life-calls-proposals-2026_en",
       "status": "🔴",
       "source": "funding_calls.xlsx"
@@ -213,6 +220,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "6k€ award | all areas Verification note: Official University of Coimbra page; it still shows the 2025 application round, so the workbook's 2026 deadline is unverified",
+      "fit": "Medium (workbook screening)",
       "link": "https://www.uc.pt/premionorbertopires/",
       "status": "🟡",
       "source": "funding_calls.xlsx"
@@ -224,6 +232,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "Batteries and mobility",
+      "fit": "Medium (workbook screening)",
       "link": "https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/horizon-europe-eu263-million-available-batteries-and-mobility-call_en",
       "status": "🟡",
       "source": "funding_calls.xlsx"
@@ -235,6 +244,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "For Junior Researchers | 12 months | 10k€ | funding inside UC (projects may have 2 external entities, but without access to funding)",
+      "fit": "Medium (workbook screening)",
       "link": "",
       "status": "🟡",
       "source": "funding_calls.xlsx"
@@ -246,6 +256,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "Funding research projects for consortia with academia and companies, advancing research to develop technologies. TRL1-4. 100% funding.\nTopics: (1) Advanced Materials for Miniaturised Energy Harvesting Systems, (2) Biotechnology for Healthy Ageing and (3) DeepRAP: Deep Reasoning, Abstraction & Planning towards trustworthy Cognitive AI System",
+      "fit": "High (workbook screening)",
       "link": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder/eic-pathfinder-challenges-2026_en",
       "status": "🟡",
       "source": "funding_calls.xlsx"
@@ -257,6 +268,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "All areas",
+      "fit": "Medium (workbook screening)",
       "link": "https://rea.ec.europa.eu/funding-and-grants/horizon-europe-marie-sklodowska-curie-actions/msca-doctoral-networks_en",
       "status": "🟡",
       "source": "funding_calls.xlsx"
@@ -268,6 +280,7 @@
       "support": "See call",
       "eligible": "Verify in official call",
       "objective": "Management and improvement of energy resources and systems",
+      "fit": "Medium (workbook screening)",
       "link": "https://cinea.ec.europa.eu/funding-opportunities/calls-proposals/eur-1315-million-available-horizon-europe-energy-call_en",
       "status": "🟢",
       "source": "funding_calls.xlsx"
@@ -279,6 +292,7 @@
       "support": "Financial support and acceleration",
       "eligible": "European urban-mobility startups",
       "objective": "Urban mobility innovation, including AI-driven mobility and autonomous systems",
+      "fit": "High",
       "link": "https://www.eiturbanmobility.eu/join-us/call-for-proposals/",
       "status": "🔴",
       "source": "verified_official_scan"
@@ -290,6 +304,7 @@
       "support": "Bilateral research mobility",
       "eligible": "Portuguese research teams with German partners",
       "objective": "Cross-domain bilateral research; robotics and AI proposals require a matching partner",
+      "fit": "Medium",
       "link": "https://myfct.fct.pt/MyFCT/CallDetail.aspx",
       "status": "🔴",
       "source": "verified_official_scan"
@@ -301,6 +316,7 @@
       "support": "In-kind HPC, AI and cloud resources",
       "eligible": "Portuguese research and innovation teams",
       "objective": "Experimental and development access for advanced computing and AI projects",
+      "fit": "High",
       "link": "https://www.fct.pt/concursos/concurso-de-projetos-de-computacao-avancada-6-ed-a0-a1-lote-e-",
       "status": "🔴",
       "source": "verified_official_scan"
@@ -312,6 +328,7 @@
       "support": "In-kind HPC, AI and cloud resources",
       "eligible": "Portuguese research and innovation teams",
       "objective": "Regular and larger-scale advanced-computing access for AI and robotics workloads",
+      "fit": "High",
       "link": "https://myfct.fct.pt/MyFCT/CallDetail.aspx",
       "status": "🔴",
       "source": "verified_official_scan"
@@ -323,6 +340,7 @@
       "support": "Bilateral research mobility",
       "eligible": "Portuguese research teams with French partners",
       "objective": "Cross-domain bilateral research; robotics and AI proposals require a matching partner",
+      "fit": "Medium",
       "link": "https://myfct.fct.pt/MyFCT/CallDetail.aspx",
       "status": "🔴",
       "source": "verified_official_scan"
@@ -334,6 +352,7 @@
       "support": "Call-dependent; some EU topics at 100%",
       "eligible": "Consortia with Portuguese companies and research entities",
       "objective": "Advanced electronics, 6G, photonics, software-defined vehicles and autonomous-driving computing architectures",
+      "fit": "High",
       "link": "https://www.fct.pt/concursos/concursos-ecs-de-2026-da-parceria-europeia-chips-ju",
       "status": "🔴",
       "source": "verified_official_scan"
@@ -345,6 +364,7 @@
       "support": "Up to 100% eligible direct costs plus indirect-cost contribution",
       "eligible": "Researchers 0–10 years after PhD with an eligible host",
       "objective": "Bottom-up frontier research, including AI, robotics and autonomous systems",
+      "fit": "Medium",
       "link": "https://erc.europa.eu/apply-grant/starting-grant",
       "status": "🟡",
       "source": "verified_official_scan"
@@ -356,6 +376,7 @@
       "support": "International collaborative R&D",
       "eligible": "Eligible organizations in participating countries",
       "objective": "AI analytics, remote sensing, autonomous drones, robotics, detection and resilient communications",
+      "fit": "High",
       "link": "https://www.eurekanetwork.org/programmes-and-calls/network-projects/eureka-call-for-disaster-resilience-response-and-recovery-projects-2026/",
       "status": "🟡",
       "source": "verified_official_scan"
@@ -367,6 +388,7 @@
       "support": "Bottom-up international collaborative R&D",
       "eligible": "Organizations in participating countries, including Portugal",
       "objective": "Advanced manufacturing projects, including industrial robotics, autonomy and AI",
+      "fit": "High",
       "link": "https://www.eurekanetwork.org/programmes-and-calls/eureka-clusters/smart-call-10-2026/",
       "status": "🟢",
       "source": "verified_official_scan"
@@ -378,6 +400,7 @@
       "support": "Innovation Action",
       "eligible": "Small consortia exploiting eligible Horizon Europe/Horizon 2020 results",
       "objective": "Commercialization of Cluster 4 digital, industry and space research results",
+      "fit": "Medium",
       "link": "https://research-and-innovation.ec.europa.eu/research-area/industrial-research-and-innovation/eu-valorisation-policy/knowledge-valorisation-platform/thematic-focus/knowledge-valorisation-horizon-europe-work-programme-2026-2027_en",
       "status": "🟢",
       "source": "verified_official_scan"
