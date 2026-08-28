@@ -17,6 +17,9 @@ The current deterministic pipeline does **not discover new opportunities from th
 ## Files
 
 - `FUNDING_RADAR_ISR_UC.md`: curated source notes and changes.
+- `funding_calls.xlsx`: user-maintained workbook of calls and deadlines.
+- `FUNDING_SOURCES.md`: generated human-readable catalogue and relevance analysis of every workbook row.
+- `import_funding_sources.py`: deterministic workbook-to-Markdown converter.
 - `calls.json`, `news.json`: public dashboard data.
 - `sync_calls_from_md.py`: applies recognized Markdown deltas to dashboard data.
 - `fix_calls_links.py`: canonicalizes official URLs.
