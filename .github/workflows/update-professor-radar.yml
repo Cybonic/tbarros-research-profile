@@ -11,7 +11,13 @@ jobs:
     with:
       radar_name: professor-radar
       radar_path: professor-radar
-      run_update: false
+      run_update: true
+      update_cmd: |
+        python professor-radar/update_professor_radar.py
       validate_cmd: |
+        python professor-radar/update_professor_radar.py --self-test
+        python -m py_compile professor-radar/update_professor_radar.py
+        python -m json.tool professor-radar/sources.json > /dev/null
         python -m json.tool professor-radar/results.json > /dev/null
+        python -m json.tool professor-radar/scan_state.json > /dev/null
     secrets: inherit

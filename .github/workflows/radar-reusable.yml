@@ -13,6 +13,10 @@ on:
         required: false
         default: false
         type: boolean
+      update_cmd:
+        required: false
+        default: ""
+        type: string
       validate_cmd:
         required: true
         type: string
@@ -32,12 +36,10 @@ jobs:
         with:
           python-version: "3.9"
 
-      - name: Run funding update scripts
+      - name: Run radar update
         if: ${{ inputs.run_update }}
         run: |
-          python funding-radar/sync_calls_from_md.py
-          python funding-radar/fix_calls_links.py --no-probe
-          python funding-radar/verify_calls_links.py || true
+          ${{ inputs.update_cmd }}
 
       - name: Validate radar files
         run: |

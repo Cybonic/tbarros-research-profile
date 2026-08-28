@@ -1,0 +1,10 @@
+{
+  "sources": [
+    {"id":"uc","university":"Universidade de Coimbra","url":"https://www.apply.uc.pt/","allowed_hosts":["apply.uc.pt","www.apply.uc.pt"]},
+    {"id":"up","university":"Universidade do Porto","url":"https://www.apply.up.pt/","allowed_hosts":["apply.up.pt","www.apply.up.pt","sigarra.up.pt"]},
+    {"id":"ulisboa","university":"Universidade de Lisboa","url":"https://www.ulisboa.pt/info/concursos-para-docentes","allowed_hosts":["ulisboa.pt","www.ulisboa.pt"]},
+    {"id":"nova","university":"Universidade NOVA de Lisboa","url":"https://www.unl.pt/quero-trabalhar-na-nova/docentes/","allowed_hosts":["unl.pt","www.unl.pt","fct.unl.pt","www.fct.unl.pt"]},
+    {"id":"uminho","university":"Universidade do Minho","url":"https://www.uminho.pt/PT/uminho/Trabalhar-na-UMinho/Paginas/Concursos.aspx","allowed_hosts":["uminho.pt","www.uminho.pt"]},
+    {"id":"uaveiro","university":"Universidade de Aveiro","url":"https://www.ua.pt/pt/sgrh/pessoal-docente-novos-concursos-e-ofertas","allowed_hosts":["ua.pt","www.ua.pt","api-portal.ua.pt"]}
+  ]
+}
