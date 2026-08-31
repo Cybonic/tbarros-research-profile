@@ -1,8 +1,8 @@
 {
-  "last_scan": "2026-08-28 21:09 UTC",
+  "last_scan": "2026-08-31 08:15 UTC",
   "scan_sources": {
     "uc": "empty",
-    "up": "unchanged",
+    "up": "empty",
     "ulisboa": "empty",
     "nova": "error:URLError",
     "uminho": "error:URLError",
