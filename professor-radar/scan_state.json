@@ -1,21 +1,21 @@
 {
   "sources": {
     "uc": {
-      "listing_sha256": "caf0ede9e461a52f45c07c914031fc67206e213e6d2cd6e7d9b4f0ffdfb7e666",
+      "listing_sha256": "a87e0706ca9df2a62ff6b02579048fb85d5cfa4b02b5ccad6fdb9da4baf4d4b1",
       "positions": []
     },
     "up": {
-      "listing_sha256": "390f5223b916d4082546bfd328f2c97a16fb1c4f6c26dcf9588a815049b73b83",
+      "listing_sha256": "91fd1b0861ac7a15b0854afc863d767d7581d732c7550554d6a32ab29c2447f4",
       "positions": []
     },
     "ulisboa": {
-      "listing_sha256": "8f67aa26e7ae8a48201fd228cc36283a165b54c175f0b028cc0887cef525c341",
+      "listing_sha256": "2bb03f919d074e7813ac418f78fdd7811c13532d0948a80550871cb440e7affb",
       "positions": []
     },
     "nova": {},
     "uminho": {},
     "uaveiro": {
-      "listing_sha256": "d4459072bfe2de6fef731058fc32747d0e8f351815318e906b7f09cfb223eb7a",
+      "listing_sha256": "c2fad6ca07db0caf94e0276ae82c51b7fa23569ac3b225ad6499c72bb952ab34",
       "positions": []
     }
   }
